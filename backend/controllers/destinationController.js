@@ -1,4 +1,3 @@
-// Data Sementara (Mock Data) sebagai pengganti database
 const destinations = [
   {
     id: 1,
@@ -7,7 +6,9 @@ const destinations = [
     rating: 4.8,
     estimatedBudget: 1500000,
     mapLink: "https://maps.google.com/?q=Pantai+Kuta",
-    tags: ["Bali"],
+    tags: ["Bali", "Pantai"],
+    imageUrl:
+      "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: 2,
@@ -16,16 +17,20 @@ const destinations = [
     rating: 4.9,
     estimatedBudget: 1200000,
     mapLink: "https://maps.google.com/?q=Candi+Borobudur",
-    tags: ["Yogyakarta"],
+    tags: ["Yogyakarta", "Budaya"],
+    imageUrl:
+      "https://images.unsplash.com/photo-1584824486509-112e4181ff13?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: 3,
-    name: "Pulau Komodo",
+    name: "Taman Nasional Komodo",
     location: "Labuan Bajo",
     rating: 5.0,
     estimatedBudget: 3500000,
     mapLink: "https://maps.google.com/?q=Pulau+Komodo",
-    tags: ["Labuan Bajo"],
+    tags: ["Labuan Bajo", "Alam"],
+    imageUrl:
+      "https://images.unsplash.com/photo-1516926315201-903e1e2dce48?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: 4,
@@ -34,7 +39,9 @@ const destinations = [
     rating: 4.7,
     estimatedBudget: 2000000,
     mapLink: "https://maps.google.com/?q=Gunung+Rinjani",
-    tags: ["Lombok"],
+    tags: ["Lombok", "Gunung"],
+    imageUrl:
+      "https://images.unsplash.com/photo-1572252009286-268acec5ca0a?auto=format&fit=crop&w=800&q=80",
   },
 ];
 
@@ -43,7 +50,6 @@ exports.getAllDestinations = (req, res) => {
     const { search } = req.query;
     let result = destinations;
 
-    // Fitur Filter berdasarkan daerah
     if (search) {
       result = destinations.filter(
         (d) =>
