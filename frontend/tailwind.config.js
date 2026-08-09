@@ -4,7 +4,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', "sans-serif"],
+        // KODE BARU: Mendaftarkan font yang diambil dari HTML
+        sans: ['"Poppins"', "sans-serif"],
+        serif: ['"Playfair Display"', "serif"],
       },
     },
   },

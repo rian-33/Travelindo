@@ -1,4 +1,5 @@
 // frontend/src/pages/Home.jsx
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getDestinations } from "../services/api";
 // - Modifikasi Home.jsx
@@ -145,9 +146,12 @@ export default function Home() {
                       Rp {dest.estimatedBudget.toLocaleString("id-ID")}
                     </span>
                     {/* 8. CTA BUTTON */}
-                    <button className="bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white px-4 py-2 rounded-lg font-semibold transition-colors">
+                    <Link
+                      to={`/destination/${dest.id}`}
+                      className="bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white px-4 py-2 rounded-lg font-semibold transition-colors"
+                    >
                       Lihat Detail
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>

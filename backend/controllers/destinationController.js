@@ -65,3 +65,19 @@ exports.getAllDestinations = (req, res) => {
     res.status(500).json({ message: "Gagal mengambil data", error });
   }
 };
+
+// Mengambil 1 destinasi berdasarkan ID
+exports.getDestinationById = (req, res) => {
+  try {
+    const { id } = req.params; // Mengambil ID dari URL
+    const destination = destinations.find((d) => d.id === parseInt(id));
+
+    if (!destination) {
+      return res.status(404).json({ message: "Destinasi tidak ditemukan" });
+    }
+
+    res.status(200).json(destination);
+  } catch (error) {
+    res.status(500).json({ message: "Gagal mengambil data", error });
+  }
+};

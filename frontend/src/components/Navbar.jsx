@@ -1,6 +1,4 @@
-// frontend/src/components/Navbar.jsx
 import { Link } from "react-router-dom";
-// - Modifikasi dari Navbar yang lama.
 
 export default function Navbar() {
   return (
@@ -12,7 +10,6 @@ export default function Navbar() {
               <i className="fa-solid fa-plane"></i>
             </div>
             <div>
-              {/* PERUBAHAN: Nama diganti menjadi TraveLindo */}
               <span className="text-xl font-extrabold text-slate-900">
                 Trave<span className="text-blue-600">Lindo</span>
               </span>
@@ -22,7 +19,6 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* PERUBAHAN: Menambahkan menu navigasi yang lebih lengkap */}
           <nav className="hidden md:flex space-x-8">
             <Link
               to="/"
@@ -50,14 +46,19 @@ export default function Navbar() {
             </Link>
           </nav>
 
-          {/* PERUBAHAN: Menambahkan tombol Login/Register (CTA Button) */}
           <div className="flex space-x-4">
-            <button className="text-slate-600 font-medium hover:text-blue-600">
+            <Link
+              to="/login"
+              className="text-slate-600 font-medium px-5 py-2 rounded-full hover:text-white hover:bg-slate-800 transition-all duration-300"
+            >
               Masuk
-            </button>
-            <button className="bg-blue-600 text-white px-5 py-2 rounded-full font-semibold hover:bg-blue-700 shadow-md">
+            </Link>
+            <Link
+              to="/register"
+              className="bg-blue-600 text-white px-5 py-2 rounded-full font-semibold hover:bg-blue-800 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+            >
               Daftar
-            </button>
+            </Link>
           </div>
         </div>
       </div>

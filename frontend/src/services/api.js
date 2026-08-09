@@ -13,3 +13,14 @@ export const getDestinations = async (search = "") => {
     return [];
   }
 };
+
+// Tambahkan di bawah getDestinations
+export const getDestinationById = async (id) => {
+  try {
+    const response = await axios.get(`${API_URL}/destinations/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error memanggil API Detail:", error);
+    return null;
+  }
+};
