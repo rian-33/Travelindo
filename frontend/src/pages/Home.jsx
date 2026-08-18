@@ -6,6 +6,7 @@ import { getDestinations } from "../services/api";
 export default function Home() {
   const [destinations, setDestinations] = useState([]);
   const [region, setRegion] = useState("");
+  const [date, setDate] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -56,27 +57,24 @@ export default function Home() {
           >
             <div className="flex-1 flex items-center px-6 w-full">
               <i className="fa-solid fa-location-dot text-slate-400 mr-3"></i>
-              <select
+              <input
+                type="text"
                 value={region}
                 onChange={(e) => setRegion(e.target.value)}
-                className="w-full bg-transparent text-slate-700 font-medium focus:outline-none appearance-none cursor-pointer py-3"
-              >
-                <option value="">Destinasi (Semua Area)</option>
-                <option value="Bali">Bali & Nusa Tenggara</option>
-                <option value="Yogyakarta">Jawa Tengah & DIY</option>
-                <option value="Lombok">Lombok</option>
-              </select>
+                placeholder="Cari pulau, kota, atau provinsi... (misal: Papua)"
+                className="w-full bg-transparent text-slate-700 font-medium focus:outline-none py-3 placeholder:font-light"
+              />
             </div>
 
             <div className="hidden sm:block w-[1px] h-8 bg-slate-200"></div>
 
             <div className="flex-1 flex items-center px-6 w-full border-t sm:border-t-0 border-slate-100 pt-3 sm:pt-0">
-              <i className="fa-regular fa-calendar text-slate-400 mr-3"></i>
               <input
-                type="text"
+                type="date"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
                 placeholder="Kapan Anda berangkat?"
-                className="w-full bg-transparent text-slate-700 font-medium focus:outline-none py-3"
-                readOnly
+                className="w-full bg-transparent text-slate-700 font-medium focus:outline-none py-3 cursor-pointer"
               />
             </div>
 
