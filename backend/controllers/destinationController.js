@@ -114,9 +114,13 @@ exports.getAllDestinations = (req, res) => {
             tag.toLowerCase().includes(search.toLowerCase()),
           ),
       );
+    } else {
+      result = destinations.sort((a, b) => b.rating - a.rating).slice(0, 4);
     }
+
     res.status(200).json(result);
   } catch (error) {
+    // <-- INI ADALAH BAGIAN YANG SEBELUMNYA TERHAPUS
     res.status(500).json({ message: "Gagal mengambil data", error });
   }
 };
