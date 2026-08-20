@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import DetailDestination from "./pages/DetailDestination";
 import Destinations from "./pages/Destinitations";
 import Hotels from "./pages/Hotels";
+import Promo from "./pages/Promo";
 
 const Login = () => (
   <div className="text-center py-20 text-3xl font-serif text-blue-600 font-bold">
@@ -13,11 +14,6 @@ const Login = () => (
 const Register = () => (
   <div className="text-center py-20 text-3xl font-serif text-blue-600 font-bold">
     Halaman Daftar Segera Hadir!
-  </div>
-);
-const Promo = () => (
-  <div className="text-center py-20 text-3xl font-serif text-red-500 font-bold">
-    Halaman Promo Segera Hadir!
   </div>
 );
 
