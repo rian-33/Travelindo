@@ -127,10 +127,13 @@ export default function Home() {
               Kurasi tempat-tempat menakjubkan untuk dicatat di jurnal Anda.
             </p>
           </div>
-          <button className="text-blue-600 font-medium hover:text-blue-800 transition-colors flex items-center gap-2 group">
+          <Link
+            to="/destinations"
+            className="text-blue-600 font-medium hover:text-blue-800 transition-colors flex items-center gap-2 group"
+          >
             Lihat Semua Destinasi
             <i className="fa-solid fa-arrow-right-long transform group-hover:translate-x-2 transition-transform"></i>
-          </button>
+          </Link>
         </div>
 
         {isLoading ? (

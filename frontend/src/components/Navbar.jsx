@@ -10,7 +10,7 @@ export default function Navbar() {
               <i className="fa-solid fa-plane"></i>
             </div>
             <div>
-              <span className="text-xl font-extrabold text-slate-900">
+              <span className="text-xl font-extrabold font serif text-slate-900">
                 Trave<span className="text-blue-600">Lindo</span>
               </span>
               <p className="text-xs text-slate-500 font-medium uppercase">
@@ -37,6 +37,12 @@ export default function Navbar() {
               className="font-medium text-slate-600 hover:text-blue-600"
             >
               Penginapan
+            </Link>
+            <Link
+              to="/culinary"
+              className="font-medium text-slate-600 hover:text-blue-600"
+            >
+              Kuliner
             </Link>
             <Link
               to="/promo"

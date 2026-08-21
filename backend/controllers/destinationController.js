@@ -1,3 +1,6 @@
+const mongoose = require("mongoose");
+const Destination = require("../models/Destination");
+
 const destinations = [
   {
     id: 1,
@@ -100,35 +103,136 @@ const destinations = [
   },
 ];
 
+const culinaryPlaces = [
+  {
+    id: "culinary-1",
+    name: "Warung Nasi Ayam Kedewatan",
+    region: "Bali",
+    description: "Nasi ayam khas Bali dengan sambal matah dan lawar.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1562565652-a0d8f0c59eb4?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    id: "culinary-2",
+    name: "Gudeg Yu Djum",
+    region: "Yogyakarta",
+    description: "Gudeg nangka manis dengan pilihan ayam dan telur.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    id: "culinary-3",
+    name: "Se'i Sapi Lamalera",
+    region: "Labuan Bajo",
+    description: "Daging asap khas Nusa Tenggara dengan sambal lu'at.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    id: "culinary-4",
+    name: "Ayam Taliwang Irama",
+    region: "Lombok",
+    description: "Ayam bakar pedas dengan plecing kangkung segar.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    id: "culinary-5",
+    name: "Rumah Makan Padang Sederhana",
+    region: "Sumatera Utara",
+    description: "Hidangan Minang autentik dengan rendang sebagai andalan.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    id: "culinary-6",
+    name: "Rawon Nguling",
+    region: "Jawa Timur",
+    description: "Rawon kuah kluwek legendaris dengan daging yang lembut.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80",
+  },
+];
+
 exports.getAllDestinations = (req, res) => {
   try {
     const { search } = req.query;
     let result = destinations;
 
-    if (search) {
-      result = destinations.filter(
-        (d) =>
-          d.location.toLowerCase().includes(search.toLowerCase()) ||
-          d.name.toLowerCase().includes(search.toLowerCase()) ||
-          d.tags.some((tag) =>
-            tag.toLowerCase().includes(search.toLowerCase()),
-          ),
-      );
-    } else {
-      result = destinations.sort((a, b) => b.rating - a.rating).slice(0, 4);
+    if (mongoose.connection.readyState === 1) {
+      return Destination.find()
+        .lean()
+        .then((databaseDestinations) => {
+          if (databaseDestinations.length > 0) {
+            result = databaseDestinations;
+          }
+          return sendDestinationResults(result, req, res);
+        })
+        .catch(() => sendDestinationResults(result, req, res));
     }
 
-    res.status(200).json(result);
+    sendDestinationResults(result, req, res);
   } catch (error) {
     // <-- INI ADALAH BAGIAN YANG SEBELUMNYA TERHAPUS
     res.status(500).json({ message: "Gagal mengambil data", error });
   }
 };
 
+function sendDestinationResults(source, req, res) {
+  const { search } = req.query;
+  let result = source;
+
+  if (search) {
+    const normalizedSearch = search.toLowerCase();
+    result = source.filter(
+      (destination) =>
+        destination.location.toLowerCase().includes(normalizedSearch) ||
+        destination.name.toLowerCase().includes(normalizedSearch) ||
+        destination.tags.some((tag) =>
+          tag.toLowerCase().includes(normalizedSearch),
+        ),
+    );
+  } else if (req.query.all !== "true") {
+    result = [...source].sort((a, b) => b.rating - a.rating).slice(0, 4);
+  }
+
+  res.status(200).json(result);
+}
+
+exports.getAllCulinary = (req, res) => {
+  try {
+    const { search = "" } = req.query;
+    const normalizedSearch = search.toLowerCase();
+    const result = normalizedSearch
+      ? culinaryPlaces.filter(
+          (place) =>
+            place.region.toLowerCase().includes(normalizedSearch) ||
+            place.name.toLowerCase().includes(normalizedSearch),
+        )
+      : culinaryPlaces;
+
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: "Gagal mengambil data kuliner", error });
+  }
+};
+
 exports.getDestinationById = (req, res) => {
   try {
     const { id } = req.params;
-    const destination = destinations.find((d) => d.id === parseInt(id));
+    if (mongoose.connection.readyState === 1 && mongoose.isValidObjectId(id)) {
+      return Destination.findById(id)
+        .lean()
+        .then((destination) => {
+          if (destination) return res.status(200).json(destination);
+          return res.status(404).json({ message: "Destinasi tidak ditemukan" });
+        })
+        .catch(() => res.status(500).json({ message: "Gagal mengambil data" }));
+    }
+
+    const destination = destinations.find(
+      (item) => item.id === parseInt(id, 10),
+    );
     if (!destination)
       return res.status(404).json({ message: "Destinasi tidak ditemukan" });
     res.status(200).json(destination);

@@ -5,17 +5,9 @@ import DetailDestination from "./pages/DetailDestination";
 import Destinations from "./pages/Destinitations";
 import Hotels from "./pages/Hotels";
 import Promo from "./pages/Promo";
-
-const Login = () => (
-  <div className="text-center py-20 text-3xl font-serif text-blue-600 font-bold">
-    Halaman Login Segera Hadir!
-  </div>
-);
-const Register = () => (
-  <div className="text-center py-20 text-3xl font-serif text-blue-600 font-bold">
-    Halaman Daftar Segera Hadir!
-  </div>
-);
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Culinary from "./pages/Culinary";
 
 function App() {
   return (
@@ -30,6 +22,7 @@ function App() {
 
           {/* KODE BARU 2: Mendaftarkan "Alamat" agar dikenali oleh React */}
           <Route path="/destinations" element={<Destinations />} />
+          <Route path="/culinary" element={<Culinary />} />
           <Route path="/hotels" element={<Hotels />} />
           <Route path="/promo" element={<Promo />} />
         </Routes>
