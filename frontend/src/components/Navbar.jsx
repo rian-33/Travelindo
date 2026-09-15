@@ -1,19 +1,20 @@
 import { Link } from "react-router-dom";
+import { Plane } from "lucide-react";
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100 transition-all">
+    <header className="sticky top-0 z-50 bg-surface-elevated/95 backdrop-blur-md shadow-sm border-b border-border transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white font-bold text-xl shadow-lg">
-              <i className="fa-solid fa-plane"></i>
+            <div className="w-10 h-10 rounded-xl bg-brand-primary flex items-center justify-center text-text-inverse shadow-lg">
+              <Plane className="w-5 h-5" />
             </div>
             <div>
-              <span className="text-xl font-extrabold font serif text-slate-900">
-                Trave<span className="text-blue-600">Lindo</span>
+              <span className="text-xl font-extrabold font-serif text-text-primary">
+                Trave<span className="text-brand-primary">Lindo</span>
               </span>
-              <p className="text-xs text-slate-500 font-medium uppercase">
+              <p className="text-xs text-text-muted font-medium uppercase">
                 Your Travel Partner
               </p>
             </div>
@@ -22,31 +23,31 @@ export default function Navbar() {
           <nav className="hidden md:flex space-x-8">
             <Link
               to="/"
-              className="font-semibold text-blue-600 hover:text-blue-700"
+              className="font-semibold text-brand-primary hover:text-brand-secondary"
             >
               Beranda
             </Link>
             <Link
               to="/destinations"
-              className="font-medium text-slate-600 hover:text-blue-600"
+              className="font-medium text-text-secondary hover:text-brand-primary transition-colors"
             >
               Destinasi
             </Link>
             <Link
               to="/hotels"
-              className="font-medium text-slate-600 hover:text-blue-600"
+              className="font-medium text-text-secondary hover:text-brand-primary transition-colors"
             >
               Penginapan
             </Link>
             <Link
               to="/culinary"
-              className="font-medium text-slate-600 hover:text-blue-600"
+              className="font-medium text-text-secondary hover:text-brand-primary transition-colors"
             >
               Kuliner
             </Link>
             <Link
               to="/promo"
-              className="font-medium text-red-500 hover:text-red-600"
+              className="font-medium text-red-500 hover:text-red-600 transition-colors"
             >
               Promo
             </Link>
@@ -55,13 +56,13 @@ export default function Navbar() {
           <div className="flex space-x-4">
             <Link
               to="/login"
-              className="text-slate-600 font-medium px-5 py-2 rounded-full hover:text-white hover:bg-slate-800 transition-all duration-300"
+              className="text-text-secondary font-medium px-5 py-2 rounded-full hover:text-text-inverse hover:bg-brand-primary transition-all duration-300"
             >
               Masuk
             </Link>
             <Link
               to="/register"
-              className="bg-blue-600 text-white px-5 py-2 rounded-full font-semibold hover:bg-blue-800 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+              className="bg-brand-primary text-text-inverse px-5 py-2 rounded-full font-semibold hover:bg-brand-primary-hover hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
             >
               Daftar
             </Link>

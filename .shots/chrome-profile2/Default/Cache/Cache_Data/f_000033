@@ -1,0 +1,420 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/home/Hero.jsx");import __vite__cjsImport0_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=d3e4ec59"; const jsxDEV = __vite__cjsImport0_react_jsxDevRuntime["jsxDEV"];
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+import { motion } from "/node_modules/.vite/deps/framer-motion.js?v=d3e4ec59";
+import { heroTextVariants, heroImageVariants } from "/src/lib/motion.js";
+import { OptimizedImage } from "/src/components/ui/OptimizedImage.jsx?t=1789478444307";
+import { SearchForm } from "/src/components/home/SearchForm.jsx";
+export function Hero() {
+  return /* @__PURE__ */ jsxDEV("section", { className: "relative pt-28 pb-32 lg:pt-40 lg:pb-48 overflow-hidden", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "absolute top-0 left-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-[0.03] z-0 pointer-events-none" }, void 0, false, {
+      fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+      lineNumber: 29,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "absolute top-1/4 left-5 w-32 h-32 opacity-20 animate-float-slow", children: /* @__PURE__ */ jsxDEV("svg", { viewBox: "0 0 100 100", fill: "none", stroke: "currentColor", strokeWidth: "1", className: "w-full h-full text-brand-primary", children: [
+      /* @__PURE__ */ jsxDEV("circle", { cx: "50", cy: "50", r: "40" }, void 0, false, {
+        fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+        lineNumber: 34,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV("circle", { cx: "50", cy: "50", r: "25" }, void 0, false, {
+        fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+        lineNumber: 35,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV("circle", { cx: "50", cy: "50", r: "10" }, void 0, false, {
+        fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+        lineNumber: 36,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+      lineNumber: 33,
+      columnNumber: 9
+    }, this) }, void 0, false, {
+      fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+      lineNumber: 32,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "absolute bottom-1/4 right-5 w-24 h-24 opacity-15 animate-float-slow", style: { animationDelay: "2s" }, children: /* @__PURE__ */ jsxDEV("svg", { viewBox: "0 0 100 100", fill: "none", stroke: "currentColor", strokeWidth: "1", className: "w-full h-full text-brand-accent", children: [
+      /* @__PURE__ */ jsxDEV("polygon", { points: "50,10 90,90 10,90" }, void 0, false, {
+        fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+        lineNumber: 41,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV("polygon", { points: "50,25 75,75 25,75" }, void 0, false, {
+        fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+        lineNumber: 42,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+      lineNumber: 40,
+      columnNumber: 9
+    }, this) }, void 0, false, {
+      fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+      lineNumber: 39,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "max-w-7xl mx-auto px-6 lg:px-8 relative z-10", children: /* @__PURE__ */ jsxDEV("div", { className: "flex flex-col lg:flex-row items-start lg:items-center justify-between gap-12 lg:gap-20", children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left", children: [
+        /* @__PURE__ */ jsxDEV(
+          motion.p,
+          {
+            variants: heroTextVariants,
+            className: "text-brand-primary font-semibold tracking-[0.2em] text-sm mb-6 uppercase flex items-center gap-3",
+            style: { transitionDelay: "0ms" },
+            children: [
+              /* @__PURE__ */ jsxDEV("span", { className: "w-8 h-[1px] bg-brand-primary" }, void 0, false, {
+                fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+                lineNumber: 55,
+                columnNumber: 15
+              }, this),
+              "Kurasi Perjalanan Eksklusif",
+              /* @__PURE__ */ jsxDEV("span", { className: "w-8 h-[1px] bg-brand-primary" }, void 0, false, {
+                fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+                lineNumber: 57,
+                columnNumber: 15
+              }, this)
+            ]
+          },
+          void 0,
+          true,
+          {
+            fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+            lineNumber: 50,
+            columnNumber: 13
+          },
+          this
+        ),
+        /* @__PURE__ */ jsxDEV(
+          motion.h1,
+          {
+            variants: heroTextVariants,
+            className: "font-serif text-display-lg lg:text-display-xl font-bold text-text-primary leading-[1.1] mb-8 max-w-2xl",
+            style: { transitionDelay: "100ms" },
+            children: [
+              "Temukan Keindahan ",
+              /* @__PURE__ */ jsxDEV("br", {}, void 0, false, {
+                fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+                lineNumber: 65,
+                columnNumber: 33
+              }, this),
+              /* @__PURE__ */ jsxDEV("span", { className: "text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-accent italic font-normal", children: "Tersembunyi Indonesia" }, void 0, false, {
+                fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+                lineNumber: 66,
+                columnNumber: 15
+              }, this)
+            ]
+          },
+          void 0,
+          true,
+          {
+            fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+            lineNumber: 60,
+            columnNumber: 13
+          },
+          this
+        ),
+        /* @__PURE__ */ jsxDEV(
+          motion.p,
+          {
+            variants: heroTextVariants,
+            className: "text-lg text-text-secondary max-w-xl mb-10 font-light leading-relaxed",
+            style: { transitionDelay: "200ms" },
+            children: "Lepaskan diri dari rutinitas. Kami merancang pengalaman liburan premium yang disesuaikan dengan ritme dan anggaran Anda."
+          },
+          void 0,
+          false,
+          {
+            fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+            lineNumber: 71,
+            columnNumber: 13
+          },
+          this
+        ),
+        /* @__PURE__ */ jsxDEV(
+          motion.div,
+          {
+            variants: heroTextVariants,
+            className: "w-full max-w-xl",
+            style: { transitionDelay: "300ms" },
+            children: /* @__PURE__ */ jsxDEV(SearchForm, {}, void 0, false, {
+              fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+              lineNumber: 85,
+              columnNumber: 15
+            }, this)
+          },
+          void 0,
+          false,
+          {
+            fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+            lineNumber: 80,
+            columnNumber: 13
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+        lineNumber: 49,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(
+        motion.div,
+        {
+          variants: heroImageVariants,
+          className: "lg:w-1/2 relative hidden lg:block",
+          style: { transitionDelay: "200ms" },
+          children: [
+            /* @__PURE__ */ jsxDEV("div", { className: "relative aspect-[4/3] rounded-[var(--radius-feature)] overflow-hidden shadow-float", children: [
+              /* @__PURE__ */ jsxDEV(
+                OptimizedImage,
+                {
+                  src: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1920&q=80",
+                  alt: "Pemandangan indah Indonesia",
+                  preset: "hero",
+                  className: "absolute inset-0 w-full h-full object-cover",
+                  priority: true
+                },
+                void 0,
+                false,
+                {
+                  fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+                  lineNumber: 96,
+                  columnNumber: 15
+                },
+                this
+              ),
+              /* @__PURE__ */ jsxDEV("div", { className: "absolute inset-0 bg-gradient-to-t from-brand-primary/20 via-transparent to-transparent" }, void 0, false, {
+                fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+                lineNumber: 104,
+                columnNumber: 15
+              }, this),
+              /* @__PURE__ */ jsxDEV("div", { className: "absolute bottom-6 left-6 bg-surface-elevated/90 backdrop-blur-sm px-4 py-3 rounded-xl shadow-card", children: /* @__PURE__ */ jsxDEV("div", { className: "flex items-center gap-3", children: [
+                /* @__PURE__ */ jsxDEV("div", { className: "w-12 h-12 rounded-xl bg-brand-primary-light flex items-center justify-center", children: /* @__PURE__ */ jsxDEV("svg", { className: "w-6 h-6 text-brand-primary", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", children: [
+                  /* @__PURE__ */ jsxDEV("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" }, void 0, false, {
+                    fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+                    lineNumber: 110,
+                    columnNumber: 23
+                  }, this),
+                  /* @__PURE__ */ jsxDEV("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M15 11a3 3 0 11-6 0 3 3 0 016 0z" }, void 0, false, {
+                    fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+                    lineNumber: 111,
+                    columnNumber: 23
+                  }, this)
+                ] }, void 0, true, {
+                  fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+                  lineNumber: 109,
+                  columnNumber: 21
+                }, this) }, void 0, false, {
+                  fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+                  lineNumber: 108,
+                  columnNumber: 19
+                }, this),
+                /* @__PURE__ */ jsxDEV("div", { children: [
+                  /* @__PURE__ */ jsxDEV("p", { className: "text-caption text-text-muted", children: "12 Destinasi" }, void 0, false, {
+                    fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+                    lineNumber: 115,
+                    columnNumber: 21
+                  }, this),
+                  /* @__PURE__ */ jsxDEV("p", { className: "font-semibold text-text-primary", children: "Terpilih Bulan Ini" }, void 0, false, {
+                    fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+                    lineNumber: 116,
+                    columnNumber: 21
+                  }, this)
+                ] }, void 0, true, {
+                  fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+                  lineNumber: 114,
+                  columnNumber: 19
+                }, this)
+              ] }, void 0, true, {
+                fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+                lineNumber: 107,
+                columnNumber: 17
+              }, this) }, void 0, false, {
+                fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+                lineNumber: 106,
+                columnNumber: 15
+              }, this)
+            ] }, void 0, true, {
+              fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+              lineNumber: 95,
+              columnNumber: 13
+            }, this),
+            /* @__PURE__ */ jsxDEV("div", { className: "absolute -bottom-6 -left-6 lg:left-auto lg:right-6 lg:bottom-6 flex gap-4", children: [
+              /* @__PURE__ */ jsxDEV(
+                motion.div,
+                {
+                  className: "bg-surface-elevated rounded-xl shadow-card p-5 min-w-[160px] border border-border",
+                  whileHover: { y: -4, boxShadow: "var(--shadow-float)" },
+                  transition: { duration: 0.3 },
+                  children: [
+                    /* @__PURE__ */ jsxDEV("p", { className: "font-serif text-3xl font-bold text-brand-primary", children: "12" }, void 0, false, {
+                      fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+                      lineNumber: 129,
+                      columnNumber: 17
+                    }, this),
+                    /* @__PURE__ */ jsxDEV("p", { className: "text-caption text-text-muted", children: "Pulau Terjelajah" }, void 0, false, {
+                      fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+                      lineNumber: 130,
+                      columnNumber: 17
+                    }, this)
+                  ]
+                },
+                void 0,
+                true,
+                {
+                  fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+                  lineNumber: 124,
+                  columnNumber: 15
+                },
+                this
+              ),
+              /* @__PURE__ */ jsxDEV(
+                motion.div,
+                {
+                  className: "bg-surface-elevated rounded-xl shadow-card p-5 min-w-[160px] border border-border",
+                  whileHover: { y: -4, boxShadow: "var(--shadow-float)" },
+                  transition: { duration: 0.3 },
+                  children: [
+                    /* @__PURE__ */ jsxDEV("p", { className: "font-serif text-3xl font-bold text-brand-accent", children: "8.4" }, void 0, false, {
+                      fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+                      lineNumber: 137,
+                      columnNumber: 17
+                    }, this),
+                    /* @__PURE__ */ jsxDEV("p", { className: "text-caption text-text-muted", children: "Rating Rata-rata" }, void 0, false, {
+                      fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+                      lineNumber: 138,
+                      columnNumber: 17
+                    }, this)
+                  ]
+                },
+                void 0,
+                true,
+                {
+                  fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+                  lineNumber: 132,
+                  columnNumber: 15
+                },
+                this
+              )
+            ] }, void 0, true, {
+              fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+              lineNumber: 123,
+              columnNumber: 13
+            }, this)
+          ]
+        },
+        void 0,
+        true,
+        {
+          fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+          lineNumber: 90,
+          columnNumber: 11
+        },
+        this
+      )
+    ] }, void 0, true, {
+      fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+      lineNumber: 47,
+      columnNumber: 9
+    }, this) }, void 0, false, {
+      fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+      lineNumber: 46,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(
+      motion.div,
+      {
+        className: "absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-text-muted",
+        initial: { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0 },
+        transition: { delay: 1, duration: 0.8 },
+        children: [
+          /* @__PURE__ */ jsxDEV("span", { className: "text-caption tracking-wider", children: "Jelajahi Lebih Lanjut" }, void 0, false, {
+            fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+            lineNumber: 152,
+            columnNumber: 9
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            motion.div,
+            {
+              className: "w-1 h-6 bg-brand-primary/30 rounded-full overflow-hidden",
+              animate: { scaleY: [1, 0.3, 1] },
+              transition: { duration: 1.5, repeat: Infinity, ease: "easeInOut" },
+              children: /* @__PURE__ */ jsxDEV(
+                motion.div,
+                {
+                  className: "w-full h-full bg-brand-primary",
+                  animate: { scaleY: [0, 1] },
+                  transition: { duration: 1.5, repeat: Infinity, ease: "easeInOut" }
+                },
+                void 0,
+                false,
+                {
+                  fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+                  lineNumber: 158,
+                  columnNumber: 11
+                },
+                this
+              )
+            },
+            void 0,
+            false,
+            {
+              fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+              lineNumber: 153,
+              columnNumber: 9
+            },
+            this
+          )
+        ]
+      },
+      void 0,
+      true,
+      {
+        fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+        lineNumber: 146,
+        columnNumber: 7
+      },
+      this
+    )
+  ] }, void 0, true, {
+    fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx",
+    lineNumber: 27,
+    columnNumber: 5
+  }, this);
+}
+_c = Hero;
+var _c;
+$RefreshReg$(_c, "Hero");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("C:/Users/Project/Travelindo/frontend/src/components/home/Hero.jsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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QU0sWUFBWTtBQUFBO0FBQUEsZ0JBSG5FO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxjQUdxRTtBQUFBO0FBQUEsWUFSdkU7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLFVBVUE7QUFBQTtBQUFBO0FBQUEsTUFqQkY7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLElBa0JBO0FBQUEsT0F6SUY7QUFBQTtBQUFBO0FBQUE7QUFBQSxTQTBJQTtBQUVKO0FBQUNDLEtBOUllWjtBQUFJLElBQUFZO0FBQUEsYUFBQUEsSUFBQSIsIm5hbWVzIjpbIm1vdGlvbiIsImhlcm9UZXh0VmFyaWFudHMiLCJoZXJvSW1hZ2VWYXJpYW50cyIsIk9wdGltaXplZEltYWdlIiwiU2VhcmNoRm9ybSIsIkhlcm8iLCJhbmltYXRpb25EZWxheSIsInRyYW5zaXRpb25EZWxheSIsInkiLCJib3hTaGFkb3ciLCJkdXJhdGlvbiIsIm9wYWNpdHkiLCJkZWxheSIsInNjYWxlWSIsInJlcGVhdCIsIkluZmluaXR5IiwiZWFzZSIsIl9jIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VzIjpbIkhlcm8uanN4Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IG1vdGlvbiB9IGZyb20gJ2ZyYW1lci1tb3Rpb24nO1xuaW1wb3J0IHsgaGVyb1RleHRWYXJpYW50cywgaGVyb0ltYWdlVmFyaWFudHMgfSBmcm9tICdAL2xpYi9tb3Rpb24nO1xuaW1wb3J0IHsgT3B0aW1pemVkSW1hZ2UgfSBmcm9tICdAL2NvbXBvbmVudHMvdWkvT3B0aW1pemVkSW1hZ2UnO1xuaW1wb3J0IHsgU2VhcmNoRm9ybSB9IGZyb20gJy4vU2VhcmNoRm9ybSc7XG5cbmV4cG9ydCBmdW5jdGlvbiBIZXJvKCkge1xuICByZXR1cm4gKFxuICAgIDxzZWN0aW9uIGNsYXNzTmFtZT1cInJlbGF0aXZlIHB0LTI4IHBiLTMyIGxnOnB0LTQwIGxnOnBiLTQ4IG92ZXJmbG93LWhpZGRlblwiPlxuICAgICAgey8qIEJhY2tncm91bmQgUGF0dGVybiAqL31cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYWJzb2x1dGUgdG9wLTAgbGVmdC0wIHctZnVsbCBoLWZ1bGwgYmctW3VybCgnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1Mzc5OTYxOTQ0NzEtZTY1N2RmOTc1YWI0P3E9ODAmdz0yMDcwJmF1dG89Zm9ybWF0JmZpdD1jcm9wJyldIGJnLWNvdmVyIGJnLWNlbnRlciBvcGFjaXR5LVswLjAzXSB6LTAgcG9pbnRlci1ldmVudHMtbm9uZVwiIC8+XG5cbiAgICAgIHsvKiBGbG9hdGluZyBFbGVtZW50cyAqL31cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYWJzb2x1dGUgdG9wLTEvNCBsZWZ0LTUgdy0zMiBoLTMyIG9wYWNpdHktMjAgYW5pbWF0ZS1mbG9hdC1zbG93XCI+XG4gICAgICAgIDxzdmcgdmlld0JveD1cIjAgMCAxMDAgMTAwXCIgZmlsbD1cIm5vbmVcIiBzdHJva2U9XCJjdXJyZW50Q29sb3JcIiBzdHJva2VXaWR0aD1cIjFcIiBjbGFzc05hbWU9XCJ3LWZ1bGwgaC1mdWxsIHRleHQtYnJhbmQtcHJpbWFyeVwiPlxuICAgICAgICAgIDxjaXJjbGUgY3g9XCI1MFwiIGN5PVwiNTBcIiByPVwiNDBcIiAvPlxuICAgICAgICAgIDxjaXJjbGUgY3g9XCI1MFwiIGN5PVwiNTBcIiByPVwiMjVcIiAvPlxuICAgICAgICAgIDxjaXJjbGUgY3g9XCI1MFwiIGN5PVwiNTBcIiByPVwiMTBcIiAvPlxuICAgICAgICA8L3N2Zz5cbiAgICAgIDwvZGl2PlxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJhYnNvbHV0ZSBib3R0b20tMS80IHJpZ2h0LTUgdy0yNCBoLTI0IG9wYWNpdHktMTUgYW5pbWF0ZS1mbG9hdC1zbG93XCIgc3R5bGU9e3sgYW5pbWF0aW9uRGVsYXk6ICcycycgfX0+XG4gICAgICAgIDxzdmcgdmlld0JveD1cIjAgMCAxMDAgMTAwXCIgZmlsbD1cIm5vbmVcIiBzdHJva2U9XCJjdXJyZW50Q29sb3JcIiBzdHJva2VXaWR0aD1cIjFcIiBjbGFzc05hbWU9XCJ3LWZ1bGwgaC1mdWxsIHRleHQtYnJhbmQtYWNjZW50XCI+XG4gICAgICAgICAgPHBvbHlnb24gcG9pbnRzPVwiNTAsMTAgOTAsOTAgMTAsOTBcIiAvPlxuICAgICAgICAgIDxwb2x5Z29uIHBvaW50cz1cIjUwLDI1IDc1LDc1IDI1LDc1XCIgLz5cbiAgICAgICAgPC9zdmc+XG4gICAgICA8L2Rpdj5cblxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJtYXgtdy03eGwgbXgtYXV0byBweC02IGxnOnB4LTggcmVsYXRpdmUgei0xMFwiPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggZmxleC1jb2wgbGc6ZmxleC1yb3cgaXRlbXMtc3RhcnQgbGc6aXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiBnYXAtMTIgbGc6Z2FwLTIwXCI+XG4gICAgICAgICAgey8qIExlZnQgQ29udGVudCAqL31cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImxnOnctMS8yIGZsZXggZmxleC1jb2wgaXRlbXMtY2VudGVyIGxnOml0ZW1zLXN0YXJ0IHRleHQtY2VudGVyIGxnOnRleHQtbGVmdFwiPlxuICAgICAgICAgICAgPG1vdGlvbi5wXG4gICAgICAgICAgICAgIHZhcmlhbnRzPXtoZXJvVGV4dFZhcmlhbnRzfVxuICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ0ZXh0LWJyYW5kLXByaW1hcnkgZm9udC1zZW1pYm9sZCB0cmFja2luZy1bMC4yZW1dIHRleHQtc20gbWItNiB1cHBlcmNhc2UgZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTNcIlxuICAgICAgICAgICAgICBzdHlsZT17eyB0cmFuc2l0aW9uRGVsYXk6ICcwbXMnIH19XG4gICAgICAgICAgICA+XG4gICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInctOCBoLVsxcHhdIGJnLWJyYW5kLXByaW1hcnlcIiAvPlxuICAgICAgICAgICAgICBLdXJhc2kgUGVyamFsYW5hbiBFa3NrbHVzaWZcbiAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidy04IGgtWzFweF0gYmctYnJhbmQtcHJpbWFyeVwiIC8+XG4gICAgICAgICAgICA8L21vdGlvbi5wPlxuXG4gICAgICAgICAgICA8bW90aW9uLmgxXG4gICAgICAgICAgICAgIHZhcmlhbnRzPXtoZXJvVGV4dFZhcmlhbnRzfVxuICAgICAgICAgICAgICBjbGFzc05hbWU9XCJmb250LXNlcmlmIHRleHQtZGlzcGxheS1sZyBsZzp0ZXh0LWRpc3BsYXkteGwgZm9udC1ib2xkIHRleHQtdGV4dC1wcmltYXJ5IGxlYWRpbmctWzEuMV0gbWItOCBtYXgtdy0yeGxcIlxuICAgICAgICAgICAgICBzdHlsZT17eyB0cmFuc2l0aW9uRGVsYXk6ICcxMDBtcycgfX1cbiAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgVGVtdWthbiBLZWluZGFoYW4gPGJyIC8+XG4gICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtdHJhbnNwYXJlbnQgYmctY2xpcC10ZXh0IGJnLWdyYWRpZW50LXRvLXIgZnJvbS1icmFuZC1wcmltYXJ5IHRvLWJyYW5kLWFjY2VudCBpdGFsaWMgZm9udC1ub3JtYWxcIj5cbiAgICAgICAgICAgICAgICBUZXJzZW1idW55aSBJbmRvbmVzaWFcbiAgICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICAgICAgPC9tb3Rpb24uaDE+XG5cbiAgICAgICAgICAgIDxtb3Rpb24ucFxuICAgICAgICAgICAgICB2YXJpYW50cz17aGVyb1RleHRWYXJpYW50c31cbiAgICAgICAgICAgICAgY2xhc3NOYW1lPVwidGV4dC1sZyB0ZXh0LXRleHQtc2Vjb25kYXJ5IG1heC13LXhsIG1iLTEwIGZvbnQtbGlnaHQgbGVhZGluZy1yZWxheGVkXCJcbiAgICAgICAgICAgICAgc3R5bGU9e3sgdHJhbnNpdGlvbkRlbGF5OiAnMjAwbXMnIH19XG4gICAgICAgICAgICA+XG4gICAgICAgICAgICAgIExlcGFza2FuIGRpcmkgZGFyaSBydXRpbml0YXMuIEthbWkgbWVyYW5jYW5nIHBlbmdhbGFtYW4gbGlidXJhblxuICAgICAgICAgICAgICBwcmVtaXVtIHlhbmcgZGlzZXN1YWlrYW4gZGVuZ2FuIHJpdG1lIGRhbiBhbmdnYXJhbiBBbmRhLlxuICAgICAgICAgICAgPC9tb3Rpb24ucD5cblxuICAgICAgICAgICAgPG1vdGlvbi5kaXZcbiAgICAgICAgICAgICAgdmFyaWFudHM9e2hlcm9UZXh0VmFyaWFudHN9XG4gICAgICAgICAgICAgIGNsYXNzTmFtZT1cInctZnVsbCBtYXgtdy14bFwiXG4gICAgICAgICAgICAgIHN0eWxlPXt7IHRyYW5zaXRpb25EZWxheTogJzMwMG1zJyB9fVxuICAgICAgICAgICAgPlxuICAgICAgICAgICAgICA8U2VhcmNoRm9ybSAvPlxuICAgICAgICAgICAgPC9tb3Rpb24uZGl2PlxuICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgey8qIFJpZ2h0IFZpc3VhbCAqL31cbiAgICAgICAgICA8bW90aW9uLmRpdlxuICAgICAgICAgICAgdmFyaWFudHM9e2hlcm9JbWFnZVZhcmlhbnRzfVxuICAgICAgICAgICAgY2xhc3NOYW1lPVwibGc6dy0xLzIgcmVsYXRpdmUgaGlkZGVuIGxnOmJsb2NrXCJcbiAgICAgICAgICAgIHN0eWxlPXt7IHRyYW5zaXRpb25EZWxheTogJzIwMG1zJyB9fVxuICAgICAgICAgID5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicmVsYXRpdmUgYXNwZWN0LVs0LzNdIHJvdW5kZWQtW3ZhcigtLXJhZGl1cy1mZWF0dXJlKV0gb3ZlcmZsb3ctaGlkZGVuIHNoYWRvdy1mbG9hdFwiPlxuICAgICAgICAgICAgICA8T3B0aW1pemVkSW1hZ2VcbiAgICAgICAgICAgICAgICBzcmM9XCJodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTUzNzk5NjE5NDQ3MS1lNjU3ZGY5NzVhYjQ/YXV0bz1mb3JtYXQmZml0PWNyb3Amdz0xOTIwJnE9ODBcIlxuICAgICAgICAgICAgICAgIGFsdD1cIlBlbWFuZGFuZ2FuIGluZGFoIEluZG9uZXNpYVwiXG4gICAgICAgICAgICAgICAgcHJlc2V0PVwiaGVyb1wiXG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwiYWJzb2x1dGUgaW5zZXQtMCB3LWZ1bGwgaC1mdWxsIG9iamVjdC1jb3ZlclwiXG4gICAgICAgICAgICAgICAgcHJpb3JpdHlcbiAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgICAgey8qIEdyYWRpZW50IG92ZXJsYXkgKi99XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYWJzb2x1dGUgaW5zZXQtMCBiZy1ncmFkaWVudC10by10IGZyb20tYnJhbmQtcHJpbWFyeS8yMCB2aWEtdHJhbnNwYXJlbnQgdG8tdHJhbnNwYXJlbnRcIiAvPlxuICAgICAgICAgICAgICB7LyogQ29ybmVyIGFjY2VudCAqL31cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJhYnNvbHV0ZSBib3R0b20tNiBsZWZ0LTYgYmctc3VyZmFjZS1lbGV2YXRlZC85MCBiYWNrZHJvcC1ibHVyLXNtIHB4LTQgcHktMyByb3VuZGVkLXhsIHNoYWRvdy1jYXJkXCI+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtM1wiPlxuICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ3LTEyIGgtMTIgcm91bmRlZC14bCBiZy1icmFuZC1wcmltYXJ5LWxpZ2h0IGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyXCI+XG4gICAgICAgICAgICAgICAgICAgIDxzdmcgY2xhc3NOYW1lPVwidy02IGgtNiB0ZXh0LWJyYW5kLXByaW1hcnlcIiBmaWxsPVwibm9uZVwiIHN0cm9rZT1cImN1cnJlbnRDb2xvclwiIHZpZXdCb3g9XCIwIDAgMjQgMjRcIj5cbiAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBzdHJva2VMaW5lY2FwPVwicm91bmRcIiBzdHJva2VMaW5lam9pbj1cInJvdW5kXCIgc3Ryb2tlV2lkdGg9ezJ9IGQ9XCJNMTcuNjU3IDE4LjY1N0E4IDggMCAwMTYuMzQzIDcuMzQzUzcgOSA5IDEwYzAtMiAuNS01IDIuOTg2LTdDMTQgNSAxNi4wOSA1Ljc3NyAxNy42NTYgNy4zNDNBNy45NzUgNy45NzUgMCAwMTIwIDEzYTcuOTc1IDcuOTc1IDAgMDEtMi4zNDMgNS42NTd6XCIgLz5cbiAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBzdHJva2VMaW5lY2FwPVwicm91bmRcIiBzdHJva2VMaW5lam9pbj1cInJvdW5kXCIgc3Ryb2tlV2lkdGg9ezJ9IGQ9XCJNMTUgMTFhMyAzIDAgMTEtNiAwIDMgMyAwIDAxNiAwelwiIC8+XG4gICAgICAgICAgICAgICAgICAgIDwvc3ZnPlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LWNhcHRpb24gdGV4dC10ZXh0LW11dGVkXCI+MTIgRGVzdGluYXNpPC9wPlxuICAgICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJmb250LXNlbWlib2xkIHRleHQtdGV4dC1wcmltYXJ5XCI+VGVycGlsaWggQnVsYW4gSW5pPC9wPlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgIHsvKiBTdGF0cyAqL31cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYWJzb2x1dGUgLWJvdHRvbS02IC1sZWZ0LTYgbGc6bGVmdC1hdXRvIGxnOnJpZ2h0LTYgbGc6Ym90dG9tLTYgZmxleCBnYXAtNFwiPlxuICAgICAgICAgICAgICA8bW90aW9uLmRpdlxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cImJnLXN1cmZhY2UtZWxldmF0ZWQgcm91bmRlZC14bCBzaGFkb3ctY2FyZCBwLTUgbWluLXctWzE2MHB4XSBib3JkZXIgYm9yZGVyLWJvcmRlclwiXG4gICAgICAgICAgICAgICAgd2hpbGVIb3Zlcj17eyB5OiAtNCwgYm94U2hhZG93OiAndmFyKC0tc2hhZG93LWZsb2F0KScgfX1cbiAgICAgICAgICAgICAgICB0cmFuc2l0aW9uPXt7IGR1cmF0aW9uOiAwLjMgfX1cbiAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cImZvbnQtc2VyaWYgdGV4dC0zeGwgZm9udC1ib2xkIHRleHQtYnJhbmQtcHJpbWFyeVwiPjEyPC9wPlxuICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtY2FwdGlvbiB0ZXh0LXRleHQtbXV0ZWRcIj5QdWxhdSBUZXJqZWxhamFoPC9wPlxuICAgICAgICAgICAgICA8L21vdGlvbi5kaXY+XG4gICAgICAgICAgICAgIDxtb3Rpb24uZGl2XG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwiYmctc3VyZmFjZS1lbGV2YXRlZCByb3VuZGVkLXhsIHNoYWRvdy1jYXJkIHAtNSBtaW4tdy1bMTYwcHhdIGJvcmRlciBib3JkZXItYm9yZGVyXCJcbiAgICAgICAgICAgICAgICB3aGlsZUhvdmVyPXt7IHk6IC00LCBib3hTaGFkb3c6ICd2YXIoLS1zaGFkb3ctZmxvYXQpJyB9fVxuICAgICAgICAgICAgICAgIHRyYW5zaXRpb249e3sgZHVyYXRpb246IDAuMyB9fVxuICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwiZm9udC1zZXJpZiB0ZXh0LTN4bCBmb250LWJvbGQgdGV4dC1icmFuZC1hY2NlbnRcIj44LjQ8L3A+XG4gICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1jYXB0aW9uIHRleHQtdGV4dC1tdXRlZFwiPlJhdGluZyBSYXRhLXJhdGE8L3A+XG4gICAgICAgICAgICAgIDwvbW90aW9uLmRpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvbW90aW9uLmRpdj5cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cblxuICAgICAgey8qIFNjcm9sbCBJbmRpY2F0b3IgKi99XG4gICAgICA8bW90aW9uLmRpdlxuICAgICAgICBjbGFzc05hbWU9XCJhYnNvbHV0ZSBib3R0b20tMTAgbGVmdC0xLzIgLXRyYW5zbGF0ZS14LTEvMiBmbGV4IGZsZXgtY29sIGl0ZW1zLWNlbnRlciBnYXAtMiB0ZXh0LXRleHQtbXV0ZWRcIlxuICAgICAgICBpbml0aWFsPXt7IG9wYWNpdHk6IDAsIHk6IDIwIH19XG4gICAgICAgIGFuaW1hdGU9e3sgb3BhY2l0eTogMSwgeTogMCB9fVxuICAgICAgICB0cmFuc2l0aW9uPXt7IGRlbGF5OiAxLCBkdXJhdGlvbjogMC44IH19XG4gICAgICA+XG4gICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtY2FwdGlvbiB0cmFja2luZy13aWRlclwiPkplbGFqYWhpIExlYmloIExhbmp1dDwvc3Bhbj5cbiAgICAgICAgPG1vdGlvbi5kaXZcbiAgICAgICAgICBjbGFzc05hbWU9XCJ3LTEgaC02IGJnLWJyYW5kLXByaW1hcnkvMzAgcm91bmRlZC1mdWxsIG92ZXJmbG93LWhpZGRlblwiXG4gICAgICAgICAgYW5pbWF0ZT17eyBzY2FsZVk6IFsxLCAwLjMsIDFdIH19XG4gICAgICAgICAgdHJhbnNpdGlvbj17eyBkdXJhdGlvbjogMS41LCByZXBlYXQ6IEluZmluaXR5LCBlYXNlOiAnZWFzZUluT3V0JyB9fVxuICAgICAgICA+XG4gICAgICAgICAgPG1vdGlvbi5kaXZcbiAgICAgICAgICAgIGNsYXNzTmFtZT1cInctZnVsbCBoLWZ1bGwgYmctYnJhbmQtcHJpbWFyeVwiXG4gICAgICAgICAgICBhbmltYXRlPXt7IHNjYWxlWTogWzAsIDFdIH19XG4gICAgICAgICAgICB0cmFuc2l0aW9uPXt7IGR1cmF0aW9uOiAxLjUsIHJlcGVhdDogSW5maW5pdHksIGVhc2U6ICdlYXNlSW5PdXQnIH19XG4gICAgICAgICAgLz5cbiAgICAgICAgPC9tb3Rpb24uZGl2PlxuICAgICAgPC9tb3Rpb24uZGl2PlxuICAgIDwvc2VjdGlvbj5cbiAgKTtcbn0iXSwiZmlsZSI6IkM6L1VzZXJzL1Byb2plY3QvVHJhdmVsaW5kby9mcm9udGVuZC9zcmMvY29tcG9uZW50cy9ob21lL0hlcm8uanN4In0=

@@ -1,0 +1,247 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/ui/Input.jsx");import __vite__cjsImport0_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=d3e4ec59"; const jsxDEV = __vite__cjsImport0_react_jsxDevRuntime["jsxDEV"];
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("C:/Users/Project/Travelindo/frontend/src/components/ui/Input.jsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+import __vite__cjsImport3_react from "/node_modules/.vite/deps/react.js?v=d3e4ec59"; const forwardRef = __vite__cjsImport3_react["forwardRef"];
+import { cn } from "/src/lib/utils.js";
+import { inputFocus } from "/src/lib/motion.js";
+import { motion } from "/node_modules/.vite/deps/framer-motion.js?v=d3e4ec59";
+const Input = forwardRef(
+  _c = ({
+    label,
+    error,
+    helperText,
+    leftIcon,
+    rightIcon,
+    className,
+    containerClassName,
+    labelClassName,
+    id,
+    ...props
+  }, ref) => {
+    const inputId = id || `input-${Math.random().toString(36).slice(2, 9)}`;
+    const errorId = `${inputId}-error`;
+    const helperId = `${inputId}-helper`;
+    const hasError = !!error;
+    const hasHelper = !!helperText && !hasError;
+    return /* @__PURE__ */ jsxDEV("div", { className: cn("w-full space-y-1.5", containerClassName), children: [
+      label && /* @__PURE__ */ jsxDEV(
+        "label",
+        {
+          htmlFor: inputId,
+          className: cn(
+            "block text-sm font-medium text-text-primary",
+            "transition-colors duration-fast",
+            hasError && "text-red-600",
+            labelClassName
+          ),
+          children: label
+        },
+        void 0,
+        false,
+        {
+          fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Input.jsx",
+          lineNumber: 51,
+          columnNumber: 7
+        },
+        this
+      ),
+      /* @__PURE__ */ jsxDEV("div", { className: "relative", children: [
+        leftIcon && /* @__PURE__ */ jsxDEV("div", { className: "absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-text-muted", children: leftIcon }, void 0, false, {
+          fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Input.jsx",
+          lineNumber: 65,
+          columnNumber: 9
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          motion.input,
+          {
+            ref,
+            id: inputId,
+            className: cn(
+              "w-full bg-surface-elevated border rounded-xl px-4 py-3 text-text-primary placeholder-text-muted",
+              "transition-all duration-fast ease-brand",
+              "focus:outline-none focus:ring-2 focus:ring-focus-ring",
+              "disabled:bg-surface-muted disabled:cursor-not-allowed",
+              leftIcon && "pl-12",
+              rightIcon && "pr-12",
+              hasError ? "border-red-500 focus:border-red-500 focus:ring-red-500/30" : "border-border focus:border-border-focus",
+              className
+            ),
+            "aria-invalid": hasError,
+            "aria-describedby": hasError ? errorId : hasHelper ? helperId : void 0,
+            ...props
+          },
+          void 0,
+          false,
+          {
+            fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Input.jsx",
+            lineNumber: 69,
+            columnNumber: 11
+          },
+          this
+        ),
+        rightIcon && /* @__PURE__ */ jsxDEV("div", { className: "absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none text-text-muted", children: rightIcon }, void 0, false, {
+          fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Input.jsx",
+          lineNumber: 89,
+          columnNumber: 9
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Input.jsx",
+        lineNumber: 63,
+        columnNumber: 9
+      }, this),
+      hasError && /* @__PURE__ */ jsxDEV(
+        motion.p,
+        {
+          id: errorId,
+          className: "error-text",
+          initial: { opacity: 0, y: -10 },
+          animate: { opacity: 1, y: 0 },
+          role: "alert",
+          children: error
+        },
+        void 0,
+        false,
+        {
+          fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Input.jsx",
+          lineNumber: 95,
+          columnNumber: 7
+        },
+        this
+      ),
+      hasHelper && /* @__PURE__ */ jsxDEV("p", { id: helperId, className: "helper-text", children: helperText }, void 0, false, {
+        fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Input.jsx",
+        lineNumber: 106,
+        columnNumber: 7
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Input.jsx",
+      lineNumber: 49,
+      columnNumber: 5
+    }, this);
+  }
+);
+_c2 = Input;
+Input.displayName = "Input";
+const Textarea = forwardRef(
+  _c3 = ({ label, error, helperText, className, containerClassName, labelClassName, id, ...props }, ref) => {
+    const inputId = id || `textarea-${Math.random().toString(36).slice(2, 9)}`;
+    const errorId = `${inputId}-error`;
+    const helperId = `${inputId}-helper`;
+    const hasError = !!error;
+    const hasHelper = !!helperText && !hasError;
+    return /* @__PURE__ */ jsxDEV("div", { className: cn("w-full space-y-1.5", containerClassName), children: [
+      label && /* @__PURE__ */ jsxDEV(
+        "label",
+        {
+          htmlFor: inputId,
+          className: cn(
+            "block text-sm font-medium text-text-primary",
+            "transition-colors duration-fast",
+            hasError && "text-red-600",
+            labelClassName
+          ),
+          children: label
+        },
+        void 0,
+        false,
+        {
+          fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Input.jsx",
+          lineNumber: 129,
+          columnNumber: 7
+        },
+        this
+      ),
+      /* @__PURE__ */ jsxDEV(
+        motion.textarea,
+        {
+          ref,
+          id: inputId,
+          className: cn(
+            "w-full bg-surface-elevated border rounded-xl px-4 py-3 text-text-primary placeholder-text-muted",
+            "transition-all duration-fast ease-brand resize-y min-h-[100px]",
+            "focus:outline-none focus:ring-2 focus:ring-focus-ring",
+            "disabled:bg-surface-muted disabled:cursor-not-allowed",
+            hasError ? "border-red-500 focus:border-red-500 focus:ring-red-500/30" : "border-border focus:border-border-focus",
+            className
+          ),
+          "aria-invalid": hasError,
+          "aria-describedby": hasError ? errorId : hasHelper ? helperId : void 0,
+          ...props
+        },
+        void 0,
+        false,
+        {
+          fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Input.jsx",
+          lineNumber: 141,
+          columnNumber: 9
+        },
+        this
+      ),
+      hasError && /* @__PURE__ */ jsxDEV(
+        motion.p,
+        {
+          id: errorId,
+          className: "error-text",
+          initial: { opacity: 0, y: -10 },
+          animate: { opacity: 1, y: 0 },
+          role: "alert",
+          children: error
+        },
+        void 0,
+        false,
+        {
+          fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Input.jsx",
+          lineNumber: 159,
+          columnNumber: 7
+        },
+        this
+      ),
+      hasHelper && /* @__PURE__ */ jsxDEV("p", { id: helperId, className: "helper-text", children: helperText }, void 0, false, {
+        fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Input.jsx",
+        lineNumber: 170,
+        columnNumber: 7
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Input.jsx",
+      lineNumber: 127,
+      columnNumber: 5
+    }, this);
+  }
+);
+_c4 = Textarea;
+Textarea.displayName = "Textarea";
+export { Input, Textarea };
+var _c, _c2, _c3, _c4;
+$RefreshReg$(_c, "Input$forwardRef");
+$RefreshReg$(_c2, "Input");
+$RefreshReg$(_c3, "Textarea$forwardRef");
+$RefreshReg$(_c4, "Textarea");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("C:/Users/Project/Travelindo/frontend/src/components/ui/Input.jsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("C:/Users/Project/Travelindo/frontend/src/components/ui/Input.jsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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UyxHQUFHQyxHQUFHLElBQUk7QUFBQSxVQUM5QixTQUFTLEVBQUVELFNBQVMsR0FBR0MsR0FBRyxFQUFFO0FBQUEsVUFDNUIsTUFBSztBQUFBLFVBRUpyQjtBQUFBQTtBQUFBQSxRQVBIO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxNQVFBO0FBQUEsTUFFRGtCLGFBQ0MsdUJBQUMsT0FBRSxJQUFJRixVQUFVLFdBQVUsZUFDeEJmLHdCQURIO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFFQTtBQUFBLFNBN0NKO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0ErQ0E7QUFBQSxFQUVKO0FBQ0Y7QUFBRXlCLE1BNURJRjtBQThETkEsU0FBU0QsY0FBYztBQUV2QixTQUFTMUIsT0FBTzJCO0FBQVcsSUFBQTFCLElBQUF3QixLQUFBRyxLQUFBQztBQUFBLGFBQUE1QixJQUFBO0FBQUEsYUFBQXdCLEtBQUE7QUFBQSxhQUFBRyxLQUFBO0FBQUEsYUFBQUMsS0FBQSIsIm5hbWVzIjpbImZvcndhcmRSZWYiLCJjbiIsImlucHV0Rm9jdXMiLCJtb3Rpb24iLCJJbnB1dCIsIl9jIiwibGFiZWwiLCJlcnJvciIsImhlbHBlclRleHQiLCJsZWZ0SWNvbiIsInJpZ2h0SWNvbiIsImNsYXNzTmFtZSIsImNvbnRhaW5lckNsYXNzTmFtZSIsImxhYmVsQ2xhc3NOYW1lIiwiaWQiLCJwcm9wcyIsInJlZiIsImlucHV0SWQiLCJNYXRoIiwicmFuZG9tIiwidG9TdHJpbmciLCJzbGljZSIsImVycm9ySWQiLCJoZWxwZXJJZCIsImhhc0Vycm9yIiwiaGFzSGVscGVyIiwidW5kZWZpbmVkIiwib3BhY2l0eSIsInkiLCJfYzIiLCJkaXNwbGF5TmFtZSIsIlRleHRhcmVhIiwiX2MzIiwiX2M0Il0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VzIjpbIklucHV0LmpzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBmb3J3YXJkUmVmIH0gZnJvbSAncmVhY3QnO1xuaW1wb3J0IHsgY24gfSBmcm9tICdAL2xpYi91dGlscyc7XG5pbXBvcnQgeyBpbnB1dEZvY3VzIH0gZnJvbSAnQC9saWIvbW90aW9uJztcbmltcG9ydCB7IG1vdGlvbiB9IGZyb20gJ2ZyYW1lci1tb3Rpb24nO1xuXG5jb25zdCBJbnB1dCA9IGZvcndhcmRSZWYoXG4gIChcbiAgICB7XG4gICAgICBsYWJlbCxcbiAgICAgIGVycm9yLFxuICAgICAgaGVscGVyVGV4dCxcbiAgICAgIGxlZnRJY29uLFxuICAgICAgcmlnaHRJY29uLFxuICAgICAgY2xhc3NOYW1lLFxuICAgICAgY29udGFpbmVyQ2xhc3NOYW1lLFxuICAgICAgbGFiZWxDbGFzc05hbWUsXG4gICAgICBpZCxcbiAgICAgIC4uLnByb3BzXG4gICAgfSxcbiAgICByZWZcbiAgKSA9PiB7XG4gICAgY29uc3QgaW5wdXRJZCA9IGlkIHx8IGBpbnB1dC0ke01hdGgucmFuZG9tKCkudG9TdHJpbmcoMzYpLnNsaWNlKDIsIDkpfWA7XG4gICAgY29uc3QgZXJyb3JJZCA9IGAke2lucHV0SWR9LWVycm9yYDtcbiAgICBjb25zdCBoZWxwZXJJZCA9IGAke2lucHV0SWR9LWhlbHBlcmA7XG5cbiAgICBjb25zdCBoYXNFcnJvciA9ICEhZXJyb3I7XG4gICAgY29uc3QgaGFzSGVscGVyID0gISFoZWxwZXJUZXh0ICYmICFoYXNFcnJvcjtcblxuICAgIHJldHVybiAoXG4gICAgICA8ZGl2IGNsYXNzTmFtZT17Y24oJ3ctZnVsbCBzcGFjZS15LTEuNScsIGNvbnRhaW5lckNsYXNzTmFtZSl9PlxuICAgICAgICB7bGFiZWwgJiYgKFxuICAgICAgICAgIDxsYWJlbFxuICAgICAgICAgICAgaHRtbEZvcj17aW5wdXRJZH1cbiAgICAgICAgICAgIGNsYXNzTmFtZT17Y24oXG4gICAgICAgICAgICAgICdibG9jayB0ZXh0LXNtIGZvbnQtbWVkaXVtIHRleHQtdGV4dC1wcmltYXJ5JyxcbiAgICAgICAgICAgICAgJ3RyYW5zaXRpb24tY29sb3JzIGR1cmF0aW9uLWZhc3QnLFxuICAgICAgICAgICAgICBoYXNFcnJvciAmJiAndGV4dC1yZWQtNjAwJyxcbiAgICAgICAgICAgICAgbGFiZWxDbGFzc05hbWVcbiAgICAgICAgICAgICl9XG4gICAgICAgICAgPlxuICAgICAgICAgICAge2xhYmVsfVxuICAgICAgICAgIDwvbGFiZWw+XG4gICAgICAgICl9XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicmVsYXRpdmVcIj5cbiAgICAgICAgICB7bGVmdEljb24gJiYgKFxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJhYnNvbHV0ZSBpbnNldC15LTAgbGVmdC0wIGZsZXggaXRlbXMtY2VudGVyIHBsLTQgcG9pbnRlci1ldmVudHMtbm9uZSB0ZXh0LXRleHQtbXV0ZWRcIj5cbiAgICAgICAgICAgICAge2xlZnRJY29ufVxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgKX1cbiAgICAgICAgICA8bW90aW9uLmlucHV0XG4gICAgICAgICAgICByZWY9e3JlZn1cbiAgICAgICAgICAgIGlkPXtpbnB1dElkfVxuICAgICAgICAgICAgY2xhc3NOYW1lPXtjbihcbiAgICAgICAgICAgICAgJ3ctZnVsbCBiZy1zdXJmYWNlLWVsZXZhdGVkIGJvcmRlciByb3VuZGVkLXhsIHB4LTQgcHktMyB0ZXh0LXRleHQtcHJpbWFyeSBwbGFjZWhvbGRlci10ZXh0LW11dGVkJyxcbiAgICAgICAgICAgICAgJ3RyYW5zaXRpb24tYWxsIGR1cmF0aW9uLWZhc3QgZWFzZS1icmFuZCcsXG4gICAgICAgICAgICAgICdmb2N1czpvdXRsaW5lLW5vbmUgZm9jdXM6cmluZy0yIGZvY3VzOnJpbmctZm9jdXMtcmluZycsXG4gICAgICAgICAgICAgICdkaXNhYmxlZDpiZy1zdXJmYWNlLW11dGVkIGRpc2FibGVkOmN1cnNvci1ub3QtYWxsb3dlZCcsXG4gICAgICAgICAgICAgIGxlZnRJY29uICYmICdwbC0xMicsXG4gICAgICAgICAgICAgIHJpZ2h0SWNvbiAmJiAncHItMTInLFxuICAgICAgICAgICAgICBoYXNFcnJvclxuICAgICAgICAgICAgICAgID8gJ2JvcmRlci1yZWQtNTAwIGZvY3VzOmJvcmRlci1yZWQtNTAwIGZvY3VzOnJpbmctcmVkLTUwMC8zMCdcbiAgICAgICAgICAgICAgICA6ICdib3JkZXItYm9yZGVyIGZvY3VzOmJvcmRlci1ib3JkZXItZm9jdXMnLFxuICAgICAgICAgICAgICBjbGFzc05hbWVcbiAgICAgICAgICAgICl9XG4gICAgICAgICAgICBhcmlhLWludmFsaWQ9e2hhc0Vycm9yfVxuICAgICAgICAgICAgYXJpYS1kZXNjcmliZWRieT17aGFzRXJyb3IgPyBlcnJvcklkIDogaGFzSGVscGVyID8gaGVscGVySWQgOiB1bmRlZmluZWR9XG4gICAgICAgICAgICB7Li4ucHJvcHN9XG4gICAgICAgICAgLz5cbiAgICAgICAgICB7cmlnaHRJY29uICYmIChcbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYWJzb2x1dGUgaW5zZXQteS0wIHJpZ2h0LTAgZmxleCBpdGVtcy1jZW50ZXIgcHItNCBwb2ludGVyLWV2ZW50cy1ub25lIHRleHQtdGV4dC1tdXRlZFwiPlxuICAgICAgICAgICAgICB7cmlnaHRJY29ufVxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgKX1cbiAgICAgICAgPC9kaXY+XG4gICAgICAgIHtoYXNFcnJvciAmJiAoXG4gICAgICAgICAgPG1vdGlvbi5wXG4gICAgICAgICAgICBpZD17ZXJyb3JJZH1cbiAgICAgICAgICAgIGNsYXNzTmFtZT1cImVycm9yLXRleHRcIlxuICAgICAgICAgICAgaW5pdGlhbD17eyBvcGFjaXR5OiAwLCB5OiAtMTAgfX1cbiAgICAgICAgICAgIGFuaW1hdGU9e3sgb3BhY2l0eTogMSwgeTogMCB9fVxuICAgICAgICAgICAgcm9sZT1cImFsZXJ0XCJcbiAgICAgICAgICA+XG4gICAgICAgICAgICB7ZXJyb3J9XG4gICAgICAgICAgPC9tb3Rpb24ucD5cbiAgICAgICAgKX1cbiAgICAgICAge2hhc0hlbHBlciAmJiAoXG4gICAgICAgICAgPHAgaWQ9e2hlbHBlcklkfSBjbGFzc05hbWU9XCJoZWxwZXItdGV4dFwiPlxuICAgICAgICAgICAge2hlbHBlclRleHR9XG4gICAgICAgICAgPC9wPlxuICAgICAgICApfVxuICAgICAgPC9kaXY+XG4gICAgKTtcbiAgfVxuKTtcblxuSW5wdXQuZGlzcGxheU5hbWUgPSAnSW5wdXQnO1xuXG5jb25zdCBUZXh0YXJlYSA9IGZvcndhcmRSZWYoXG4gICh7IGxhYmVsLCBlcnJvciwgaGVscGVyVGV4dCwgY2xhc3NOYW1lLCBjb250YWluZXJDbGFzc05hbWUsIGxhYmVsQ2xhc3NOYW1lLCBpZCwgLi4ucHJvcHMgfSwgcmVmKSA9PiB7XG4gICAgY29uc3QgaW5wdXRJZCA9IGlkIHx8IGB0ZXh0YXJlYS0ke01hdGgucmFuZG9tKCkudG9TdHJpbmcoMzYpLnNsaWNlKDIsIDkpfWA7XG4gICAgY29uc3QgZXJyb3JJZCA9IGAke2lucHV0SWR9LWVycm9yYDtcbiAgICBjb25zdCBoZWxwZXJJZCA9IGAke2lucHV0SWR9LWhlbHBlcmA7XG5cbiAgICBjb25zdCBoYXNFcnJvciA9ICEhZXJyb3I7XG4gICAgY29uc3QgaGFzSGVscGVyID0gISFoZWxwZXJUZXh0ICYmICFoYXNFcnJvcjtcblxuICAgIHJldHVybiAoXG4gICAgICA8ZGl2IGNsYXNzTmFtZT17Y24oJ3ctZnVsbCBzcGFjZS15LTEuNScsIGNvbnRhaW5lckNsYXNzTmFtZSl9PlxuICAgICAgICB7bGFiZWwgJiYgKFxuICAgICAgICAgIDxsYWJlbFxuICAgICAgICAgICAgaHRtbEZvcj17aW5wdXRJZH1cbiAgICAgICAgICAgIGNsYXNzTmFtZT17Y24oXG4gICAgICAgICAgICAgICdibG9jayB0ZXh0LXNtIGZvbnQtbWVkaXVtIHRleHQtdGV4dC1wcmltYXJ5JyxcbiAgICAgICAgICAgICAgJ3RyYW5zaXRpb24tY29sb3JzIGR1cmF0aW9uLWZhc3QnLFxuICAgICAgICAgICAgICBoYXNFcnJvciAmJiAndGV4dC1yZWQtNjAwJyxcbiAgICAgICAgICAgICAgbGFiZWxDbGFzc05hbWVcbiAgICAgICAgICAgICl9XG4gICAgICAgICAgPlxuICAgICAgICAgICAge2xhYmVsfVxuICAgICAgICAgIDwvbGFiZWw+XG4gICAgICAgICl9XG4gICAgICAgIDxtb3Rpb24udGV4dGFyZWFcbiAgICAgICAgICByZWY9e3JlZn1cbiAgICAgICAgICBpZD17aW5wdXRJZH1cbiAgICAgICAgICBjbGFzc05hbWU9e2NuKFxuICAgICAgICAgICAgJ3ctZnVsbCBiZy1zdXJmYWNlLWVsZXZhdGVkIGJvcmRlciByb3VuZGVkLXhsIHB4LTQgcHktMyB0ZXh0LXRleHQtcHJpbWFyeSBwbGFjZWhvbGRlci10ZXh0LW11dGVkJyxcbiAgICAgICAgICAgICd0cmFuc2l0aW9uLWFsbCBkdXJhdGlvbi1mYXN0IGVhc2UtYnJhbmQgcmVzaXplLXkgbWluLWgtWzEwMHB4XScsXG4gICAgICAgICAgICAnZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOnJpbmctMiBmb2N1czpyaW5nLWZvY3VzLXJpbmcnLFxuICAgICAgICAgICAgJ2Rpc2FibGVkOmJnLXN1cmZhY2UtbXV0ZWQgZGlzYWJsZWQ6Y3Vyc29yLW5vdC1hbGxvd2VkJyxcbiAgICAgICAgICAgIGhhc0Vycm9yXG4gICAgICAgICAgICAgID8gJ2JvcmRlci1yZWQtNTAwIGZvY3VzOmJvcmRlci1yZWQtNTAwIGZvY3VzOnJpbmctcmVkLTUwMC8zMCdcbiAgICAgICAgICAgICAgOiAnYm9yZGVyLWJvcmRlciBmb2N1czpib3JkZXItYm9yZGVyLWZvY3VzJyxcbiAgICAgICAgICAgIGNsYXNzTmFtZVxuICAgICAgICAgICl9XG4gICAgICAgICAgYXJpYS1pbnZhbGlkPXtoYXNFcnJvcn1cbiAgICAgICAgICBhcmlhLWRlc2NyaWJlZGJ5PXtoYXNFcnJvciA/IGVycm9ySWQgOiBoYXNIZWxwZXIgPyBoZWxwZXJJZCA6IHVuZGVmaW5lZH1cbiAgICAgICAgICB7Li4ucHJvcHN9XG4gICAgICAgIC8+XG4gICAgICAgIHtoYXNFcnJvciAmJiAoXG4gICAgICAgICAgPG1vdGlvbi5wXG4gICAgICAgICAgICBpZD17ZXJyb3JJZH1cbiAgICAgICAgICAgIGNsYXNzTmFtZT1cImVycm9yLXRleHRcIlxuICAgICAgICAgICAgaW5pdGlhbD17eyBvcGFjaXR5OiAwLCB5OiAtMTAgfX1cbiAgICAgICAgICAgIGFuaW1hdGU9e3sgb3BhY2l0eTogMSwgeTogMCB9fVxuICAgICAgICAgICAgcm9sZT1cImFsZXJ0XCJcbiAgICAgICAgICA+XG4gICAgICAgICAgICB7ZXJyb3J9XG4gICAgICAgICAgPC9tb3Rpb24ucD5cbiAgICAgICAgKX1cbiAgICAgICAge2hhc0hlbHBlciAmJiAoXG4gICAgICAgICAgPHAgaWQ9e2hlbHBlcklkfSBjbGFzc05hbWU9XCJoZWxwZXItdGV4dFwiPlxuICAgICAgICAgICAge2hlbHBlclRleHR9XG4gICAgICAgICAgPC9wPlxuICAgICAgICApfVxuICAgICAgPC9kaXY+XG4gICAgKTtcbiAgfVxuKTtcblxuVGV4dGFyZWEuZGlzcGxheU5hbWUgPSAnVGV4dGFyZWEnO1xuXG5leHBvcnQgeyBJbnB1dCwgVGV4dGFyZWEgfTsiXSwiZmlsZSI6IkM6L1VzZXJzL1Byb2plY3QvVHJhdmVsaW5kby9mcm9udGVuZC9zcmMvY29tcG9uZW50cy91aS9JbnB1dC5qc3gifQ==

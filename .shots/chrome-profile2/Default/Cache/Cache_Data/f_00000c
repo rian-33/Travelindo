@@ -1,0 +1,487 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/signatures/StampCollection.jsx");import __vite__cjsImport0_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=d3e4ec59"; const jsxDEV = __vite__cjsImport0_react_jsxDevRuntime["jsxDEV"];
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import __vite__cjsImport3_react from "/node_modules/.vite/deps/react.js?v=d3e4ec59"; const useState = __vite__cjsImport3_react["useState"]; const useMemo = __vite__cjsImport3_react["useMemo"];
+import { motion, AnimatePresence } from "/node_modules/.vite/deps/framer-motion.js?v=d3e4ec59";
+import { cn } from "/src/lib/utils.js";
+import { stampVariants } from "/src/lib/motion.js";
+import { X, Check, MapPin, Star, Calendar } from "/node_modules/.vite/deps/lucide-react.js?v=d3e4ec59";
+import { useToast } from "/src/components/ui/Toast.jsx";
+const stampData = [
+  { id: "bali", name: "Bali", icon: "🏝️", location: "Pulau Dewata", unlocked: true, date: "2024-01-15" },
+  { id: "komodo", name: "Komodo", icon: "🦎", location: "Naga Purba", unlocked: true, date: "2024-02-20" },
+  { id: "raja_ampat", name: "Raja Ampat", icon: "🐠", location: "Surga Di Bumi", unlocked: true, date: "2024-03-10" },
+  { id: "borobudur", name: "Borobudur", icon: "🏛️", location: "Candi Megalitik", unlocked: false, date: null },
+  { id: "rinjani", name: "Rinjani", icon: "🏔️", location: "Gunung Api", unlocked: false, date: null },
+  { id: "toba", name: "Danau Toba", icon: "🌊", location: "Danau Vulkanik", unlocked: false, date: null },
+  { id: "bromo", name: "Bromo", icon: "🌅", location: "Sunrise Legendaris", unlocked: false, date: null },
+  { id: "dera", name: "Derawan", icon: "🐢", location: "Penyu & Karang", unlocked: false, date: null }
+];
+function formatDate(dateStr) {
+  if (!dateStr) return "";
+  return new Date(dateStr).toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" });
+}
+export function StampCollection({ onClose }) {
+  _s();
+  const [selectedStamp, setSelectedStamp] = useState(null);
+  const toast = useToast();
+  const unlockedCount = useMemo(() => stampData.filter((s) => s.unlocked).length, []);
+  const totalCount = stampData.length;
+  return /* @__PURE__ */ jsxDEV(
+    motion.div,
+    {
+      className: "fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm",
+      initial: { opacity: 0 },
+      animate: { opacity: 1 },
+      exit: { opacity: 0 },
+      onClick: onClose,
+      role: "dialog",
+      "aria-modal": "true",
+      "aria-label": "Koleksi Stempel",
+      children: [
+        /* @__PURE__ */ jsxDEV(
+          motion.div,
+          {
+            className: "bg-surface-elevated rounded-[var(--radius-feature)] shadow-float max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-border",
+            initial: { opacity: 0, scale: 0.95, y: 20 },
+            animate: { opacity: 1, scale: 1, y: 0 },
+            exit: { opacity: 0, scale: 0.95, y: 20 },
+            transition: { duration: 0.3 },
+            onClick: (e) => e.stopPropagation(),
+            children: [
+              /* @__PURE__ */ jsxDEV("div", { className: "flex items-center justify-between p-6 border-b border-border sticky top-0 bg-surface-elevated/95 backdrop-blur-sm z-10", children: [
+                /* @__PURE__ */ jsxDEV("div", { children: [
+                  /* @__PURE__ */ jsxDEV("h2", { className: "font-serif text-2xl font-bold text-text-primary", children: "Koleksi Stempel" }, void 0, false, {
+                    fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                    lineNumber: 72,
+                    columnNumber: 13
+                  }, this),
+                  /* @__PURE__ */ jsxDEV("p", { className: "text-text-secondary text-sm mt-1", children: [
+                    unlockedCount,
+                    " dari ",
+                    totalCount,
+                    " pulau terkumpul"
+                  ] }, void 0, true, {
+                    fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                    lineNumber: 73,
+                    columnNumber: 13
+                  }, this)
+                ] }, void 0, true, {
+                  fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                  lineNumber: 71,
+                  columnNumber: 11
+                }, this),
+                /* @__PURE__ */ jsxDEV(
+                  motion.div,
+                  {
+                    className: "w-16 h-3 bg-surface-muted rounded-full overflow-hidden",
+                    initial: { width: 0 },
+                    animate: { width: "4rem" },
+                    transition: { delay: 0.3, duration: 0.5 },
+                    children: /* @__PURE__ */ jsxDEV(
+                      motion.div,
+                      {
+                        className: "h-full bg-gradient-to-r from-brand-primary to-brand-accent rounded-full",
+                        initial: { width: 0 },
+                        animate: { width: `${unlockedCount / totalCount * 100}%` },
+                        transition: { delay: 0.5, duration: 0.8 }
+                      },
+                      void 0,
+                      false,
+                      {
+                        fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                        lineNumber: 83,
+                        columnNumber: 13
+                      },
+                      this
+                    )
+                  },
+                  void 0,
+                  false,
+                  {
+                    fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                    lineNumber: 77,
+                    columnNumber: 11
+                  },
+                  this
+                ),
+                /* @__PURE__ */ jsxDEV(
+                  "button",
+                  {
+                    onClick: onClose,
+                    className: "p-2 rounded-lg text-text-muted hover:text-text-primary hover:bg-surface-muted transition-colors",
+                    "aria-label": "Tutup",
+                    children: /* @__PURE__ */ jsxDEV(X, { className: "w-5 h-5" }, void 0, false, {
+                      fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                      lineNumber: 95,
+                      columnNumber: 13
+                    }, this)
+                  },
+                  void 0,
+                  false,
+                  {
+                    fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                    lineNumber: 90,
+                    columnNumber: 11
+                  },
+                  this
+                )
+              ] }, void 0, true, {
+                fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                lineNumber: 70,
+                columnNumber: 9
+              }, this),
+              /* @__PURE__ */ jsxDEV("div", { className: "p-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4", children: /* @__PURE__ */ jsxDEV(AnimatePresence, { children: stampData.map(
+                (stamp, index) => /* @__PURE__ */ jsxDEV(
+                  motion.div,
+                  {
+                    initial: { opacity: 0, scale: 0.8, rotate: -10 },
+                    animate: { opacity: 1, scale: 1, rotate: 0 },
+                    exit: { opacity: 0, scale: 0.8, rotate: 10 },
+                    transition: { delay: index * 0.05, duration: 0.4, ease: [0.34, 1.56, 0.64, 1] },
+                    children: /* @__PURE__ */ jsxDEV(StampCard, { stamp, onClick: () => setSelectedStamp(stamp), variants: stampVariants }, void 0, false, {
+                      fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                      lineNumber: 110,
+                      columnNumber: 17
+                    }, this)
+                  },
+                  stamp.id,
+                  false,
+                  {
+                    fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                    lineNumber: 103,
+                    columnNumber: 13
+                  },
+                  this
+                )
+              ) }, void 0, false, {
+                fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                lineNumber: 101,
+                columnNumber: 11
+              }, this) }, void 0, false, {
+                fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                lineNumber: 100,
+                columnNumber: 9
+              }, this),
+              unlockedCount === 0 && /* @__PURE__ */ jsxDEV("div", { className: "px-6 pb-6 text-center", children: /* @__PURE__ */ jsxDEV("p", { className: "text-text-secondary", children: "Mulai jelajahi untuk mengumpulkan stempel pertama Anda!" }, void 0, false, {
+                fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                lineNumber: 119,
+                columnNumber: 13
+              }, this) }, void 0, false, {
+                fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                lineNumber: 118,
+                columnNumber: 9
+              }, this)
+            ]
+          },
+          void 0,
+          true,
+          {
+            fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+            lineNumber: 61,
+            columnNumber: 7
+          },
+          this
+        ),
+        /* @__PURE__ */ jsxDEV(AnimatePresence, { children: selectedStamp && /* @__PURE__ */ jsxDEV(
+          motion.div,
+          {
+            className: "fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm",
+            initial: { opacity: 0 },
+            animate: { opacity: 1 },
+            exit: { opacity: 0 },
+            onClick: () => setSelectedStamp(null),
+            children: /* @__PURE__ */ jsxDEV(
+              motion.div,
+              {
+                className: "bg-surface-elevated rounded-[var(--radius-feature)] shadow-float max-w-md w-full border border-border",
+                initial: { opacity: 0, scale: 0.9, y: 20 },
+                animate: { opacity: 1, scale: 1, y: 0 },
+                exit: { opacity: 0, scale: 0.9, y: 20 },
+                onClick: (e) => e.stopPropagation(),
+                children: /* @__PURE__ */ jsxDEV("div", { className: "p-6", children: [
+                  /* @__PURE__ */ jsxDEV("div", { className: "flex items-center justify-between mb-4", children: [
+                    /* @__PURE__ */ jsxDEV("h3", { className: "font-serif text-xl font-bold text-text-primary", children: "Detail Stempel" }, void 0, false, {
+                      fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                      lineNumber: 145,
+                      columnNumber: 19
+                    }, this),
+                    /* @__PURE__ */ jsxDEV(
+                      "button",
+                      {
+                        onClick: () => setSelectedStamp(null),
+                        className: "p-1 rounded-lg text-text-muted hover:text-text-primary hover:bg-surface-muted transition-colors",
+                        children: /* @__PURE__ */ jsxDEV(X, { className: "w-5 h-5" }, void 0, false, {
+                          fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                          lineNumber: 150,
+                          columnNumber: 21
+                        }, this)
+                      },
+                      void 0,
+                      false,
+                      {
+                        fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                        lineNumber: 146,
+                        columnNumber: 19
+                      },
+                      this
+                    )
+                  ] }, void 0, true, {
+                    fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                    lineNumber: 144,
+                    columnNumber: 17
+                  }, this),
+                  /* @__PURE__ */ jsxDEV("div", { className: "text-center mb-6", children: /* @__PURE__ */ jsxDEV(
+                    motion.div,
+                    {
+                      className: "inline-block",
+                      animate: { rotate: [0, -3, 3, -3, 0] },
+                      transition: { duration: 0.5 },
+                      children: /* @__PURE__ */ jsxDEV("div", { className: cn(
+                        "w-32 h-32 rounded-[var(--radius-feature)] flex items-center justify-center text-6xl shadow-card border-4",
+                        selectedStamp.unlocked ? "border-brand-primary bg-brand-primary-light" : "border-border bg-surface-muted grayscale"
+                      ), children: selectedStamp.icon }, void 0, false, {
+                        fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                        lineNumber: 160,
+                        columnNumber: 21
+                      }, this)
+                    },
+                    void 0,
+                    false,
+                    {
+                      fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                      lineNumber: 155,
+                      columnNumber: 19
+                    },
+                    this
+                  ) }, void 0, false, {
+                    fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                    lineNumber: 154,
+                    columnNumber: 17
+                  }, this),
+                  /* @__PURE__ */ jsxDEV("h4", { className: "font-serif text-xl font-bold text-text-primary text-center mb-2", children: selectedStamp.name }, void 0, false, {
+                    fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                    lineNumber: 171,
+                    columnNumber: 17
+                  }, this),
+                  /* @__PURE__ */ jsxDEV("p", { className: "text-text-secondary text-center mb-4 flex items-center justify-center gap-2", children: [
+                    /* @__PURE__ */ jsxDEV(MapPin, { className: "w-4 h-4" }, void 0, false, {
+                      fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                      lineNumber: 175,
+                      columnNumber: 19
+                    }, this),
+                    selectedStamp.location
+                  ] }, void 0, true, {
+                    fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                    lineNumber: 174,
+                    columnNumber: 17
+                  }, this),
+                  selectedStamp.unlocked ? /* @__PURE__ */ jsxDEV("div", { className: "bg-brand-primary-light/50 border border-brand-primary/30 rounded-xl p-4 text-center", children: [
+                    /* @__PURE__ */ jsxDEV(Check, { className: "w-6 h-6 text-brand-accent mx-auto mb-2" }, void 0, false, {
+                      fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                      lineNumber: 181,
+                      columnNumber: 21
+                    }, this),
+                    /* @__PURE__ */ jsxDEV("p", { className: "font-medium text-brand-primary", children: "Terkumpul!" }, void 0, false, {
+                      fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                      lineNumber: 182,
+                      columnNumber: 21
+                    }, this),
+                    /* @__PURE__ */ jsxDEV("p", { className: "text-sm text-brand-secondary mt-1", children: [
+                      "Diunjungi pada ",
+                      formatDate(selectedStamp.date)
+                    ] }, void 0, true, {
+                      fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                      lineNumber: 183,
+                      columnNumber: 21
+                    }, this)
+                  ] }, void 0, true, {
+                    fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                    lineNumber: 180,
+                    columnNumber: 15
+                  }, this) : /* @__PURE__ */ jsxDEV("div", { className: "bg-surface-muted border border-border rounded-xl p-4 text-center", children: [
+                    /* @__PURE__ */ jsxDEV("p", { className: "text-text-secondary mb-3", children: "Belum terkumpul" }, void 0, false, {
+                      fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                      lineNumber: 189,
+                      columnNumber: 21
+                    }, this),
+                    /* @__PURE__ */ jsxDEV("p", { className: "text-sm text-text-muted", children: [
+                      "Kunjungi ",
+                      selectedStamp.name,
+                      " untuk mendapatkan stempel ini"
+                    ] }, void 0, true, {
+                      fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                      lineNumber: 190,
+                      columnNumber: 21
+                    }, this)
+                  ] }, void 0, true, {
+                    fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                    lineNumber: 188,
+                    columnNumber: 15
+                  }, this)
+                ] }, void 0, true, {
+                  fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                  lineNumber: 143,
+                  columnNumber: 15
+                }, this)
+              },
+              void 0,
+              false,
+              {
+                fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+                lineNumber: 136,
+                columnNumber: 13
+              },
+              this
+            )
+          },
+          void 0,
+          false,
+          {
+            fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+            lineNumber: 129,
+            columnNumber: 9
+          },
+          this
+        ) }, void 0, false, {
+          fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+          lineNumber: 127,
+          columnNumber: 7
+        }, this)
+      ]
+    },
+    void 0,
+    true,
+    {
+      fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+      lineNumber: 51,
+      columnNumber: 5
+    },
+    this
+  );
+}
+_s(StampCollection, "dR9X1NLctXQjGj4tgys7ta7isUs=", false, function() {
+  return [useToast];
+});
+_c = StampCollection;
+function StampCard({ stamp, onClick, variants }) {
+  return /* @__PURE__ */ jsxDEV(
+    motion.button,
+    {
+      type: "button",
+      className: cn(
+        "relative aspect-square rounded-[var(--radius-feature)] overflow-hidden shadow-card border",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring focus-visible:ring-offset-2",
+        stamp.unlocked ? "border-brand-primary bg-brand-primary-light" : "border-border bg-surface-muted grayscale"
+      ),
+      onClick,
+      variants,
+      whileTap: { scale: 0.95 },
+      transition: { duration: 0.1 },
+      children: [
+        /* @__PURE__ */ jsxDEV("div", { className: "absolute inset-0 flex items-center justify-center", children: /* @__PURE__ */ jsxDEV("span", { className: "text-5xl sm:text-6xl", children: stamp.icon }, void 0, false, {
+          fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+          lineNumber: 219,
+          columnNumber: 9
+        }, this) }, void 0, false, {
+          fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+          lineNumber: 218,
+          columnNumber: 7
+        }, this),
+        stamp.unlocked && /* @__PURE__ */ jsxDEV(
+          motion.div,
+          {
+            className: "absolute top-2 right-2 w-6 h-6 rounded-full bg-brand-accent flex items-center justify-center",
+            initial: { scale: 0 },
+            animate: { scale: 1 },
+            transition: { delay: 0.3, type: "spring", stiffness: 500, damping: 20 },
+            children: /* @__PURE__ */ jsxDEV(Check, { className: "w-4 h-4 text-text-inverse" }, void 0, false, {
+              fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+              lineNumber: 230,
+              columnNumber: 11
+            }, this)
+          },
+          void 0,
+          false,
+          {
+            fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+            lineNumber: 224,
+            columnNumber: 7
+          },
+          this
+        ),
+        !stamp.unlocked && /* @__PURE__ */ jsxDEV("div", { className: "absolute inset-0 bg-black/30 flex items-center justify-center", children: /* @__PURE__ */ jsxDEV("svg", { className: "w-8 h-8 text-white/80", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", children: /* @__PURE__ */ jsxDEV("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" }, void 0, false, {
+          fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+          lineNumber: 238,
+          columnNumber: 13
+        }, this) }, void 0, false, {
+          fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+          lineNumber: 237,
+          columnNumber: 11
+        }, this) }, void 0, false, {
+          fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+          lineNumber: 236,
+          columnNumber: 7
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "absolute bottom-0 left-0 right-0 px-3 py-2 bg-gradient-to-t from-black/80 via-black/20 to-transparent text-text-inverse", children: [
+          /* @__PURE__ */ jsxDEV("p", { className: "font-semibold text-sm truncate", children: stamp.name }, void 0, false, {
+            fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+            lineNumber: 245,
+            columnNumber: 9
+          }, this),
+          /* @__PURE__ */ jsxDEV("p", { className: "text-xs opacity-80", children: stamp.location }, void 0, false, {
+            fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+            lineNumber: 246,
+            columnNumber: 9
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+          lineNumber: 244,
+          columnNumber: 7
+        }, this)
+      ]
+    },
+    void 0,
+    true,
+    {
+      fileName: "C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx",
+      lineNumber: 206,
+      columnNumber: 5
+    },
+    this
+  );
+}
+_c2 = StampCard;
+var _c, _c2;
+$RefreshReg$(_c, "StampCollection");
+$RefreshReg$(_c2, "StampCard");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("C:/Users/Project/Travelindo/frontend/src/components/signatures/StampCollection.jsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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ZVByZXNlbmNlIiwiY24iLCJzdGFtcFZhcmlhbnRzIiwiWCIsIkNoZWNrIiwiTWFwUGluIiwiU3RhciIsIkNhbGVuZGFyIiwidXNlVG9hc3QiLCJzdGFtcERhdGEiLCJpZCIsIm5hbWUiLCJpY29uIiwibG9jYXRpb24iLCJ1bmxvY2tlZCIsImRhdGUiLCJmb3JtYXREYXRlIiwiZGF0ZVN0ciIsIkRhdGUiLCJ0b0xvY2FsZURhdGVTdHJpbmciLCJkYXkiLCJtb250aCIsInllYXIiLCJTdGFtcENvbGxlY3Rpb24iLCJvbkNsb3NlIiwiX3MiLCJzZWxlY3RlZFN0YW1wIiwic2V0U2VsZWN0ZWRTdGFtcCIsInRvYXN0IiwidW5sb2NrZWRDb3VudCIsImZpbHRlciIsInMiLCJsZW5ndGgiLCJ0b3RhbENvdW50Iiwib3BhY2l0eSIsInNjYWxlIiwieSIsImR1cmF0aW9uIiwiZSIsInN0b3BQcm9wYWdhdGlvbiIsIndpZHRoIiwiZGVsYXkiLCJtYXAiLCJzdGFtcCIsImluZGV4Iiwicm90YXRlIiwiZWFzZSIsIlN0YW1wQ2FyZCIsIm9uQ2xpY2siLCJ2YXJpYW50cyIsInR5cGUiLCJzdGlmZm5lc3MiLCJkYW1waW5nIiwiX2MyIiwiX2MiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZXMiOlsiU3RhbXBDb2xsZWN0aW9uLmpzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyB1c2VTdGF0ZSwgdXNlTWVtbyB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCB7IG1vdGlvbiwgQW5pbWF0ZVByZXNlbmNlIH0gZnJvbSAnZnJhbWVyLW1vdGlvbic7XG5pbXBvcnQgeyBjbiB9IGZyb20gJ0AvbGliL3V0aWxzJztcbmltcG9ydCB7IHN0YW1wVmFyaWFudHMgfSBmcm9tICdAL2xpYi9tb3Rpb24nO1xuaW1wb3J0IHsgWCwgQ2hlY2ssIE1hcFBpbiwgU3RhciwgQ2FsZW5kYXIgfSBmcm9tICdsdWNpZGUtcmVhY3QnO1xuaW1wb3J0IHsgdXNlVG9hc3QgfSBmcm9tICdAL2NvbXBvbmVudHMvdWkvVG9hc3QnO1xuXG5jb25zdCBzdGFtcERhdGEgPSBbXG4gIHsgaWQ6ICdiYWxpJywgbmFtZTogJ0JhbGknLCBpY29uOiAn8J+Pne+4jycsIGxvY2F0aW9uOiAnUHVsYXUgRGV3YXRhJywgdW5sb2NrZWQ6IHRydWUsIGRhdGU6ICcyMDI0LTAxLTE1JyB9LFxuICB7IGlkOiAna29tb2RvJywgbmFtZTogJ0tvbW9kbycsIGljb246ICfwn6aOJywgbG9jYXRpb246ICdOYWdhIFB1cmJhJywgdW5sb2NrZWQ6IHRydWUsIGRhdGU6ICcyMDI0LTAyLTIwJyB9LFxuICB7IGlkOiAncmFqYV9hbXBhdCcsIG5hbWU6ICdSYWphIEFtcGF0JywgaWNvbjogJ/CfkKAnLCBsb2NhdGlvbjogJ1N1cmdhIERpIEJ1bWknLCB1bmxvY2tlZDogdHJ1ZSwgZGF0ZTogJzIwMjQtMDMtMTAnIH0sXG4gIHsgaWQ6ICdib3JvYnVkdXInLCBuYW1lOiAnQm9yb2J1ZHVyJywgaWNvbjogJ/Cfj5vvuI8nLCBsb2NhdGlvbjogJ0NhbmRpIE1lZ2FsaXRpaycsIHVubG9ja2VkOiBmYWxzZSwgZGF0ZTogbnVsbCB9LFxuICB7IGlkOiAncmluamFuaScsIG5hbWU6ICdSaW5qYW5pJywgaWNvbjogJ/Cfj5TvuI8nLCBsb2NhdGlvbjogJ0d1bnVuZyBBcGknLCB1bmxvY2tlZDogZmFsc2UsIGRhdGU6IG51bGwgfSxcbiAgeyBpZDogJ3RvYmEnLCBuYW1lOiAnRGFuYXUgVG9iYScsIGljb246ICfwn4yKJywgbG9jYXRpb246ICdEYW5hdSBWdWxrYW5paycsIHVubG9ja2VkOiBmYWxzZSwgZGF0ZTogbnVsbCB9LFxuICB7IGlkOiAnYnJvbW8nLCBuYW1lOiAnQnJvbW8nLCBpY29uOiAn8J+MhScsIGxvY2F0aW9uOiAnU3VucmlzZSBMZWdlbmRhcmlzJywgdW5sb2NrZWQ6IGZhbHNlLCBkYXRlOiBudWxsIH0sXG4gIHsgaWQ6ICdkZXJhJywgbmFtZTogJ0RlcmF3YW4nLCBpY29uOiAn8J+QoicsIGxvY2F0aW9uOiAnUGVueXUgJiBLYXJhbmcnLCB1bmxvY2tlZDogZmFsc2UsIGRhdGU6IG51bGwgfSxcbl07XG5cbmZ1bmN0aW9uIGZvcm1hdERhdGUoZGF0ZVN0cikge1xuICBpZiAoIWRhdGVTdHIpIHJldHVybiAnJztcbiAgcmV0dXJuIG5ldyBEYXRlKGRhdGVTdHIpLnRvTG9jYWxlRGF0ZVN0cmluZygnaWQtSUQnLCB7IGRheTogJ251bWVyaWMnLCBtb250aDogJ2xvbmcnLCB5ZWFyOiAnbnVtZXJpYycgfSk7XG59XG5cbmV4cG9ydCBmdW5jdGlvbiBTdGFtcENvbGxlY3Rpb24oeyBvbkNsb3NlIH0pIHtcbiAgY29uc3QgW3NlbGVjdGVkU3RhbXAsIHNldFNlbGVjdGVkU3RhbXBdID0gdXNlU3RhdGUobnVsbCk7XG4gIGNvbnN0IHRvYXN0ID0gdXNlVG9hc3QoKTtcblxuICBjb25zdCB1bmxvY2tlZENvdW50ID0gdXNlTWVtbygoKSA9PiBzdGFtcERhdGEuZmlsdGVyKHMgPT4gcy51bmxvY2tlZCkubGVuZ3RoLCBbXSk7XG4gIGNvbnN0IHRvdGFsQ291bnQgPSBzdGFtcERhdGEubGVuZ3RoO1xuXG4gIHJldHVybiAoXG4gICAgPG1vdGlvbi5kaXZcbiAgICAgIGNsYXNzTmFtZT1cImZpeGVkIGluc2V0LTAgei01MCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciBwLTQgYmctYmxhY2svNjAgYmFja2Ryb3AtYmx1ci1zbVwiXG4gICAgICBpbml0aWFsPXt7IG9wYWNpdHk6IDAgfX1cbiAgICAgIGFuaW1hdGU9e3sgb3BhY2l0eTogMSB9fVxuICAgICAgZXhpdD17eyBvcGFjaXR5OiAwIH19XG4gICAgICBvbkNsaWNrPXtvbkNsb3NlfVxuICAgICAgcm9sZT1cImRpYWxvZ1wiXG4gICAgICBhcmlhLW1vZGFsPVwidHJ1ZVwiXG4gICAgICBhcmlhLWxhYmVsPVwiS29sZWtzaSBTdGVtcGVsXCJcbiAgICA+XG4gICAgICA8bW90aW9uLmRpdlxuICAgICAgICBjbGFzc05hbWU9XCJiZy1zdXJmYWNlLWVsZXZhdGVkIHJvdW5kZWQtW3ZhcigtLXJhZGl1cy1mZWF0dXJlKV0gc2hhZG93LWZsb2F0IG1heC13LTR4bCB3LWZ1bGwgbWF4LWgtWzkwdmhdIG92ZXJmbG93LXktYXV0byBib3JkZXIgYm9yZGVyLWJvcmRlclwiXG4gICAgICAgIGluaXRpYWw9e3sgb3BhY2l0eTogMCwgc2NhbGU6IDAuOTUsIHk6IDIwIH19XG4gICAgICAgIGFuaW1hdGU9e3sgb3BhY2l0eTogMSwgc2NhbGU6IDEsIHk6IDAgfX1cbiAgICAgICAgZXhpdD17eyBvcGFjaXR5OiAwLCBzY2FsZTogMC45NSwgeTogMjAgfX1cbiAgICAgICAgdHJhbnNpdGlvbj17eyBkdXJhdGlvbjogMC4zIH19XG4gICAgICAgIG9uQ2xpY2s9eyhlKSA9PiBlLnN0b3BQcm9wYWdhdGlvbigpfVxuICAgICAgPlxuICAgICAgICB7LyogSGVhZGVyICovfVxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiBwLTYgYm9yZGVyLWIgYm9yZGVyLWJvcmRlciBzdGlja3kgdG9wLTAgYmctc3VyZmFjZS1lbGV2YXRlZC85NSBiYWNrZHJvcC1ibHVyLXNtIHotMTBcIj5cbiAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgPGgyIGNsYXNzTmFtZT1cImZvbnQtc2VyaWYgdGV4dC0yeGwgZm9udC1ib2xkIHRleHQtdGV4dC1wcmltYXJ5XCI+S29sZWtzaSBTdGVtcGVsPC9oMj5cbiAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtdGV4dC1zZWNvbmRhcnkgdGV4dC1zbSBtdC0xXCI+XG4gICAgICAgICAgICAgIHt1bmxvY2tlZENvdW50fSBkYXJpIHt0b3RhbENvdW50fSBwdWxhdSB0ZXJrdW1wdWxcbiAgICAgICAgICAgIDwvcD5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8bW90aW9uLmRpdlxuICAgICAgICAgICAgY2xhc3NOYW1lPVwidy0xNiBoLTMgYmctc3VyZmFjZS1tdXRlZCByb3VuZGVkLWZ1bGwgb3ZlcmZsb3ctaGlkZGVuXCJcbiAgICAgICAgICAgIGluaXRpYWw9e3sgd2lkdGg6IDAgfX1cbiAgICAgICAgICAgIGFuaW1hdGU9e3sgd2lkdGg6ICc0cmVtJyB9fVxuICAgICAgICAgICAgdHJhbnNpdGlvbj17eyBkZWxheTogMC4zLCBkdXJhdGlvbjogMC41IH19XG4gICAgICAgICAgPlxuICAgICAgICAgICAgPG1vdGlvbi5kaXZcbiAgICAgICAgICAgICAgY2xhc3NOYW1lPVwiaC1mdWxsIGJnLWdyYWRpZW50LXRvLXIgZnJvbS1icmFuZC1wcmltYXJ5IHRvLWJyYW5kLWFjY2VudCByb3VuZGVkLWZ1bGxcIlxuICAgICAgICAgICAgICBpbml0aWFsPXt7IHdpZHRoOiAwIH19XG4gICAgICAgICAgICAgIGFuaW1hdGU9e3sgd2lkdGg6IGAkeyh1bmxvY2tlZENvdW50IC8gdG90YWxDb3VudCkgKiAxMDB9JWAgfX1cbiAgICAgICAgICAgICAgdHJhbnNpdGlvbj17eyBkZWxheTogMC41LCBkdXJhdGlvbjogMC44IH19XG4gICAgICAgICAgICAvPlxuICAgICAgICAgIDwvbW90aW9uLmRpdj5cbiAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICBvbkNsaWNrPXtvbkNsb3NlfVxuICAgICAgICAgICAgY2xhc3NOYW1lPVwicC0yIHJvdW5kZWQtbGcgdGV4dC10ZXh0LW11dGVkIGhvdmVyOnRleHQtdGV4dC1wcmltYXJ5IGhvdmVyOmJnLXN1cmZhY2UtbXV0ZWQgdHJhbnNpdGlvbi1jb2xvcnNcIlxuICAgICAgICAgICAgYXJpYS1sYWJlbD1cIlR1dHVwXCJcbiAgICAgICAgICA+XG4gICAgICAgICAgICA8WCBjbGFzc05hbWU9XCJ3LTUgaC01XCIgLz5cbiAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgey8qIFN0YW1wIEdyaWQgKi99XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicC02IGdyaWQgZ3JpZC1jb2xzLTIgbWQ6Z3JpZC1jb2xzLTMgbGc6Z3JpZC1jb2xzLTQgZ2FwLTRcIj5cbiAgICAgICAgICA8QW5pbWF0ZVByZXNlbmNlPlxuICAgICAgICAgICAge3N0YW1wRGF0YS5tYXAoKHN0YW1wLCBpbmRleCkgPT4gKFxuICAgICAgICAgICAgICA8bW90aW9uLmRpdlxuICAgICAgICAgICAgICAgIGtleT17c3RhbXAuaWR9XG4gICAgICAgICAgICAgICAgaW5pdGlhbD17eyBvcGFjaXR5OiAwLCBzY2FsZTogMC44LCByb3RhdGU6IC0xMCB9fVxuICAgICAgICAgICAgICAgIGFuaW1hdGU9e3sgb3BhY2l0eTogMSwgc2NhbGU6IDEsIHJvdGF0ZTogMCB9fVxuICAgICAgICAgICAgICAgIGV4aXQ9e3sgb3BhY2l0eTogMCwgc2NhbGU6IDAuOCwgcm90YXRlOiAxMCB9fVxuICAgICAgICAgICAgICAgIHRyYW5zaXRpb249e3sgZGVsYXk6IGluZGV4ICogMC4wNSwgZHVyYXRpb246IDAuNCwgZWFzZTogWzAuMzQsIDEuNTYsIDAuNjQsIDFdIH19XG4gICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICA8U3RhbXBDYXJkIHN0YW1wPXtzdGFtcH0gb25DbGljaz17KCkgPT4gc2V0U2VsZWN0ZWRTdGFtcChzdGFtcCl9IHZhcmlhbnRzPXtzdGFtcFZhcmlhbnRzfSAvPlxuICAgICAgICAgICAgICA8L21vdGlvbi5kaXY+XG4gICAgICAgICAgICApKX1cbiAgICAgICAgICA8L0FuaW1hdGVQcmVzZW5jZT5cbiAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgey8qIEVtcHR5IHN0YXRlIG1lc3NhZ2UgKi99XG4gICAgICAgIHt1bmxvY2tlZENvdW50ID09PSAwICYmIChcbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInB4LTYgcGItNiB0ZXh0LWNlbnRlclwiPlxuICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC10ZXh0LXNlY29uZGFyeVwiPlxuICAgICAgICAgICAgICBNdWxhaSBqZWxhamFoaSB1bnR1ayBtZW5ndW1wdWxrYW4gc3RlbXBlbCBwZXJ0YW1hIEFuZGEhXG4gICAgICAgICAgICA8L3A+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgICl9XG4gICAgICA8L21vdGlvbi5kaXY+XG5cbiAgICAgIHsvKiBEZXRhaWwgTW9kYWwgKi99XG4gICAgICA8QW5pbWF0ZVByZXNlbmNlPlxuICAgICAgICB7c2VsZWN0ZWRTdGFtcCAmJiAoXG4gICAgICAgICAgPG1vdGlvbi5kaXZcbiAgICAgICAgICAgIGNsYXNzTmFtZT1cImZpeGVkIGluc2V0LTAgei01MCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciBwLTQgYmctYmxhY2svNjAgYmFja2Ryb3AtYmx1ci1zbVwiXG4gICAgICAgICAgICBpbml0aWFsPXt7IG9wYWNpdHk6IDAgfX1cbiAgICAgICAgICAgIGFuaW1hdGU9e3sgb3BhY2l0eTogMSB9fVxuICAgICAgICAgICAgZXhpdD17eyBvcGFjaXR5OiAwIH19XG4gICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBzZXRTZWxlY3RlZFN0YW1wKG51bGwpfVxuICAgICAgICAgID5cbiAgICAgICAgICAgIDxtb3Rpb24uZGl2XG4gICAgICAgICAgICAgIGNsYXNzTmFtZT1cImJnLXN1cmZhY2UtZWxldmF0ZWQgcm91bmRlZC1bdmFyKC0tcmFkaXVzLWZlYXR1cmUpXSBzaGFkb3ctZmxvYXQgbWF4LXctbWQgdy1mdWxsIGJvcmRlciBib3JkZXItYm9yZGVyXCJcbiAgICAgICAgICAgICAgaW5pdGlhbD17eyBvcGFjaXR5OiAwLCBzY2FsZTogMC45LCB5OiAyMCB9fVxuICAgICAgICAgICAgICBhbmltYXRlPXt7IG9wYWNpdHk6IDEsIHNjYWxlOiAxLCB5OiAwIH19XG4gICAgICAgICAgICAgIGV4aXQ9e3sgb3BhY2l0eTogMCwgc2NhbGU6IDAuOSwgeTogMjAgfX1cbiAgICAgICAgICAgICAgb25DbGljaz17KGUpID0+IGUuc3RvcFByb3BhZ2F0aW9uKCl9XG4gICAgICAgICAgICA+XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicC02XCI+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4gbWItNFwiPlxuICAgICAgICAgICAgICAgICAgPGgzIGNsYXNzTmFtZT1cImZvbnQtc2VyaWYgdGV4dC14bCBmb250LWJvbGQgdGV4dC10ZXh0LXByaW1hcnlcIj5EZXRhaWwgU3RlbXBlbDwvaDM+XG4gICAgICAgICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHNldFNlbGVjdGVkU3RhbXAobnVsbCl9XG4gICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInAtMSByb3VuZGVkLWxnIHRleHQtdGV4dC1tdXRlZCBob3Zlcjp0ZXh0LXRleHQtcHJpbWFyeSBob3ZlcjpiZy1zdXJmYWNlLW11dGVkIHRyYW5zaXRpb24tY29sb3JzXCJcbiAgICAgICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICAgICAgPFggY2xhc3NOYW1lPVwidy01IGgtNVwiIC8+XG4gICAgICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC1jZW50ZXIgbWItNlwiPlxuICAgICAgICAgICAgICAgICAgPG1vdGlvbi5kaXZcbiAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwiaW5saW5lLWJsb2NrXCJcbiAgICAgICAgICAgICAgICAgICAgYW5pbWF0ZT17eyByb3RhdGU6IFswLCAtMywgMywgLTMsIDBdIH19XG4gICAgICAgICAgICAgICAgICAgIHRyYW5zaXRpb249e3sgZHVyYXRpb246IDAuNSB9fVxuICAgICAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT17Y24oXG4gICAgICAgICAgICAgICAgICAgICAgJ3ctMzIgaC0zMiByb3VuZGVkLVt2YXIoLS1yYWRpdXMtZmVhdHVyZSldIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyIHRleHQtNnhsIHNoYWRvdy1jYXJkIGJvcmRlci00JyxcbiAgICAgICAgICAgICAgICAgICAgICBzZWxlY3RlZFN0YW1wLnVubG9ja2VkXG4gICAgICAgICAgICAgICAgICAgICAgICA/ICdib3JkZXItYnJhbmQtcHJpbWFyeSBiZy1icmFuZC1wcmltYXJ5LWxpZ2h0J1xuICAgICAgICAgICAgICAgICAgICAgICAgOiAnYm9yZGVyLWJvcmRlciBiZy1zdXJmYWNlLW11dGVkIGdyYXlzY2FsZSdcbiAgICAgICAgICAgICAgICAgICAgKX0+XG4gICAgICAgICAgICAgICAgICAgICAge3NlbGVjdGVkU3RhbXAuaWNvbn1cbiAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICA8L21vdGlvbi5kaXY+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgICAgICA8aDQgY2xhc3NOYW1lPVwiZm9udC1zZXJpZiB0ZXh0LXhsIGZvbnQtYm9sZCB0ZXh0LXRleHQtcHJpbWFyeSB0ZXh0LWNlbnRlciBtYi0yXCI+XG4gICAgICAgICAgICAgICAgICB7c2VsZWN0ZWRTdGFtcC5uYW1lfVxuICAgICAgICAgICAgICAgIDwvaDQ+XG4gICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC10ZXh0LXNlY29uZGFyeSB0ZXh0LWNlbnRlciBtYi00IGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyIGdhcC0yXCI+XG4gICAgICAgICAgICAgICAgICA8TWFwUGluIGNsYXNzTmFtZT1cInctNCBoLTRcIiAvPlxuICAgICAgICAgICAgICAgICAge3NlbGVjdGVkU3RhbXAubG9jYXRpb259XG4gICAgICAgICAgICAgICAgPC9wPlxuXG4gICAgICAgICAgICAgICAge3NlbGVjdGVkU3RhbXAudW5sb2NrZWQgPyAoXG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLWJyYW5kLXByaW1hcnktbGlnaHQvNTAgYm9yZGVyIGJvcmRlci1icmFuZC1wcmltYXJ5LzMwIHJvdW5kZWQteGwgcC00IHRleHQtY2VudGVyXCI+XG4gICAgICAgICAgICAgICAgICAgIDxDaGVjayBjbGFzc05hbWU9XCJ3LTYgaC02IHRleHQtYnJhbmQtYWNjZW50IG14LWF1dG8gbWItMlwiIC8+XG4gICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cImZvbnQtbWVkaXVtIHRleHQtYnJhbmQtcHJpbWFyeVwiPlRlcmt1bXB1bCE8L3A+XG4gICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC1icmFuZC1zZWNvbmRhcnkgbXQtMVwiPlxuICAgICAgICAgICAgICAgICAgICAgIERpdW5qdW5naSBwYWRhIHtmb3JtYXREYXRlKHNlbGVjdGVkU3RhbXAuZGF0ZSl9XG4gICAgICAgICAgICAgICAgICAgIDwvcD5cbiAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICkgOiAoXG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXN1cmZhY2UtbXV0ZWQgYm9yZGVyIGJvcmRlci1ib3JkZXIgcm91bmRlZC14bCBwLTQgdGV4dC1jZW50ZXJcIj5cbiAgICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC10ZXh0LXNlY29uZGFyeSBtYi0zXCI+QmVsdW0gdGVya3VtcHVsPC9wPlxuICAgICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtdGV4dC1tdXRlZFwiPlxuICAgICAgICAgICAgICAgICAgICAgIEt1bmp1bmdpIHtzZWxlY3RlZFN0YW1wLm5hbWV9IHVudHVrIG1lbmRhcGF0a2FuIHN0ZW1wZWwgaW5pXG4gICAgICAgICAgICAgICAgICAgIDwvcD5cbiAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICl9XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9tb3Rpb24uZGl2PlxuICAgICAgICAgIDwvbW90aW9uLmRpdj5cbiAgICAgICAgKX1cbiAgICAgIDwvQW5pbWF0ZVByZXNlbmNlPlxuICAgIDwvbW90aW9uLmRpdj5cbiAgKTtcbn1cblxuZnVuY3Rpb24gU3RhbXBDYXJkKHsgc3RhbXAsIG9uQ2xpY2ssIHZhcmlhbnRzIH0pIHtcbiAgcmV0dXJuIChcbiAgICA8bW90aW9uLmJ1dHRvblxuICAgICAgdHlwZT1cImJ1dHRvblwiXG4gICAgICBjbGFzc05hbWU9e2NuKFxuICAgICAgICAncmVsYXRpdmUgYXNwZWN0LXNxdWFyZSByb3VuZGVkLVt2YXIoLS1yYWRpdXMtZmVhdHVyZSldIG92ZXJmbG93LWhpZGRlbiBzaGFkb3ctY2FyZCBib3JkZXInLFxuICAgICAgICAnZm9jdXMtdmlzaWJsZTpvdXRsaW5lLW5vbmUgZm9jdXMtdmlzaWJsZTpyaW5nLTIgZm9jdXMtdmlzaWJsZTpyaW5nLWZvY3VzLXJpbmcgZm9jdXMtdmlzaWJsZTpyaW5nLW9mZnNldC0yJyxcbiAgICAgICAgc3RhbXAudW5sb2NrZWQgPyAnYm9yZGVyLWJyYW5kLXByaW1hcnkgYmctYnJhbmQtcHJpbWFyeS1saWdodCcgOiAnYm9yZGVyLWJvcmRlciBiZy1zdXJmYWNlLW11dGVkIGdyYXlzY2FsZSdcbiAgICAgICl9XG4gICAgICBvbkNsaWNrPXtvbkNsaWNrfVxuICAgICAgdmFyaWFudHM9e3ZhcmlhbnRzfVxuICAgICAgd2hpbGVUYXA9e3sgc2NhbGU6IDAuOTUgfX1cbiAgICAgIHRyYW5zaXRpb249e3sgZHVyYXRpb246IDAuMSB9fVxuICAgID5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYWJzb2x1dGUgaW5zZXQtMCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlclwiPlxuICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LTV4bCBzbTp0ZXh0LTZ4bFwiPntzdGFtcC5pY29ufTwvc3Bhbj5cbiAgICAgIDwvZGl2PlxuXG4gICAgICB7LyogVW5sb2NrZWQgaW5kaWNhdG9yICovfVxuICAgICAge3N0YW1wLnVubG9ja2VkICYmIChcbiAgICAgICAgPG1vdGlvbi5kaXZcbiAgICAgICAgICBjbGFzc05hbWU9XCJhYnNvbHV0ZSB0b3AtMiByaWdodC0yIHctNiBoLTYgcm91bmRlZC1mdWxsIGJnLWJyYW5kLWFjY2VudCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlclwiXG4gICAgICAgICAgaW5pdGlhbD17eyBzY2FsZTogMCB9fVxuICAgICAgICAgIGFuaW1hdGU9e3sgc2NhbGU6IDEgfX1cbiAgICAgICAgICB0cmFuc2l0aW9uPXt7IGRlbGF5OiAwLjMsIHR5cGU6ICdzcHJpbmcnLCBzdGlmZm5lc3M6IDUwMCwgZGFtcGluZzogMjAgfX1cbiAgICAgICAgPlxuICAgICAgICAgIDxDaGVjayBjbGFzc05hbWU9XCJ3LTQgaC00IHRleHQtdGV4dC1pbnZlcnNlXCIgLz5cbiAgICAgICAgPC9tb3Rpb24uZGl2PlxuICAgICAgKX1cblxuICAgICAgey8qIExvY2sgb3ZlcmxheSBmb3IgbG9ja2VkIHN0YW1wcyAqL31cbiAgICAgIHshc3RhbXAudW5sb2NrZWQgJiYgKFxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImFic29sdXRlIGluc2V0LTAgYmctYmxhY2svMzAgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXJcIj5cbiAgICAgICAgICA8c3ZnIGNsYXNzTmFtZT1cInctOCBoLTggdGV4dC13aGl0ZS84MFwiIGZpbGw9XCJub25lXCIgc3Ryb2tlPVwiY3VycmVudENvbG9yXCIgdmlld0JveD1cIjAgMCAyNCAyNFwiPlxuICAgICAgICAgICAgPHBhdGggc3Ryb2tlTGluZWNhcD1cInJvdW5kXCIgc3Ryb2tlTGluZWpvaW49XCJyb3VuZFwiIHN0cm9rZVdpZHRoPXsyfSBkPVwiTTEyIDE1djJtLTYgNGgxMmEyIDIgMCAwMDItMnYtNmEyIDIgMCAwMC0yLTJINmEyIDIgMCAwMC0yIDJ2NmEyIDIgMCAwMDIgMnptMTAtMTBWN2E0IDQgMCAwMC04IDB2NGg4elwiIC8+XG4gICAgICAgICAgPC9zdmc+XG4gICAgICAgIDwvZGl2PlxuICAgICAgKX1cblxuICAgICAgey8qIE5hbWUgbGFiZWwgKi99XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImFic29sdXRlIGJvdHRvbS0wIGxlZnQtMCByaWdodC0wIHB4LTMgcHktMiBiZy1ncmFkaWVudC10by10IGZyb20tYmxhY2svODAgdmlhLWJsYWNrLzIwIHRvLXRyYW5zcGFyZW50IHRleHQtdGV4dC1pbnZlcnNlXCI+XG4gICAgICAgIDxwIGNsYXNzTmFtZT1cImZvbnQtc2VtaWJvbGQgdGV4dC1zbSB0cnVuY2F0ZVwiPntzdGFtcC5uYW1lfTwvcD5cbiAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC14cyBvcGFjaXR5LTgwXCI+e3N0YW1wLmxvY2F0aW9ufTwvcD5cbiAgICAgIDwvZGl2PlxuICAgIDwvbW90aW9uLmJ1dHRvbj5cbiAgKTtcbn0iXSwiZmlsZSI6IkM6L1VzZXJzL1Byb2plY3QvVHJhdmVsaW5kby9mcm9udGVuZC9zcmMvY29tcG9uZW50cy9zaWduYXR1cmVzL1N0YW1wQ29sbGVjdGlvbi5qc3gifQ==

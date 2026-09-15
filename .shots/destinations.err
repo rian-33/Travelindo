@@ -1,0 +1,10 @@
+[36412:26880:0915/203955.815:INFO:components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc:241] No machine level policy manager exists.
+[36412:26880:0915/203957.392:INFO:CONSOLE:1] "Manifest: Line: 1, column: 1, Syntax error.", source: http://localhost:4173/manifest.json (1)
+[36412:26880:0915/203958.431:INFO:CONSOLE:9] "Error memanggil API: AxiosError: Request failed with status code 404", source: http://localhost:4173/assets/api-upATN5RO.js (9)
+[36412:26880:0915/203958.435:INFO:CONSOLE:1] "Manifest: Line: 1, column: 1, Syntax error.", source: http://localhost:4173/manifest.json (1)
+[36412:26880:0915/203958.447:INFO:CONSOLE:9] "Error memanggil API Kuliner: AxiosError: Request failed with status code 404", source: http://localhost:4173/assets/api-upATN5RO.js (9)
+[36412:24192:0915/204001.683:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR
+[36412:24192:0915/204001.715:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR
+[36412:24192:0915/204001.715:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR
+[36412:24192:0915/204002.124:ERROR:google_apis\gcm\engine\mcs_client.cc:702]   Error code: 401  Error message: Authentication Failed: wrong_secret
+[36412:24192:0915/204002.124:ERROR:google_apis\gcm\engine\mcs_client.cc:704] Failed to log in to GCM, resetting connection.

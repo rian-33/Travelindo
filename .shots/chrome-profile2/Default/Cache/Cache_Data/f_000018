@@ -1,0 +1,204 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/ui/Toast.jsx");import __vite__cjsImport0_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=d3e4ec59"; const jsxDEV = __vite__cjsImport0_react_jsxDevRuntime["jsxDEV"];
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("C:/Users/Project/Travelindo/frontend/src/components/ui/Toast.jsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$(), _s2 = $RefreshSig$();
+import { cn } from "/src/lib/utils.js";
+import { motion, AnimatePresence } from "/node_modules/.vite/deps/framer-motion.js?v=d3e4ec59";
+import { X, CheckCircle, AlertCircle, Info, Loader2 } from "/node_modules/.vite/deps/lucide-react.js?v=d3e4ec59";
+import { useUIStore } from "/src/stores/index.js";
+const toastVariants = {
+  initial: { opacity: 0, x: 400, scale: 0.9 },
+  animate: { opacity: 1, x: 0, scale: 1 },
+  exit: { opacity: 0, x: 400, scale: 0.9 }
+};
+const toastStyles = {
+  success: "border-l-4 border-brand-accent",
+  error: "border-l-4 border-red-500",
+  info: "border-l-4 border-blue-500",
+  loading: "border-l-4 border-brand-primary"
+};
+const iconComponents = {
+  success: /* @__PURE__ */ jsxDEV(CheckCircle, { className: "w-5 h-5 text-brand-accent flex-shrink-0" }, void 0, false, {
+    fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Toast.jsx",
+    lineNumber: 39,
+    columnNumber: 12
+  }, this),
+  error: /* @__PURE__ */ jsxDEV(AlertCircle, { className: "w-5 h-5 text-red-500 flex-shrink-0" }, void 0, false, {
+    fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Toast.jsx",
+    lineNumber: 40,
+    columnNumber: 10
+  }, this),
+  info: /* @__PURE__ */ jsxDEV(Info, { className: "w-5 h-5 text-blue-500 flex-shrink-0" }, void 0, false, {
+    fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Toast.jsx",
+    lineNumber: 41,
+    columnNumber: 9
+  }, this),
+  loading: /* @__PURE__ */ jsxDEV(Loader2, { className: "w-5 h-5 text-brand-primary animate-spin flex-shrink-0" }, void 0, false, {
+    fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Toast.jsx",
+    lineNumber: 42,
+    columnNumber: 12
+  }, this)
+};
+const ToastItem = ({ toast, onClose }) => /* @__PURE__ */ jsxDEV(
+  motion.div,
+  {
+    variants: toastVariants,
+    initial: "initial",
+    animate: "animate",
+    exit: "exit",
+    className: cn(
+      "toast-custom flex items-start gap-3 p-4 min-w-[320px] max-w-md",
+      "rounded-xl shadow-float border border-border bg-surface-elevated",
+      toastStyles[toast.type] || toastStyles.info
+    ),
+    children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "flex-shrink-0 mt-0.5", children: iconComponents[toast.type] }, void 0, false, {
+        fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Toast.jsx",
+        lineNumber: 58,
+        columnNumber: 5
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "flex-1 min-w-0", children: [
+        toast.title && /* @__PURE__ */ jsxDEV("p", { className: "font-semibold text-text-primary mb-1", children: toast.title }, void 0, false, {
+          fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Toast.jsx",
+          lineNumber: 61,
+          columnNumber: 5
+        }, this),
+        toast.message && /* @__PURE__ */ jsxDEV("p", { className: "text-text-secondary text-sm", children: toast.message }, void 0, false, {
+          fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Toast.jsx",
+          lineNumber: 64,
+          columnNumber: 5
+        }, this),
+        toast.action && /* @__PURE__ */ jsxDEV(
+          "button",
+          {
+            onClick: () => {
+              toast.action.onClick();
+              onClose(toast.id);
+            },
+            className: "mt-2 text-sm font-medium text-brand-primary hover:underline",
+            children: toast.action.label
+          },
+          void 0,
+          false,
+          {
+            fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Toast.jsx",
+            lineNumber: 67,
+            columnNumber: 5
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Toast.jsx",
+        lineNumber: 59,
+        columnNumber: 5
+      }, this),
+      /* @__PURE__ */ jsxDEV(
+        "button",
+        {
+          onClick: () => onClose(toast.id),
+          className: "flex-shrink-0 p-1 text-text-muted hover:text-text-primary transition-colors rounded-lg hover:bg-surface-muted",
+          "aria-label": "Tutup notifikasi",
+          children: /* @__PURE__ */ jsxDEV(X, { className: "w-4 h-4" }, void 0, false, {
+            fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Toast.jsx",
+            lineNumber: 80,
+            columnNumber: 7
+          }, this)
+        },
+        void 0,
+        false,
+        {
+          fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Toast.jsx",
+          lineNumber: 75,
+          columnNumber: 5
+        },
+        this
+      )
+    ]
+  },
+  toast.id,
+  true,
+  {
+    fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Toast.jsx",
+    lineNumber: 46,
+    columnNumber: 1
+  },
+  this
+);
+_c = ToastItem;
+export function ToastContainer() {
+  _s();
+  const { toasts } = useUIStore();
+  const removeToast = (id) => {
+    useUIStore.getState().removeToast(id);
+  };
+  return /* @__PURE__ */ jsxDEV(AnimatePresence, { children: /* @__PURE__ */ jsxDEV("div", { className: "fixed bottom-6 right-6 z-[100] flex flex-col gap-3 pointer-events-none", children: toasts.map(
+    (toast) => /* @__PURE__ */ jsxDEV("div", { className: "pointer-events-auto", children: /* @__PURE__ */ jsxDEV(ToastItem, { toast, onClose: removeToast }, void 0, false, {
+      fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Toast.jsx",
+      lineNumber: 97,
+      columnNumber: 13
+    }, this) }, toast.id, false, {
+      fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Toast.jsx",
+      lineNumber: 96,
+      columnNumber: 9
+    }, this)
+  ) }, void 0, false, {
+    fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Toast.jsx",
+    lineNumber: 94,
+    columnNumber: 7
+  }, this) }, void 0, false, {
+    fileName: "C:/Users/Project/Travelindo/frontend/src/components/ui/Toast.jsx",
+    lineNumber: 93,
+    columnNumber: 5
+  }, this);
+}
+_s(ToastContainer, "kbnFZDAHDgsjLEWjroiQsjtATrg=", false, function() {
+  return [useUIStore];
+});
+_c2 = ToastContainer;
+export function useToast() {
+  _s2();
+  const addToast = useUIStore((state) => state.addToast);
+  const toast = {
+    success: (title, message, action) => addToast({ type: "success", title, message, action }),
+    error: (title, message, action) => addToast({ type: "error", title, message, action }),
+    info: (title, message, action) => addToast({ type: "info", title, message, action }),
+    loading: (title, message) => addToast({ type: "loading", title, message }),
+    custom: (toast2) => addToast(toast2)
+  };
+  return toast;
+}
+_s2(useToast, "R+IHLn9Xo+jFY39mWB+JnjjMZZw=", false, function() {
+  return [useUIStore];
+});
+var _c, _c2;
+$RefreshReg$(_c, "ToastItem");
+$RefreshReg$(_c2, "ToastContainer");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("C:/Users/Project/Travelindo/frontend/src/components/ui/Toast.jsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("C:/Users/Project/Travelindo/frontend/src/components/ui/Toast.jsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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QixXQUFVa0IsU0FBU2xCLE1BQUs7QUFBQSxFQUNuQztBQUVBLFNBQU9BO0FBQ1Q7QUFBQ2lCLElBWmVELFVBQVE7QUFBQSxVQUNML0IsVUFBVTtBQUFBO0FBQUEsSUFBQXdCLElBQUFZO0FBQUEsYUFBQVosSUFBQTtBQUFBLGFBQUFZLEtBQUEiLCJuYW1lcyI6WyJjbiIsIm1vdGlvbiIsIkFuaW1hdGVQcmVzZW5jZSIsIlgiLCJDaGVja0NpcmNsZSIsIkFsZXJ0Q2lyY2xlIiwiSW5mbyIsIkxvYWRlcjIiLCJ1c2VVSVN0b3JlIiwidG9hc3RWYXJpYW50cyIsImluaXRpYWwiLCJvcGFjaXR5IiwieCIsInNjYWxlIiwiYW5pbWF0ZSIsImV4aXQiLCJ0b2FzdFN0eWxlcyIsInN1Y2Nlc3MiLCJlcnJvciIsImluZm8iLCJsb2FkaW5nIiwiaWNvbkNvbXBvbmVudHMiLCJUb2FzdEl0ZW0iLCJ0b2FzdCIsIm9uQ2xvc2UiLCJ0eXBlIiwidGl0bGUiLCJtZXNzYWdlIiwiYWN0aW9uIiwib25DbGljayIsImlkIiwibGFiZWwiLCJfYyIsIlRvYXN0Q29udGFpbmVyIiwiX3MiLCJ0b2FzdHMiLCJyZW1vdmVUb2FzdCIsImdldFN0YXRlIiwibWFwIiwidXNlVG9hc3QiLCJfczIiLCJhZGRUb2FzdCIsInN0YXRlIiwiY3VzdG9tIiwiX2MyIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VzIjpbIlRvYXN0LmpzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBjbiB9IGZyb20gJ0AvbGliL3V0aWxzJztcbmltcG9ydCB7IG1vdGlvbiwgQW5pbWF0ZVByZXNlbmNlIH0gZnJvbSAnZnJhbWVyLW1vdGlvbic7XG5pbXBvcnQgeyBYLCBDaGVja0NpcmNsZSwgQWxlcnRDaXJjbGUsIEluZm8sIExvYWRlcjIgfSBmcm9tICdsdWNpZGUtcmVhY3QnO1xuaW1wb3J0IHsgdXNlVUlTdG9yZSB9IGZyb20gJ0Avc3RvcmVzJztcblxuY29uc3QgdG9hc3RWYXJpYW50cyA9IHtcbiAgaW5pdGlhbDogeyBvcGFjaXR5OiAwLCB4OiA0MDAsIHNjYWxlOiAwLjkgfSxcbiAgYW5pbWF0ZTogeyBvcGFjaXR5OiAxLCB4OiAwLCBzY2FsZTogMSB9LFxuICBleGl0OiB7IG9wYWNpdHk6IDAsIHg6IDQwMCwgc2NhbGU6IDAuOSB9LFxufTtcblxuY29uc3QgdG9hc3RTdHlsZXMgPSB7XG4gIHN1Y2Nlc3M6ICdib3JkZXItbC00IGJvcmRlci1icmFuZC1hY2NlbnQnLFxuICBlcnJvcjogJ2JvcmRlci1sLTQgYm9yZGVyLXJlZC01MDAnLFxuICBpbmZvOiAnYm9yZGVyLWwtNCBib3JkZXItYmx1ZS01MDAnLFxuICBsb2FkaW5nOiAnYm9yZGVyLWwtNCBib3JkZXItYnJhbmQtcHJpbWFyeScsXG59O1xuXG5jb25zdCBpY29uQ29tcG9uZW50cyA9IHtcbiAgc3VjY2VzczogPENoZWNrQ2lyY2xlIGNsYXNzTmFtZT1cInctNSBoLTUgdGV4dC1icmFuZC1hY2NlbnQgZmxleC1zaHJpbmstMFwiIC8+LFxuICBlcnJvcjogPEFsZXJ0Q2lyY2xlIGNsYXNzTmFtZT1cInctNSBoLTUgdGV4dC1yZWQtNTAwIGZsZXgtc2hyaW5rLTBcIiAvPixcbiAgaW5mbzogPEluZm8gY2xhc3NOYW1lPVwidy01IGgtNSB0ZXh0LWJsdWUtNTAwIGZsZXgtc2hyaW5rLTBcIiAvPixcbiAgbG9hZGluZzogPExvYWRlcjIgY2xhc3NOYW1lPVwidy01IGgtNSB0ZXh0LWJyYW5kLXByaW1hcnkgYW5pbWF0ZS1zcGluIGZsZXgtc2hyaW5rLTBcIiAvPixcbn07XG5cbmNvbnN0IFRvYXN0SXRlbSA9ICh7IHRvYXN0LCBvbkNsb3NlIH0pID0+IChcbiAgPG1vdGlvbi5kaXZcbiAgICBrZXk9e3RvYXN0LmlkfVxuICAgIHZhcmlhbnRzPXt0b2FzdFZhcmlhbnRzfVxuICAgIGluaXRpYWw9XCJpbml0aWFsXCJcbiAgICBhbmltYXRlPVwiYW5pbWF0ZVwiXG4gICAgZXhpdD1cImV4aXRcIlxuICAgIGNsYXNzTmFtZT17Y24oXG4gICAgICAndG9hc3QtY3VzdG9tIGZsZXggaXRlbXMtc3RhcnQgZ2FwLTMgcC00IG1pbi13LVszMjBweF0gbWF4LXctbWQnLFxuICAgICAgJ3JvdW5kZWQteGwgc2hhZG93LWZsb2F0IGJvcmRlciBib3JkZXItYm9yZGVyIGJnLXN1cmZhY2UtZWxldmF0ZWQnLFxuICAgICAgdG9hc3RTdHlsZXNbdG9hc3QudHlwZV0gfHwgdG9hc3RTdHlsZXMuaW5mb1xuICAgICl9XG4gID5cbiAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXgtc2hyaW5rLTAgbXQtMC41XCI+e2ljb25Db21wb25lbnRzW3RvYXN0LnR5cGVdfTwvZGl2PlxuICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleC0xIG1pbi13LTBcIj5cbiAgICAgIHt0b2FzdC50aXRsZSAmJiAoXG4gICAgICAgIDxwIGNsYXNzTmFtZT1cImZvbnQtc2VtaWJvbGQgdGV4dC10ZXh0LXByaW1hcnkgbWItMVwiPnt0b2FzdC50aXRsZX08L3A+XG4gICAgICApfVxuICAgICAge3RvYXN0Lm1lc3NhZ2UgJiYgKFxuICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXRleHQtc2Vjb25kYXJ5IHRleHQtc21cIj57dG9hc3QubWVzc2FnZX08L3A+XG4gICAgICApfVxuICAgICAge3RvYXN0LmFjdGlvbiAmJiAoXG4gICAgICAgIDxidXR0b25cbiAgICAgICAgICBvbkNsaWNrPXsoKSA9PiB7IHRvYXN0LmFjdGlvbi5vbkNsaWNrKCk7IG9uQ2xvc2UodG9hc3QuaWQpOyB9fVxuICAgICAgICAgIGNsYXNzTmFtZT1cIm10LTIgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWJyYW5kLXByaW1hcnkgaG92ZXI6dW5kZXJsaW5lXCJcbiAgICAgICAgPlxuICAgICAgICAgIHt0b2FzdC5hY3Rpb24ubGFiZWx9XG4gICAgICAgIDwvYnV0dG9uPlxuICAgICAgKX1cbiAgICA8L2Rpdj5cbiAgICA8YnV0dG9uXG4gICAgICBvbkNsaWNrPXsoKSA9PiBvbkNsb3NlKHRvYXN0LmlkKX1cbiAgICAgIGNsYXNzTmFtZT1cImZsZXgtc2hyaW5rLTAgcC0xIHRleHQtdGV4dC1tdXRlZCBob3Zlcjp0ZXh0LXRleHQtcHJpbWFyeSB0cmFuc2l0aW9uLWNvbG9ycyByb3VuZGVkLWxnIGhvdmVyOmJnLXN1cmZhY2UtbXV0ZWRcIlxuICAgICAgYXJpYS1sYWJlbD1cIlR1dHVwIG5vdGlmaWthc2lcIlxuICAgID5cbiAgICAgIDxYIGNsYXNzTmFtZT1cInctNCBoLTRcIiAvPlxuICAgIDwvYnV0dG9uPlxuICA8L21vdGlvbi5kaXY+XG4pO1xuXG5leHBvcnQgZnVuY3Rpb24gVG9hc3RDb250YWluZXIoKSB7XG4gIGNvbnN0IHsgdG9hc3RzIH0gPSB1c2VVSVN0b3JlKCk7XG5cbiAgY29uc3QgcmVtb3ZlVG9hc3QgPSAoaWQpID0+IHtcbiAgICB1c2VVSVN0b3JlLmdldFN0YXRlKCkucmVtb3ZlVG9hc3QoaWQpO1xuICB9O1xuXG4gIHJldHVybiAoXG4gICAgPEFuaW1hdGVQcmVzZW5jZT5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZml4ZWQgYm90dG9tLTYgcmlnaHQtNiB6LVsxMDBdIGZsZXggZmxleC1jb2wgZ2FwLTMgcG9pbnRlci1ldmVudHMtbm9uZVwiPlxuICAgICAgICB7dG9hc3RzLm1hcCgodG9hc3QpID0+IChcbiAgICAgICAgICA8ZGl2IGtleT17dG9hc3QuaWR9IGNsYXNzTmFtZT1cInBvaW50ZXItZXZlbnRzLWF1dG9cIj5cbiAgICAgICAgICAgIDxUb2FzdEl0ZW0gdG9hc3Q9e3RvYXN0fSBvbkNsb3NlPXtyZW1vdmVUb2FzdH0gLz5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgKSl9XG4gICAgICA8L2Rpdj5cbiAgICA8L0FuaW1hdGVQcmVzZW5jZT5cbiAgKTtcbn1cblxuZXhwb3J0IGZ1bmN0aW9uIHVzZVRvYXN0KCkge1xuICBjb25zdCBhZGRUb2FzdCA9IHVzZVVJU3RvcmUoKHN0YXRlKSA9PiBzdGF0ZS5hZGRUb2FzdCk7XG5cbiAgY29uc3QgdG9hc3QgPSB7XG4gICAgc3VjY2VzczogKHRpdGxlLCBtZXNzYWdlLCBhY3Rpb24pID0+IGFkZFRvYXN0KHsgdHlwZTogJ3N1Y2Nlc3MnLCB0aXRsZSwgbWVzc2FnZSwgYWN0aW9uIH0pLFxuICAgIGVycm9yOiAodGl0bGUsIG1lc3NhZ2UsIGFjdGlvbikgPT4gYWRkVG9hc3QoeyB0eXBlOiAnZXJyb3InLCB0aXRsZSwgbWVzc2FnZSwgYWN0aW9uIH0pLFxuICAgIGluZm86ICh0aXRsZSwgbWVzc2FnZSwgYWN0aW9uKSA9PiBhZGRUb2FzdCh7IHR5cGU6ICdpbmZvJywgdGl0bGUsIG1lc3NhZ2UsIGFjdGlvbiB9KSxcbiAgICBsb2FkaW5nOiAodGl0bGUsIG1lc3NhZ2UpID0+IGFkZFRvYXN0KHsgdHlwZTogJ2xvYWRpbmcnLCB0aXRsZSwgbWVzc2FnZSB9KSxcbiAgICBjdXN0b206ICh0b2FzdCkgPT4gYWRkVG9hc3QodG9hc3QpLFxuICB9O1xuXG4gIHJldHVybiB0b2FzdDtcbn0iXSwiZmlsZSI6IkM6L1VzZXJzL1Byb2plY3QvVHJhdmVsaW5kby9mcm9udGVuZC9zcmMvY29tcG9uZW50cy91aS9Ub2FzdC5qc3gifQ==

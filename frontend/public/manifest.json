@@ -1,0 +1,19 @@
+{
+  "name": "TraveLindo - Temukan Keindahan Tersembunyi Indonesia",
+  "short_name": "TraveLindo",
+  "description": "Platform perencanaan perjalanan terpercaya untuk mengeksplorasi keindahan tersembunyi Indonesia.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FAF8F5",
+  "theme_color": "#C85C3E",
+  "lang": "id",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

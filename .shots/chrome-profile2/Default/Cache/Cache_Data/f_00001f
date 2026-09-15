@@ -1,0 +1,197 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/home/SearchForm.jsx");import __vite__cjsImport0_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=d3e4ec59"; const jsxDEV = __vite__cjsImport0_react_jsxDevRuntime["jsxDEV"];
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("C:/Users/Project/Travelindo/frontend/src/components/home/SearchForm.jsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import { useForm } from "/src/hooks/useForm.js";
+import { searchSchema } from "/src/schemas/index.js";
+import { motion } from "/node_modules/.vite/deps/framer-motion.js?v=d3e4ec59";
+import { Button } from "/src/components/ui/Button.jsx";
+import { Input } from "/src/components/ui/Input.jsx";
+import { Select } from "/src/components/ui/Select.jsx";
+import { Calendar, MapPin, CalendarDays } from "/node_modules/.vite/deps/lucide-react.js?v=d3e4ec59";
+import { cn } from "/src/lib/utils.js";
+import __vite__cjsImport11_react from "/node_modules/.vite/deps/react.js?v=d3e4ec59"; const useState = __vite__cjsImport11_react["useState"];
+export function SearchForm({ onSearch, initialValues }) {
+  _s();
+  const [isDateFocused, setIsDateFocused] = useState(false);
+  const [dateRange, setDateRange] = useState({ from: "", to: "" });
+  const { handleSubmit, setFieldValue, getFieldValue, errors, isSubmitting } = useForm(searchSchema, {
+    destination: initialValues?.destination || "",
+    checkIn: initialValues?.checkIn || "",
+    checkOut: initialValues?.checkOut || "",
+    guests: initialValues?.guests || { adults: 1, children: 0 }
+  });
+  const destinations = [
+    { value: "bali", label: "Bali" },
+    { value: "jogja", label: "Yogyakarta" },
+    { value: "lombok", label: "Lombok" },
+    { value: "labuan_bajo", label: "Labuan Bajo" },
+    { value: "raja_ampat", label: "Raja Ampat" },
+    { value: "bromo", label: "Gunung Bromo" },
+    { value: "toba", label: "Danau Toba" },
+    { value: "dera", label: "Kepulauan Derawan" }
+  ];
+  const handleDateSelect = (field, date) => {
+    if (date) {
+      setFieldValue(field, date.toISOString().split("T")[0]);
+    }
+  };
+  const onSubmit = async (data) => {
+    onSearch?.(data);
+  };
+  return /* @__PURE__ */ jsxDEV(
+    "form",
+    {
+      onSubmit: handleSubmit(onSubmit),
+      className: "bg-surface-elevated p-3 rounded-[var(--radius-feature)] shadow-float border border-border flex flex-col sm:flex-row items-center w-full max-w-3xl gap-2 transition-all duration-500 ease-brand",
+      children: [
+        /* @__PURE__ */ jsxDEV("div", { className: "flex-1 flex items-center px-6 w-full relative", children: [
+          /* @__PURE__ */ jsxDEV(MapPin, { className: "absolute left-4 text-text-muted w-5 h-5", "aria-hidden": "true" }, void 0, false, {
+            fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/SearchForm.jsx",
+            lineNumber: 68,
+            columnNumber: 9
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            Select,
+            {
+              label: "",
+              placeholder: "Cari pulau, kota, atau provinsi...",
+              options: destinations,
+              value: getFieldValue("destination"),
+              onChange: (value) => setFieldValue("destination", value),
+              searchable: true,
+              clearable: true,
+              className: "w-full pl-12"
+            },
+            void 0,
+            false,
+            {
+              fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/SearchForm.jsx",
+              lineNumber: 69,
+              columnNumber: 9
+            },
+            this
+          ),
+          errors.destination && /* @__PURE__ */ jsxDEV(motion.span, { className: "absolute bottom-full left-4 mb-1 text-red-500 text-caption", initial: { opacity: 0, y: 10 }, animate: { opacity: 1, y: 0 }, children: errors.destination.message }, void 0, false, {
+            fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/SearchForm.jsx",
+            lineNumber: 80,
+            columnNumber: 9
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/SearchForm.jsx",
+          lineNumber: 67,
+          columnNumber: 7
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "hidden sm:block w-[1px] h-10 bg-border" }, void 0, false, {
+          fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/SearchForm.jsx",
+          lineNumber: 86,
+          columnNumber: 7
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "flex-1 flex items-center px-6 w-full relative", children: [
+          /* @__PURE__ */ jsxDEV(CalendarDays, { className: "absolute left-4 text-text-muted w-5 h-5", "aria-hidden": "true" }, void 0, false, {
+            fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/SearchForm.jsx",
+            lineNumber: 89,
+            columnNumber: 9
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            Input,
+            {
+              type: "text",
+              placeholder: "Tanggal check-in & check-out",
+              value: `${dateRange.from ? new Date(dateRange.from).toLocaleDateString("id-ID", { day: "numeric", month: "short" }) : ""} ${dateRange.to ? "– " + new Date(dateRange.to).toLocaleDateString("id-ID", { day: "numeric", month: "short" }) : ""}`,
+              readOnly: true,
+              onClick: () => setIsDateFocused(true),
+              className: cn("pl-12", isDateFocused && "border-border-focus ring-2 ring-focus-ring"),
+              onBlur: () => setIsDateFocused(false)
+            },
+            void 0,
+            false,
+            {
+              fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/SearchForm.jsx",
+              lineNumber: 90,
+              columnNumber: 9
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/SearchForm.jsx",
+          lineNumber: 88,
+          columnNumber: 7
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          Button,
+          {
+            type: "submit",
+            className: "w-full sm:w-auto bg-brand-primary text-text-inverse px-8 py-4 rounded-full font-semibold hover:bg-brand-primary-hover transition-colors duration-300 flex items-center justify-center gap-2",
+            loading: isSubmitting,
+            rightIcon: /* @__PURE__ */ jsxDEV("svg", { className: "w-5 h-5", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", children: /* @__PURE__ */ jsxDEV("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M17 8l4 4m0 0l-4 4m4-4H3" }, void 0, false, {
+              fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/SearchForm.jsx",
+              lineNumber: 106,
+              columnNumber: 99
+            }, this) }, void 0, false, {
+              fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/SearchForm.jsx",
+              lineNumber: 106,
+              columnNumber: 20
+            }, this),
+            children: /* @__PURE__ */ jsxDEV("span", { children: "Eksplorasi" }, void 0, false, {
+              fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/SearchForm.jsx",
+              lineNumber: 108,
+              columnNumber: 9
+            }, this)
+          },
+          void 0,
+          false,
+          {
+            fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/SearchForm.jsx",
+            lineNumber: 102,
+            columnNumber: 7
+          },
+          this
+        )
+      ]
+    },
+    void 0,
+    true,
+    {
+      fileName: "C:/Users/Project/Travelindo/frontend/src/components/home/SearchForm.jsx",
+      lineNumber: 63,
+      columnNumber: 5
+    },
+    this
+  );
+}
+_s(SearchForm, "gTyBYbY9qBJHWIwUZK8wnZlzu2I=", false, function() {
+  return [useForm];
+});
+_c = SearchForm;
+var _c;
+$RefreshReg$(_c, "SearchForm");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("C:/Users/Project/Travelindo/frontend/src/components/home/SearchForm.jsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("C:/Users/Project/Travelindo/frontend/src/components/home/SearchForm.jsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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QUssMEJBQU47QUFBQTtBQUFBO0FBQUE7QUFBQSxtQkFBZ0I7QUFBQTtBQUFBLFVBTmxCO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxRQU9BO0FBQUE7QUFBQTtBQUFBLElBOUNGO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxFQStDQTtBQUVKO0FBQUNYLEdBbEZlSCxZQUFVO0FBQUEsVUFJcURYLE9BQU87QUFBQTtBQUFBLEtBSnRFVztBQUFVLElBQUFzQztBQUFBLGFBQUFBLElBQUEiLCJuYW1lcyI6WyJ1c2VGb3JtIiwic2VhcmNoU2NoZW1hIiwibW90aW9uIiwiQnV0dG9uIiwiSW5wdXQiLCJTZWxlY3QiLCJDYWxlbmRhciIsIk1hcFBpbiIsIkNhbGVuZGFyRGF5cyIsImNuIiwidXNlU3RhdGUiLCJTZWFyY2hGb3JtIiwib25TZWFyY2giLCJpbml0aWFsVmFsdWVzIiwiX3MiLCJpc0RhdGVGb2N1c2VkIiwic2V0SXNEYXRlRm9jdXNlZCIsImRhdGVSYW5nZSIsInNldERhdGVSYW5nZSIsImZyb20iLCJ0byIsImhhbmRsZVN1Ym1pdCIsInNldEZpZWxkVmFsdWUiLCJnZXRGaWVsZFZhbHVlIiwiZXJyb3JzIiwiaXNTdWJtaXR0aW5nIiwiZGVzdGluYXRpb24iLCJjaGVja0luIiwiY2hlY2tPdXQiLCJndWVzdHMiLCJhZHVsdHMiLCJjaGlsZHJlbiIsImRlc3RpbmF0aW9ucyIsInZhbHVlIiwibGFiZWwiLCJoYW5kbGVEYXRlU2VsZWN0IiwiZmllbGQiLCJkYXRlIiwidG9JU09TdHJpbmciLCJzcGxpdCIsIm9uU3VibWl0IiwiZGF0YSIsIm9wYWNpdHkiLCJ5IiwibWVzc2FnZSIsIkRhdGUiLCJ0b0xvY2FsZURhdGVTdHJpbmciLCJkYXkiLCJtb250aCIsIl9jIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VzIjpbIlNlYXJjaEZvcm0uanN4Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IHVzZUZvcm0gfSBmcm9tICdAL2hvb2tzL3VzZUZvcm0nO1xuaW1wb3J0IHsgc2VhcmNoU2NoZW1hIH0gZnJvbSAnQC9zY2hlbWFzJztcbmltcG9ydCB7IG1vdGlvbiB9IGZyb20gJ2ZyYW1lci1tb3Rpb24nO1xuaW1wb3J0IHsgQnV0dG9uIH0gZnJvbSAnQC9jb21wb25lbnRzL3VpL0J1dHRvbic7XG5pbXBvcnQgeyBJbnB1dCB9IGZyb20gJ0AvY29tcG9uZW50cy91aS9JbnB1dCc7XG5pbXBvcnQgeyBTZWxlY3QgfSBmcm9tICdAL2NvbXBvbmVudHMvdWkvU2VsZWN0JztcbmltcG9ydCB7IENhbGVuZGFyLCBNYXBQaW4sIENhbGVuZGFyRGF5cyB9IGZyb20gJ2x1Y2lkZS1yZWFjdCc7XG5pbXBvcnQgeyBjbiB9IGZyb20gJ0AvbGliL3V0aWxzJztcbmltcG9ydCB7IHVzZVN0YXRlIH0gZnJvbSAncmVhY3QnO1xuXG5leHBvcnQgZnVuY3Rpb24gU2VhcmNoRm9ybSh7IG9uU2VhcmNoLCBpbml0aWFsVmFsdWVzIH0pIHtcbiAgY29uc3QgW2lzRGF0ZUZvY3VzZWQsIHNldElzRGF0ZUZvY3VzZWRdID0gdXNlU3RhdGUoZmFsc2UpO1xuICBjb25zdCBbZGF0ZVJhbmdlLCBzZXREYXRlUmFuZ2VdID0gdXNlU3RhdGUoeyBmcm9tOiAnJywgdG86ICcnIH0pO1xuXG4gIGNvbnN0IHsgaGFuZGxlU3VibWl0LCBzZXRGaWVsZFZhbHVlLCBnZXRGaWVsZFZhbHVlLCBlcnJvcnMsIGlzU3VibWl0dGluZyB9ID0gdXNlRm9ybShzZWFyY2hTY2hlbWEsIHtcbiAgICBkZXN0aW5hdGlvbjogaW5pdGlhbFZhbHVlcz8uZGVzdGluYXRpb24gfHwgJycsXG4gICAgY2hlY2tJbjogaW5pdGlhbFZhbHVlcz8uY2hlY2tJbiB8fCAnJyxcbiAgICBjaGVja091dDogaW5pdGlhbFZhbHVlcz8uY2hlY2tPdXQgfHwgJycsXG4gICAgZ3Vlc3RzOiBpbml0aWFsVmFsdWVzPy5ndWVzdHMgfHwgeyBhZHVsdHM6IDEsIGNoaWxkcmVuOiAwIH0sXG4gIH0pO1xuXG4gIGNvbnN0IGRlc3RpbmF0aW9ucyA9IFtcbiAgICB7IHZhbHVlOiAnYmFsaScsIGxhYmVsOiAnQmFsaScgfSxcbiAgICB7IHZhbHVlOiAnam9namEnLCBsYWJlbDogJ1lvZ3lha2FydGEnIH0sXG4gICAgeyB2YWx1ZTogJ2xvbWJvaycsIGxhYmVsOiAnTG9tYm9rJyB9LFxuICAgIHsgdmFsdWU6ICdsYWJ1YW5fYmFqbycsIGxhYmVsOiAnTGFidWFuIEJham8nIH0sXG4gICAgeyB2YWx1ZTogJ3JhamFfYW1wYXQnLCBsYWJlbDogJ1JhamEgQW1wYXQnIH0sXG4gICAgeyB2YWx1ZTogJ2Jyb21vJywgbGFiZWw6ICdHdW51bmcgQnJvbW8nIH0sXG4gICAgeyB2YWx1ZTogJ3RvYmEnLCBsYWJlbDogJ0RhbmF1IFRvYmEnIH0sXG4gICAgeyB2YWx1ZTogJ2RlcmEnLCBsYWJlbDogJ0tlcHVsYXVhbiBEZXJhd2FuJyB9LFxuICBdO1xuXG4gIGNvbnN0IGhhbmRsZURhdGVTZWxlY3QgPSAoZmllbGQsIGRhdGUpID0+IHtcbiAgICBpZiAoZGF0ZSkge1xuICAgICAgc2V0RmllbGRWYWx1ZShmaWVsZCwgZGF0ZS50b0lTT1N0cmluZygpLnNwbGl0KCdUJylbMF0pO1xuICAgIH1cbiAgfTtcblxuICBjb25zdCBvblN1Ym1pdCA9IGFzeW5jIChkYXRhKSA9PiB7XG4gICAgb25TZWFyY2g/LihkYXRhKTtcbiAgfTtcblxuICByZXR1cm4gKFxuICAgIDxmb3JtXG4gICAgICBvblN1Ym1pdD17aGFuZGxlU3VibWl0KG9uU3VibWl0KX1cbiAgICAgIGNsYXNzTmFtZT1cImJnLXN1cmZhY2UtZWxldmF0ZWQgcC0zIHJvdW5kZWQtW3ZhcigtLXJhZGl1cy1mZWF0dXJlKV0gc2hhZG93LWZsb2F0IGJvcmRlciBib3JkZXItYm9yZGVyIGZsZXggZmxleC1jb2wgc206ZmxleC1yb3cgaXRlbXMtY2VudGVyIHctZnVsbCBtYXgtdy0zeGwgZ2FwLTIgdHJhbnNpdGlvbi1hbGwgZHVyYXRpb24tNTAwIGVhc2UtYnJhbmRcIlxuICAgID5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleC0xIGZsZXggaXRlbXMtY2VudGVyIHB4LTYgdy1mdWxsIHJlbGF0aXZlXCI+XG4gICAgICAgIDxNYXBQaW4gY2xhc3NOYW1lPVwiYWJzb2x1dGUgbGVmdC00IHRleHQtdGV4dC1tdXRlZCB3LTUgaC01XCIgYXJpYS1oaWRkZW49XCJ0cnVlXCIgLz5cbiAgICAgICAgPFNlbGVjdFxuICAgICAgICAgIGxhYmVsPVwiXCJcbiAgICAgICAgICBwbGFjZWhvbGRlcj1cIkNhcmkgcHVsYXUsIGtvdGEsIGF0YXUgcHJvdmluc2kuLi5cIlxuICAgICAgICAgIG9wdGlvbnM9e2Rlc3RpbmF0aW9uc31cbiAgICAgICAgICB2YWx1ZT17Z2V0RmllbGRWYWx1ZSgnZGVzdGluYXRpb24nKX1cbiAgICAgICAgICBvbkNoYW5nZT17KHZhbHVlKSA9PiBzZXRGaWVsZFZhbHVlKCdkZXN0aW5hdGlvbicsIHZhbHVlKX1cbiAgICAgICAgICBzZWFyY2hhYmxlXG4gICAgICAgICAgY2xlYXJhYmxlXG4gICAgICAgICAgY2xhc3NOYW1lPVwidy1mdWxsIHBsLTEyXCJcbiAgICAgICAgLz5cbiAgICAgICAge2Vycm9ycy5kZXN0aW5hdGlvbiAmJiAoXG4gICAgICAgICAgPG1vdGlvbi5zcGFuIGNsYXNzTmFtZT1cImFic29sdXRlIGJvdHRvbS1mdWxsIGxlZnQtNCBtYi0xIHRleHQtcmVkLTUwMCB0ZXh0LWNhcHRpb25cIiBpbml0aWFsPXt7IG9wYWNpdHk6IDAsIHk6IDEwIH19IGFuaW1hdGU9e3sgb3BhY2l0eTogMSwgeTogMCB9fT5cbiAgICAgICAgICAgIHtlcnJvcnMuZGVzdGluYXRpb24ubWVzc2FnZX1cbiAgICAgICAgICA8L21vdGlvbi5zcGFuPlxuICAgICAgICApfVxuICAgICAgPC9kaXY+XG5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiaGlkZGVuIHNtOmJsb2NrIHctWzFweF0gaC0xMCBiZy1ib3JkZXJcIiAvPlxuXG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXgtMSBmbGV4IGl0ZW1zLWNlbnRlciBweC02IHctZnVsbCByZWxhdGl2ZVwiPlxuICAgICAgICA8Q2FsZW5kYXJEYXlzIGNsYXNzTmFtZT1cImFic29sdXRlIGxlZnQtNCB0ZXh0LXRleHQtbXV0ZWQgdy01IGgtNVwiIGFyaWEtaGlkZGVuPVwidHJ1ZVwiIC8+XG4gICAgICAgIDxJbnB1dFxuICAgICAgICAgIHR5cGU9XCJ0ZXh0XCJcbiAgICAgICAgICBwbGFjZWhvbGRlcj1cIlRhbmdnYWwgY2hlY2staW4gJiBjaGVjay1vdXRcIlxuICAgICAgICAgIHZhbHVlPXtgJHtkYXRlUmFuZ2UuZnJvbSA/IG5ldyBEYXRlKGRhdGVSYW5nZS5mcm9tKS50b0xvY2FsZURhdGVTdHJpbmcoJ2lkLUlEJywgeyBkYXk6ICdudW1lcmljJywgbW9udGg6ICdzaG9ydCcgfSkgOiAnJ30gJHtkYXRlUmFuZ2UudG8gPyAn4oCTICcgKyBuZXcgRGF0ZShkYXRlUmFuZ2UudG8pLnRvTG9jYWxlRGF0ZVN0cmluZygnaWQtSUQnLCB7IGRheTogJ251bWVyaWMnLCBtb250aDogJ3Nob3J0JyB9KSA6ICcnfWB9XG4gICAgICAgICAgcmVhZE9ubHlcbiAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBzZXRJc0RhdGVGb2N1c2VkKHRydWUpfVxuICAgICAgICAgIGNsYXNzTmFtZT17Y24oJ3BsLTEyJywgaXNEYXRlRm9jdXNlZCAmJiAnYm9yZGVyLWJvcmRlci1mb2N1cyByaW5nLTIgcmluZy1mb2N1cy1yaW5nJyl9XG4gICAgICAgICAgb25CbHVyPXsoKSA9PiBzZXRJc0RhdGVGb2N1c2VkKGZhbHNlKX1cbiAgICAgICAgLz5cbiAgICAgICAgey8qIERhdGUgcGlja2VyIHdvdWxkIGdvIGhlcmUgLSB1c2luZyBhIHNpbXBsaWZpZWQgdmVyc2lvbiBmb3Igbm93ICovfVxuICAgICAgPC9kaXY+XG5cbiAgICAgIDxCdXR0b25cbiAgICAgICAgdHlwZT1cInN1Ym1pdFwiXG4gICAgICAgIGNsYXNzTmFtZT1cInctZnVsbCBzbTp3LWF1dG8gYmctYnJhbmQtcHJpbWFyeSB0ZXh0LXRleHQtaW52ZXJzZSBweC04IHB5LTQgcm91bmRlZC1mdWxsIGZvbnQtc2VtaWJvbGQgaG92ZXI6YmctYnJhbmQtcHJpbWFyeS1ob3ZlciB0cmFuc2l0aW9uLWNvbG9ycyBkdXJhdGlvbi0zMDAgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXIgZ2FwLTJcIlxuICAgICAgICBsb2FkaW5nPXtpc1N1Ym1pdHRpbmd9XG4gICAgICAgIHJpZ2h0SWNvbj17PHN2ZyBjbGFzc05hbWU9XCJ3LTUgaC01XCIgZmlsbD1cIm5vbmVcIiBzdHJva2U9XCJjdXJyZW50Q29sb3JcIiB2aWV3Qm94PVwiMCAwIDI0IDI0XCI+PHBhdGggc3Ryb2tlTGluZWNhcD1cInJvdW5kXCIgc3Ryb2tlTGluZWpvaW49XCJyb3VuZFwiIHN0cm9rZVdpZHRoPXsyfSBkPVwiTTE3IDhsNCA0bTAgMGwtNCA0bTQtNEgzXCIgLz48L3N2Zz59XG4gICAgICA+XG4gICAgICAgIDxzcGFuPkVrc3Bsb3Jhc2k8L3NwYW4+XG4gICAgICA8L0J1dHRvbj5cbiAgICA8L2Zvcm0+XG4gICk7XG59Il0sImZpbGUiOiJDOi9Vc2Vycy9Qcm9qZWN0L1RyYXZlbGluZG8vZnJvbnRlbmQvc3JjL2NvbXBvbmVudHMvaG9tZS9TZWFyY2hGb3JtLmpzeCJ9

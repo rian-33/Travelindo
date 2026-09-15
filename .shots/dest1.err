@@ -1,0 +1,4 @@
+[29152:15376:0915/204007.398:INFO:components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc:241] No machine level policy manager exists.
+[29152:15376:0915/204008.269:INFO:CONSOLE:1] "Manifest: Line: 1, column: 1, Syntax error.", source: http://localhost:4173/manifest.json (1)
+[29152:15376:0915/204009.049:INFO:CONSOLE:9] "Error memanggil API Detail: AxiosError: Request failed with status code 404", source: http://localhost:4173/assets/api-upATN5RO.js (9)
+[29152:15376:0915/204009.820:INFO:CONSOLE:1] "Manifest: Line: 1, column: 1, Syntax error.", source: http://localhost:4173/manifest.json (1)
