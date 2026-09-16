@@ -1,12 +1,10 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { cn } from '@/lib/utils';
-import { scrollReveal, staggerContainer, staggerItem } from '@/lib/motion';
+import { staggerItem } from '@/lib/motion';
 import { Card, CardImage, CardContent, CardFooter, CardBadge } from '@/components/ui/Card';
-import { OptimizedImage } from '@/components/ui/OptimizedImage';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
-import { Star, MapPin, ArrowRight } from 'lucide-react';
+import { Star, ArrowRight } from 'lucide-react';
 import { formatRupiah } from '@/lib/utils';
 
 const featuredDestinations = [
@@ -87,9 +85,6 @@ const featuredDestinations = [
 ];
 
 export function DestinationGrid({ onViewAll }) {
-  const featured = featuredDestinations.filter((d) => d.featured);
-  const regular = featuredDestinations.filter((d) => !d.featured);
-
   return (
     <motion.section
       initial={{ opacity: 0, y: 30 }}
@@ -120,22 +115,10 @@ export function DestinationGrid({ onViewAll }) {
         )}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 xl:grid-cols-6 gap-6">
-        {/* Featured Cards - span 3 columns each on lg+ */}
-        {featured.map((dest, index) => (
-          <motion.div
-            key={dest.id}
-            variants={staggerItem}
-            style={{ gridColumn: 'span 3', gridRow: index === 0 ? 'span 1' : 'span 1' }}
-          >
-            <DestinationCard dest={dest} variant="featured" />
-          </motion.div>
-        ))}
-
-        {/* Regular Cards */}
-        {regular.map((dest, index) => (
-          <motion.div key={dest.id} variants={staggerItem}>
-            <DestinationCard dest={dest} variant="default" />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+        {featuredDestinations.map((dest) => (
+          <motion.div key={dest.id} variants={staggerItem} className="h-full">
+            <DestinationCard dest={dest} />
           </motion.div>
         ))}
       </div>
@@ -143,92 +126,51 @@ export function DestinationGrid({ onViewAll }) {
   );
 }
 
-function DestinationCard({ dest, variant = 'default' }) {
-  const isFeatured = variant === 'featured';
-
+function DestinationCard({ dest }) {
   return (
-    <Link to={`/destination/${dest.id}`} className="group block">
-      <Card variant={isFeatured ? 'featured' : 'default'} hover>
+    <Link to={`/destination/${dest.id}`} className="group block h-full">
+      <Card variant="default" hover className="flex flex-col h-full">
         <CardImage
           src={dest.imageUrl}
           alt={dest.name}
-          aspect={isFeatured ? 'landscape' : 'portrait'}
-          preset={isFeatured ? 'cardLandscape' : 'cardPortrait'}
+          aspect="landscape"
+          className="group-hover:scale-105"
         >
-          {/* Gradient overlay for text readability on featured */}
-          {isFeatured && (
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-          )}
-
-          {/* Badges */}
           <CardBadge position="top-left">
-            <div className="flex items-center gap-1 bg-surface-elevated/90 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs font-bold text-text-primary shadow-sm">
+            <div className="flex items-center gap-1 bg-surface-elevated/90 backdrop-blur-sm px-2.5 py-1 rounded-full text-xs font-bold text-text-primary shadow-sm">
               <Star className="w-3 h-3 text-amber-500" />
               {dest.rating}
             </div>
           </CardBadge>
 
-          <CardBadge position="top-right">
-            <Badge variant="stamp" className="rotate-3">
-              Pilihan
-            </Badge>
-          </CardBadge>
-
-          {/* Tags on featured */}
-          {isFeatured && (
-            <CardBadge position="bottom-left">
-              <div className="flex flex-wrap gap-1.5 max-w-[80%]">
-                {dest.tags.slice(0, 3).map((tag) => (
-                  <Badge key={tag} variant="outline" size="sm">
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
+          {dest.featured && (
+            <CardBadge position="top-right">
+              <Badge stamp className="rotate-3">
+                Pilihan
+              </Badge>
             </CardBadge>
           )}
         </CardImage>
 
-        <CardContent className={cn(isFeatured ? 'pt-0' : '')}>
-          {isFeatured ? (
-            <div className="absolute bottom-6 left-6 right-6 text-text-inverse">
-              <p className="text-caption text-brand-secondary-light mb-2 uppercase tracking-wider">
-                {dest.location}
-              </p>
-              <h3 className="font-serif text-2xl lg:text-3xl font-bold mb-4">
-                {dest.name}
-              </h3>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2 text-brand-secondary-light">
-                  <MapPin className="w-4 h-4" />
-                  <span>Mulai dari</span>
-                </div>
-                <p className="font-serif text-2xl font-bold">
-                  {formatRupiah(dest.estimatedBudget)}
-                </p>
-              </div>
-            </div>
-          ) : (
-            <>
-              <div className="text-caption font-semibold text-text-secondary mb-2 uppercase tracking-wider">
-                {dest.location}
-              </div>
-              <h3 className="font-serif text-xl font-bold text-text-primary mb-3 group-hover:text-brand-primary transition-colors">
-                {dest.name}
-              </h3>
+        <CardContent className="flex-1 flex flex-col p-4 lg:p-5">
+          <div className="text-[11px] font-semibold text-text-muted mb-1.5 uppercase tracking-wider">
+            {dest.location}
+          </div>
+          <h3 className="font-serif text-lg font-bold text-text-primary mb-3 group-hover:text-brand-primary transition-colors">
+            {dest.name}
+          </h3>
 
-              <CardFooter>
-                <div>
-                  <p className="text-text-muted text-xs mb-1">Mulai dari</p>
-                  <p className="font-semibold text-text-primary text-lg">
-                    {formatRupiah(dest.estimatedBudget)}
-                  </p>
-                </div>
-                <div className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-text-muted group-hover:bg-brand-primary group-hover:border-brand-primary group-hover:text-text-inverse transition-all duration-300">
-                  <ArrowRight className="w-5 h-5 -rotate-45" />
-                </div>
-              </CardFooter>
-            </>
-          )}
+          <CardFooter className="mt-auto">
+            <div>
+              <p className="text-text-muted text-xs mb-1">Mulai dari</p>
+              <p className="font-semibold text-text-primary text-base">
+                {formatRupiah(dest.estimatedBudget)}
+              </p>
+            </div>
+            <div className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-text-muted group-hover:bg-brand-primary group-hover:border-brand-primary group-hover:text-text-inverse transition-all duration-300">
+              <ArrowRight className="w-4 h-4 -rotate-45" />
+            </div>
+          </CardFooter>
         </CardContent>
       </Card>
     </Link>

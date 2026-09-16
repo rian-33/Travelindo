@@ -1,9 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { cn } from '@/lib/utils';
-import { islandPopVariants, scrollReveal } from '@/lib/motion';
-import { Card, CardImage, CardContent } from '@/components/ui/Card';
-import { OptimizedImage } from '@/components/ui/OptimizedImage';
+import { islandPopVariants } from '@/lib/motion';
+import { Card, CardImage, CardContent, CardFooter } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { MapPin, Star, ArrowRight } from 'lucide-react';
 import { formatRupiah } from '@/lib/utils';
@@ -68,7 +66,7 @@ export function IslandShowcase() {
             <motion.div
               key={island.id}
               variants={islandPopVariants(index)}
-              className="flex-shrink-0 snap-center w-full md:w-[380px] lg:w-[420px]"
+              className="flex-shrink-0 snap-center w-full md:w-[320px] lg:w-[360px]"
             >
               <IslandCard island={island} />
             </motion.div>
@@ -76,7 +74,7 @@ export function IslandShowcase() {
 
           {/* Scroll indicator */}
           <motion.div
-            className="flex-shrink-0 w-full md:w-[380px] lg:w-[420px] snap-center"
+            className="flex-shrink-0 w-full md:w-[320px] lg:w-[360px] snap-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
@@ -104,57 +102,52 @@ export function IslandShowcase() {
 function IslandCard({ island }) {
   return (
     <Link to={`/destinations?region=${island.slug}`} className="block group">
-      <Card variant="immersive" hover>
+      <Card variant="default" hover className="flex flex-col">
         <CardImage
           src={island.image}
           alt={island.name}
           aspect="landscape"
-          preset="cardLandscape"
+          className="group-hover:scale-105"
         >
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent group-hover:from-black/80 transition-all duration-500" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
 
-          {/* Badge */}
           <div className="absolute top-4 left-4 flex items-center gap-2">
             <Badge variant="primary" size="sm">
               {island.tagline}
             </Badge>
           </div>
 
-          {/* Rating */}
           <div className="absolute top-4 right-4 bg-surface-elevated/90 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs font-bold text-text-primary shadow-sm flex items-center gap-1">
             <Star className="w-3 h-3 text-amber-500" />
             {island.rating}
           </div>
         </CardImage>
 
-        <CardContent className="relative -mt-6 pb-6">
-          <div className="bg-surface-elevated rounded-[var(--radius-card)] p-6 shadow-card border border-border mx-4 relative z-10">
-            <p className="text-caption font-semibold text-brand-primary mb-2 uppercase tracking-wider">
-              {island.destinations} Destinasi
-            </p>
-            <h3 className="font-serif text-2xl font-bold text-text-primary mb-2 group-hover:text-brand-primary transition-colors">
-              {island.name}
-            </h3>
-            <p className="text-text-secondary text-sm mb-5 line-clamp-2">
-              {island.description}
-            </p>
+        <CardContent className="flex-1 flex flex-col p-4 lg:p-5">
+          <p className="text-[11px] font-semibold text-brand-primary mb-1.5 uppercase tracking-wider">
+            {island.destinations} Destinasi
+          </p>
+          <h3 className="font-serif text-xl font-bold text-text-primary mb-2 group-hover:text-brand-primary transition-colors">
+            {island.name}
+          </h3>
+          <p className="text-text-secondary text-sm mb-4 line-clamp-2">
+            {island.description}
+          </p>
 
-            <div className="flex items-center justify-between pt-4 border-t border-border">
-              <div className="flex items-center gap-3 text-sm">
-                <span className="flex items-center gap-1 text-text-muted">
-                  <MapPin className="w-3.5 h-3.5" />
-                  {island.destinations} tempat
-                </span>
-                <span className="font-semibold text-brand-primary">
-                  {formatRupiah(island.budget)}
-                </span>
-              </div>
-              <div className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-text-muted group-hover:bg-brand-primary group-hover:border-brand-primary group-hover:text-text-inverse transition-all duration-300">
-                <ArrowRight className="w-5 h-5 -rotate-45" />
-              </div>
+          <CardFooter className="mt-auto">
+            <div className="flex items-center gap-3 text-sm">
+              <span className="flex items-center gap-1 text-text-muted">
+                <MapPin className="w-3.5 h-3.5" />
+                {island.destinations} tempat
+              </span>
+              <span className="font-semibold text-brand-primary">
+                {formatRupiah(island.budget)}
+              </span>
             </div>
-          </div>
+            <div className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-text-muted group-hover:bg-brand-primary group-hover:border-brand-primary group-hover:text-text-inverse transition-all duration-300">
+              <ArrowRight className="w-4 h-4 -rotate-45" />
+            </div>
+          </CardFooter>
         </CardContent>
       </Card>
     </Link>

@@ -84,39 +84,39 @@ export function Hero() {
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/20 via-transparent to-transparent" />
               {/* Corner accent */}
-              <div className="absolute bottom-6 left-6 bg-surface-elevated/90 backdrop-blur-sm px-4 py-3 rounded-xl shadow-card">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-brand-primary-light flex items-center justify-center">
-                    <svg className="w-6 h-6 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="absolute bottom-5 left-5 bg-surface-elevated/90 backdrop-blur-sm px-3.5 py-2.5 rounded-lg shadow-card">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-10 h-10 rounded-lg bg-brand-primary-light flex items-center justify-center">
+                    <svg className="w-5 h-5 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
                   <div>
                     <p className="text-caption text-text-muted">12 Destinasi</p>
-                    <p className="font-semibold text-text-primary">Terpilih Bulan Ini</p>
+                    <p className="text-sm font-semibold text-text-primary">Terpilih Bulan Ini</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Stats */}
-            <div className="absolute -bottom-6 -left-6 lg:left-auto lg:right-6 lg:bottom-6 flex gap-4">
+            <div className="absolute bottom-5 right-5 flex gap-3">
               <motion.div
-                className="bg-surface-elevated rounded-xl shadow-card p-5 min-w-[160px] border border-border"
+                className="bg-surface-elevated rounded-lg shadow-card p-4 min-w-[130px] border border-border"
                 whileHover={{ y: -4, boxShadow: 'var(--shadow-float)' }}
                 transition={{ duration: 0.3 }}
               >
-                <p className="font-serif text-3xl font-bold text-brand-primary">12</p>
-                <p className="text-caption text-text-muted">Pulau Terjelajah</p>
+                <p className="font-serif text-2xl font-bold text-brand-primary">12</p>
+                <p className="text-xs text-text-muted">Pulau Terjelajah</p>
               </motion.div>
               <motion.div
-                className="bg-surface-elevated rounded-xl shadow-card p-5 min-w-[160px] border border-border"
+                className="bg-surface-elevated rounded-lg shadow-card p-4 min-w-[130px] border border-border"
                 whileHover={{ y: -4, boxShadow: 'var(--shadow-float)' }}
                 transition={{ duration: 0.3 }}
               >
-                <p className="font-serif text-3xl font-bold text-brand-accent">8.4</p>
-                <p className="text-caption text-text-muted">Rating Rata-rata</p>
+                <p className="font-serif text-2xl font-bold text-brand-accent">8.4</p>
+                <p className="text-xs text-text-muted">Rating Rata-rata</p>
               </motion.div>
             </div>
           </motion.div>

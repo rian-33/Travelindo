@@ -3,7 +3,6 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { fadeSlideVariants, staggerItem } from '@/lib/motion';
-import { OptimizedImage } from '@/components/ui/OptimizedImage';
 import { Button } from '@/components/ui/Button';
 import { Select } from '@/components/ui/Select';
 import { Badge } from '@/components/ui/Badge';
@@ -337,22 +336,21 @@ function DestinationCard({ dest, isFavorite, onToggleFavorite }) {
 
 function CulinaryCard({ place }) {
   return (
-    <article className="overflow-hidden rounded-[var(--radius-card)] border border-border bg-surface-elevated shadow-card hover:shadow-float transition-all duration-300">
-      <div className="aspect-video relative overflow-hidden">
-        <OptimizedImage
-          src={place.imageUrl}
-          alt={place.name}
-          preset="cardLandscape"
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        />
+    <Card variant="default" hover className="group">
+      <CardImage
+        src={place.imageUrl}
+        alt={place.name}
+        aspect="landscape"
+        className="group-hover:scale-105"
+      >
         <div className="absolute top-3 left-3 bg-surface-elevated/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-brand-primary">
           {place.region}
         </div>
-      </div>
-      <div className="p-5">
+      </CardImage>
+      <CardContent>
         <h3 className="font-serif text-lg font-bold text-text-primary mb-2">{place.name}</h3>
         <p className="text-sm leading-relaxed text-text-secondary line-clamp-2">{place.description}</p>
-      </div>
-    </article>
+      </CardContent>
+    </Card>
   );
 }

@@ -2,7 +2,6 @@ import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Layout, PageTransition } from './components/layout';
 import { MotionProvider } from './components/providers/MotionProvider';
-import { CursorProvider } from './components/providers/CursorProvider';
 import { LoadingDots } from '@/components/signatures';
 import { useAuthStore } from '@/stores';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
@@ -85,109 +84,107 @@ function App() {
   return (
     <HelmetProvider>
       <MotionProvider>
-        <CursorProvider>
-          <Router>
-            <Suspense fallback={<LoadingFallback />}>
-              <Routes>
-                <Route element={<Layout />}>
-                  <Route element={<PageTransition />}>
-                    <Route
-                      path="/"
-                      element={
-                        <>
-                          <SEO title="Temukan Keindahan Tersembunyi Indonesia" />
-                          <Home />
-                        </>
-                      }
-                    />
-                    <Route
-                      path="/destination/:id"
-                      element={
-                        <>
-                          <SEO title="Detail Destinasi" />
-                          <DetailDestination />
-                        </>
-                      }
-                    />
-                    <Route
-                      path="/login"
-                      element={
-                        <>
-                          <SEO title="Masuk - TraveLindo" />
-                          <Login />
-                        </>
-                      }
-                    />
-                    <Route
-                      path="/register"
-                      element={
-                        <>
-                          <SEO title="Daftar - TraveLindo" />
-                          <Register />
-                        </>
-                      }
-                    />
-                    <Route
-                      path="/destinations"
-                      element={
-                        <>
-                          <SEO title="Destinasi Wisata Indonesia" description="Jelajahi 50+ destinasi wisata menakjubkan di seluruh Indonesia. Filter berdasarkan wilayah, budget, dan rating." />
-                          <Destinations />
-                        </>
-                      }
-                    />
-                    <Route
-                      path="/culinary"
-                      element={
-                        <>
-                          <SEO title="Kuliner Khas Nusantara" description="Cicipi kekayaan rasa Indonesia dari berbagai wilayah. Temukan kuliner khas terdekat." />
-                          <Culinary />
-                        </>
-                      }
-                    />
-                    <Route
-                      path="/hotels"
-                      element={
-                        <>
-                          <SEO title="Penginapan Eksklusif" description="Temukan hotel, resort, dan villa terbaik di Indonesia untuk liburan Anda." />
-                          <Hotels />
-                        </>
-                      }
-                    />
-                    <Route
-                      path="/hotels/:id"
-                      element={
-                        <>
-                          <SEO title="Detail Penginapan" description="Lihat detail penginapan terbaik di Indonesia." />
-                          <HotelDetail />
-                        </>
-                      }
-                    />
-                    <Route
-                      path="/promo"
-                      element={
-                        <>
-                          <SEO title="Promo & Penawaran Eksklusif" description="Dapatkan diskon hingga 30% untuk liburan impian Anda. Gunakan kode promo saat checkout." />
-                          <Promo />
-                        </>
-                      }
-                    />
-                    <Route
-                      path="/404"
-                      element={
-                        <>
-                          <SEO title="Halaman Tidak Ditemukan" description="Halaman yang Anda cari tidak ditemukan." />
-                          <NotFound />
-                        </>
-                      }
-                    />
-                  </Route>
-                  <Route path="*" element={<Navigate to="/404" replace />} />
+        <Router>
+          <Suspense fallback={<LoadingFallback />}>
+            <Routes>
+              <Route element={<Layout />}>
+                <Route element={<PageTransition />}>
+                  <Route
+                    path="/"
+                    element={
+                      <>
+                        <SEO title="Temukan Keindahan Tersembunyi Indonesia" />
+                        <Home />
+                      </>
+                    }
+                  />
+                  <Route
+                    path="/destination/:id"
+                    element={
+                      <>
+                        <SEO title="Detail Destinasi" />
+                        <DetailDestination />
+                      </>
+                    }
+                  />
+                  <Route
+                    path="/login"
+                    element={
+                      <>
+                        <SEO title="Masuk - TraveLindo" />
+                        <Login />
+                      </>
+                    }
+                  />
+                  <Route
+                    path="/register"
+                    element={
+                      <>
+                        <SEO title="Daftar - TraveLindo" />
+                        <Register />
+                      </>
+                    }
+                  />
+                  <Route
+                    path="/destinations"
+                    element={
+                      <>
+                        <SEO title="Destinasi Wisata Indonesia" description="Jelajahi 50+ destinasi wisata menakjubkan di seluruh Indonesia. Filter berdasarkan wilayah, budget, dan rating." />
+                        <Destinations />
+                      </>
+                    }
+                  />
+                  <Route
+                    path="/culinary"
+                    element={
+                      <>
+                        <SEO title="Kuliner Khas Nusantara" description="Cicipi kekayaan rasa Indonesia dari berbagai wilayah. Temukan kuliner khas terdekat." />
+                        <Culinary />
+                      </>
+                    }
+                  />
+                  <Route
+                    path="/hotels"
+                    element={
+                      <>
+                        <SEO title="Penginapan Eksklusif" description="Temukan hotel, resort, dan villa terbaik di Indonesia untuk liburan Anda." />
+                        <Hotels />
+                      </>
+                    }
+                  />
+                  <Route
+                    path="/hotels/:id"
+                    element={
+                      <>
+                        <SEO title="Detail Penginapan" description="Lihat detail penginapan terbaik di Indonesia." />
+                        <HotelDetail />
+                      </>
+                    }
+                  />
+                  <Route
+                    path="/promo"
+                    element={
+                      <>
+                        <SEO title="Promo & Penawaran Eksklusif" description="Dapatkan diskon hingga 30% untuk liburan impian Anda. Gunakan kode promo saat checkout." />
+                        <Promo />
+                      </>
+                    }
+                  />
+                  <Route
+                    path="/404"
+                    element={
+                      <>
+                        <SEO title="Halaman Tidak Ditemukan" description="Halaman yang Anda cari tidak ditemukan." />
+                        <NotFound />
+                      </>
+                    }
+                  />
                 </Route>
-              </Routes>
-            </Suspense>
-          </Router>
-        </CursorProvider>
+                <Route path="*" element={<Navigate to="/404" replace />} />
+              </Route>
+            </Routes>
+          </Suspense>
+        </Router>
       </MotionProvider>
     </HelmetProvider>
   );

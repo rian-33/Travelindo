@@ -1,6 +1,6 @@
 # File Tree: Travelindo
 
-**Generated:** 8/9/2026, 11:12:12 PM
+**Generated:** 8/22/2026, 1:30:09 PM
 **Root Path:** `c:\Users\Project\Travelindo`
 
 ```
@@ -22,8 +22,12 @@
 │   │   ├── pages
 │   │   │   ├── Culinary.jsx
 │   │   │   ├── Destinitations.jsx
+│   │   │   ├── DetailDestination.jsx
 │   │   │   ├── Home.jsx
-│   │   │   └── Hotels.jsx
+│   │   │   ├── Hotels.jsx
+│   │   │   ├── Login.jsx
+│   │   │   ├── Promo.jsx
+│   │   │   └── Register.jsx
 │   │   ├── services
 │   │   │   └── api.js
 │   │   ├── App.jsx

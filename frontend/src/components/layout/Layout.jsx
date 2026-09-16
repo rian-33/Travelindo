@@ -10,7 +10,7 @@ export function Layout() {
   return (
     <div className="min-h-screen flex flex-col" data-theme={resolvedTheme}>
       <Navbar />
-      <main id="main-content" className="flex-1" role="main">
+      <main id="main-content" className="flex-1">
         <Outlet />
       </main>
       <Footer />

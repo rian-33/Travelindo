@@ -1,16 +1,18 @@
 import { useForm } from '@/hooks/useForm';
 import { searchSchema } from '@/schemas';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
-import { Input } from '@/components/ui/Input';
 import { Select } from '@/components/ui/Select';
-import { Calendar, MapPin, CalendarDays } from 'lucide-react';
+import { MapPin, CalendarDays } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { DayPicker } from 'react-day-picker';
+import 'react-day-picker/dist/style.css';
 
 export function SearchForm({ onSearch, initialValues }) {
-  const [isDateFocused, setIsDateFocused] = useState(false);
-  const [dateRange, setDateRange] = useState({ from: '', to: '' });
+  const [range, setRange] = useState({ from: undefined, to: undefined });
+  const [open, setOpen] = useState(false);
+  const popoverRef = useRef(null);
 
   const { handleSubmit, setFieldValue, getFieldValue, errors, isSubmitting } = useForm(searchSchema, {
     destination: initialValues?.destination || '',
@@ -30,10 +32,34 @@ export function SearchForm({ onSearch, initialValues }) {
     { value: 'dera', label: 'Kepulauan Derawan' },
   ];
 
-  const handleDateSelect = (field, date) => {
-    if (date) {
-      setFieldValue(field, date.toISOString().split('T')[0]);
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (popoverRef.current?.contains(e.target)) return;
+      setOpen(false);
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const handleRangeSelect = (selected) => {
+    setRange(selected);
+    if (selected?.from) {
+      setFieldValue('checkIn', selected.from.toISOString().split('T')[0]);
     }
+    if (selected?.to) {
+      setFieldValue('checkOut', selected.to.toISOString().split('T')[0]);
+    }
+    if (selected?.from && selected?.to) {
+      setOpen(false);
+    }
+  };
+
+  const formatRange = () => {
+    if (!range?.from) return 'Pilih tanggal perjalanan';
+    const start = range.from.toLocaleDateString('id-ID', { day: 'numeric', month: 'short' });
+    if (!range?.to) return start;
+    const end = range.to.toLocaleDateString('id-ID', { day: 'numeric', month: 'short' });
+    return `${start} – ${end}`;
   };
 
   const onSubmit = async (data) => {
@@ -43,46 +69,72 @@ export function SearchForm({ onSearch, initialValues }) {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="bg-surface-elevated p-3 rounded-[var(--radius-feature)] shadow-float border border-border flex flex-col sm:flex-row items-center w-full max-w-3xl gap-2 transition-all duration-500 ease-brand"
+      className="bg-surface-elevated rounded-full shadow-float border border-border p-2 flex flex-col sm:flex-row items-center gap-1 w-full max-w-3xl transition-all duration-500 ease-brand"
     >
-      <div className="flex-1 flex items-center px-6 w-full relative">
-        <MapPin className="absolute left-4 text-text-muted w-5 h-5" aria-hidden="true" />
+      <div className="flex-1 flex items-center w-full relative">
+        <MapPin className="absolute left-4 text-text-muted w-5 h-5 pointer-events-none" aria-hidden="true" />
         <Select
-          label=""
           placeholder="Cari pulau, kota, atau provinsi..."
           options={destinations}
           value={getFieldValue('destination')}
           onChange={(value) => setFieldValue('destination', value)}
           searchable
           clearable
-          className="w-full pl-12"
+          className="bg-transparent border-transparent shadow-none pl-10 rounded-full"
         />
         {errors.destination && (
-          <motion.span className="absolute bottom-full left-4 mb-1 text-red-500 text-caption" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+          <motion.span
+            className="absolute bottom-full left-4 mb-1 text-red-500 text-caption whitespace-nowrap"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
             {errors.destination.message}
           </motion.span>
         )}
       </div>
 
-      <div className="hidden sm:block w-[1px] h-10 bg-border" />
+      <div className="hidden sm:block w-px h-8 bg-border mx-1" />
 
-      <div className="flex-1 flex items-center px-6 w-full relative">
-        <CalendarDays className="absolute left-4 text-text-muted w-5 h-5" aria-hidden="true" />
-        <Input
-          type="text"
-          placeholder="Tanggal check-in & check-out"
-          value={`${dateRange.from ? new Date(dateRange.from).toLocaleDateString('id-ID', { day: 'numeric', month: 'short' }) : ''} ${dateRange.to ? '– ' + new Date(dateRange.to).toLocaleDateString('id-ID', { day: 'numeric', month: 'short' }) : ''}`}
-          readOnly
-          onClick={() => setIsDateFocused(true)}
-          className={cn('pl-12', isDateFocused && 'border-border-focus ring-2 ring-focus-ring')}
-          onBlur={() => setIsDateFocused(false)}
-        />
-        {/* Date picker would go here - using a simplified version for now */}
+      <div className="flex-1 w-full relative" ref={popoverRef}>
+        <button
+          type="button"
+          onClick={() => setOpen(!open)}
+          aria-haspopup="dialog"
+          aria-expanded={open}
+          className="flex items-center w-full rounded-full px-4 py-3 text-left cursor-pointer hover:bg-surface-muted/40 transition-colors duration-fast"
+        >
+          <CalendarDays className="text-text-muted w-5 h-5 mr-2 flex-shrink-0" aria-hidden="true" />
+          <span className={cn(range?.from ? 'text-text-primary' : 'text-text-muted')}>{formatRange()}</span>
+        </button>
+
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              className="absolute left-0 top-full mt-2 z-50 bg-surface-elevated rounded-2xl shadow-float border border-border p-3"
+              initial={{ opacity: 0, y: -8, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -8, scale: 0.98 }}
+              transition={{ duration: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <DayPicker
+                mode="range"
+                selected={range}
+                onSelect={handleRangeSelect}
+                numberOfMonths={1}
+                fromYear={2025}
+                toYear={2030}
+                style={{ '--rdp-accent-color': 'var(--color-brand-primary)' }}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
+
+      <div className="hidden sm:block w-px h-8 bg-border mx-1" />
 
       <Button
         type="submit"
-        className="w-full sm:w-auto bg-brand-primary text-text-inverse px-8 py-4 rounded-full font-semibold hover:bg-brand-primary-hover transition-colors duration-300 flex items-center justify-center gap-2"
+        className="w-full sm:w-auto bg-brand-primary text-text-inverse px-8 py-3.5 rounded-full font-semibold hover:bg-brand-primary-hover transition-colors duration-300 flex items-center justify-center gap-2"
         loading={isSubmitting}
         rightIcon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>}
       >
