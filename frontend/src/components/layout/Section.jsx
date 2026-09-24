@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 export function Section({
   children,
   className,
-  variant = 'default',
+  variant: _variant = 'default',
   spacing = 'lg',
   background,
   divider = false,

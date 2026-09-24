@@ -1,6 +1,5 @@
 import { forwardRef } from 'react';
 import { cn } from '@/lib/utils';
-import { inputFocus } from '@/lib/motion';
 import { motion } from 'framer-motion';
 
 const Input = forwardRef(

@@ -1,3 +1,0 @@
-[32972:22860:0915/204011.130:INFO:components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc:241] No machine level policy manager exists.
-[32972:22860:0915/204011.725:INFO:CONSOLE:1] "Manifest: Line: 1, column: 1, Syntax error.", source: http://localhost:4173/manifest.json (1)
-[32972:22860:0915/204013.275:INFO:CONSOLE:1] "Manifest: Line: 1, column: 1, Syntax error.", source: http://localhost:4173/manifest.json (1)

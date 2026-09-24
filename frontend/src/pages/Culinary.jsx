@@ -112,7 +112,7 @@ export default function Culinary() {
               reveal
               stagger
             >
-              {filteredPlaces.map((place, index) => (
+              {filteredPlaces.map((place) => (
                 <motion.div key={place.id} variants={staggerItem}>
                   <CulinaryCard place={place} />
                 </motion.div>

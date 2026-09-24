@@ -1,4 +1,0 @@
-[21784:40580:0915/204021.190:INFO:components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc:241] No machine level policy manager exists.
-[21784:40580:0915/204022.672:INFO:CONSOLE:1] "Manifest: Line: 1, column: 1, Syntax error.", source: http://localhost:4173/manifest.json (1)
-[21784:40580:0915/204024.338:INFO:CONSOLE:1] "Manifest: Line: 1, column: 1, Syntax error.", source: http://localhost:4173/manifest.json (1)
-[21784:40580:0915/204024.434:ERROR:chrome\browser\web_applications\externally_managed_app_manager.cc:680] https://chat.google.com/download?usp=chrome_default from install source 1 failed to install with reason 21

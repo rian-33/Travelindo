@@ -1,5 +1,0 @@
-[21604:3216:0915/204029.155:INFO:components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc:241] No machine level policy manager exists.
-[21604:3216:0915/204030.470:INFO:CONSOLE:1] "Manifest: Line: 1, column: 1, Syntax error.", source: http://localhost:4173/manifest.json (1)
-[21604:3216:0915/204031.079:INFO:CONSOLE:9] "Error memanggil API Kuliner: AxiosError: Request failed with status code 404", source: http://localhost:4173/assets/api-upATN5RO.js (9)
-[21604:3216:0915/204032.061:INFO:CONSOLE:1] "Manifest: Line: 1, column: 1, Syntax error.", source: http://localhost:4173/manifest.json (1)
-[21604:3216:0915/204032.172:ERROR:chrome\browser\web_applications\externally_managed_app_manager.cc:680] https://docs.google.com/presentation/installwebapp?usp=chrome_default from install source 1 failed to install with reason 21

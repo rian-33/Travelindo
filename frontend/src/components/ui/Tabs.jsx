@@ -1,5 +1,4 @@
-import { Children, cloneElement, useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Children, cloneElement, useState, useRef, useEffect, useCallback } from 'react';
 import { cn } from '@/lib/utils';
 import { tabIndicatorVariants } from '@/lib/motion';
 
@@ -26,7 +25,7 @@ const Tabs = ({
     onChange?.(val);
   };
 
-  useEffect(() => {
+  const updateIndicator = useCallback(() => {
     const activeTab = tabsRefs.current[currentValue];
     const tabsList = tabsListRef.current;
     if (activeTab && tabsList) {
@@ -37,24 +36,16 @@ const Tabs = ({
         transform: `translateX(${tabRect.left - listRect.left}px)`,
       });
     }
-  }, [currentValue, tabsRefs.current]);
+  }, [currentValue]);
 
   useEffect(() => {
-    const handleResize = () => {
-      const activeTab = tabsRefs.current[currentValue];
-      const tabsList = tabsListRef.current;
-      if (activeTab && tabsList) {
-        const tabRect = activeTab.getBoundingClientRect();
-        const listRect = tabsList.getBoundingClientRect();
-        setIndicatorStyle({
-          width: tabRect.width,
-          transform: `translateX(${tabRect.left - listRect.left}px)`,
-        });
-      }
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [currentValue]);
+    updateIndicator();
+  }, [updateIndicator]);
+
+  useEffect(() => {
+    window.addEventListener('resize', updateIndicator);
+    return () => window.removeEventListener('resize', updateIndicator);
+  }, [updateIndicator]);
 
   const variants = {
     default: 'bg-surface-muted rounded-xl p-1',
@@ -69,7 +60,7 @@ const Tabs = ({
         role="tablist"
         aria-orientation={orientation}
         className={cn(
-          'inline-flex items-center',
+          'relative inline-flex items-center',
           variants[variant],
           orientation === 'vertical' && 'flex-col'
         )}

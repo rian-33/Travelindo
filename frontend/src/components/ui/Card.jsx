@@ -1,7 +1,5 @@
-import { forwardRef } from 'react';
+import { forwardRef, useState } from 'react';
 import { cn } from '@/lib/utils';
-import { cardHover } from '@/lib/motion';
-import { motion } from 'framer-motion';
 
 const Card = forwardRef(
   ({ className, variant = 'default', children, hover = true, ...props }, ref) => {
@@ -29,6 +27,7 @@ Card.displayName = 'Card';
 
 const CardImage = forwardRef(
   ({ className, src, alt, fallback, aspect = 'landscape', children, ...props }, ref) => {
+    const [hasError, setHasError] = useState(false);
     const aspects = {
       portrait: 'aspect-portrait',
       landscape: 'aspect-landscape',
@@ -39,20 +38,25 @@ const CardImage = forwardRef(
 
     return (
       <div className={cn('relative overflow-hidden', aspects[aspect])}>
-        <img
-          ref={ref}
-          src={src}
-          alt={alt}
-          className={cn('w-full h-full object-cover transition-transform duration-1000', className)}
-          loading="lazy"
-          {...props}
-        />
-        {children}
-        {fallback && (
-          <div className="absolute inset-0 bg-surface-muted flex items-center justify-center">
-            {fallback}
+        {!hasError ? (
+          <img
+            ref={ref}
+            src={src}
+            alt={alt}
+            className={cn('w-full h-full object-cover transition-transform duration-1000', className)}
+            loading="lazy"
+            onError={() => setHasError(true)}
+            {...props}
+          />
+        ) : (
+          <div className={cn(
+            'absolute inset-0 bg-surface-muted flex items-center justify-center',
+            className
+          )}>
+            {fallback || <span className="text-text-muted">Gambar tidak tersedia</span>}
           </div>
         )}
+        {children}
       </div>
     );
   }

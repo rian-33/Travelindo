@@ -1,17 +1,18 @@
 import { useLocation } from 'react-router-dom';
 import { useState, useEffect, useCallback, useRef } from 'react';
 
+const PATHS = ['/', '/destinations', '/culinary', '/hotels', '/promo', '/login', '/register'];
+
 export function usePageTransition() {
   const location = useLocation();
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [transitionDirection, setTransitionDirection] = useState('forward');
 
-  const paths = ['/', '/destinations', '/culinary', '/hotels', '/promo', '/login', '/register'];
-  const currentIndex = paths.indexOf(location.pathname.split('/')[1] ? `/${location.pathname.split('/')[1]}` : '/');
+  const currentIndex = PATHS.indexOf(location.pathname.split('/')[1] ? `/${location.pathname.split('/')[1]}` : '/');
   const prevIndexRef = useRef(currentIndex);
 
   useEffect(() => {
-    const newIndex = paths.indexOf(location.pathname.split('/')[1] ? `/${location.pathname.split('/')[1]}` : '/');
+    const newIndex = PATHS.indexOf(location.pathname.split('/')[1] ? `/${location.pathname.split('/')[1]}` : '/');
     if (newIndex !== -1 && prevIndexRef.current !== -1) {
       setTransitionDirection(newIndex > prevIndexRef.current ? 'forward' : 'backward');
       setIsTransitioning(true);

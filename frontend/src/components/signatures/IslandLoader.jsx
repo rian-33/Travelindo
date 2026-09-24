@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import { islandPopVariants, loadingDotsVariants } from '@/lib/motion';
+import { islandPopVariants } from '@/lib/motion';
 
 const islands = [
   { id: 'sumatra', name: 'Sumatera', shape: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)', color: 'brand-primary' },

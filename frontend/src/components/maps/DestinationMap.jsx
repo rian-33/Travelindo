@@ -1,16 +1,22 @@
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import { useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import L from 'leaflet';
 import { cn } from '@/lib/utils';
 import { markerIcons, injectMapStyles } from '@/lib/leaflet';
 
 export function DestinationMap({ destination, className, readOnly = true, height = '400px' }) {
-  injectMapStyles();
+  useEffect(() => {
+    injectMapStyles();
+  }, []);
 
-  const position = destination.latitude && destination.longitude
-    ? [destination.latitude, destination.longitude]
-    : [-6.2088, 106.8456];
+  const position = useMemo(
+    () =>
+      destination.latitude && destination.longitude
+        ? [destination.latitude, destination.longitude]
+        : [-6.2088, 106.8456],
+    [destination.latitude, destination.longitude]
+  );
 
   return (
     <MapContainer
@@ -46,7 +52,7 @@ export function DestinationMap({ destination, className, readOnly = true, height
   );
 }
 
-function FitBounds({ positions }) {
+export function FitBounds({ positions }) {
   const map = useMap();
   useEffect(() => {
     if (positions.length && map) {

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Plane, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -14,8 +14,42 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const drawerRef = useRef(null);
 
-  const closeMenu = () => setIsOpen(false);
+  const closeMenu = useCallback(() => setIsOpen(false), []);
+
+  useEffect(() => {
+    if (!isOpen) return undefined;
+    const previousActive = document.activeElement;
+    drawerRef.current?.querySelector("a, button")?.focus();
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        closeMenu();
+        return;
+      }
+      if (e.key === "Tab" && drawerRef.current) {
+        const focusables = drawerRef.current.querySelectorAll("a, button");
+        if (focusables.length === 0) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      previousActive?.focus?.();
+    };
+  }, [isOpen, closeMenu]);
 
   return (
     <header className="sticky top-0 z-50 bg-surface-elevated/95 backdrop-blur-md shadow-sm border-b border-border transition-all">
@@ -83,6 +117,7 @@ export default function Navbar() {
 
       {/* Mobile Navigation Drawer */}
       <div
+        ref={drawerRef}
         id="mobile-navigation"
         role="dialog"
         aria-modal="true"
@@ -92,7 +127,18 @@ export default function Navbar() {
           isOpen ? "max-h-[420px] opacity-100" : "max-h-0 opacity-0"
         )}
       >
-        <nav className="px-6 py-4 space-y-1" aria-label="Navigasi utama mobile">
+        <div className="flex items-center justify-between px-6 pt-3">
+          <span className="text-sm font-semibold text-text-primary">Menu</span>
+          <button
+            type="button"
+            onClick={closeMenu}
+            className="p-2 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-muted transition-colors"
+            aria-label="Tutup menu navigasi"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+        <nav className="px-6 py-3 space-y-1" aria-label="Navigasi utama mobile">
           {navLinks.map((link) => (
             <Link
               key={link.to}

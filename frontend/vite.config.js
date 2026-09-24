@@ -20,7 +20,6 @@ export default defineConfig({
           state: ['zustand'],
           maps: ['leaflet', 'react-leaflet'],
           datepicker: ['react-day-picker'],
-          cloudinary: ['blurhash'],
         },
       },
     },

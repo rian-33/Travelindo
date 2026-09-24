@@ -1,9 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { dropdownVariants } from '@/lib/motion';
-import { ChevronDown, Check } from 'lucide-react';
-import { Button } from './Button';
 
 const Dropdown = ({
   trigger,
@@ -35,16 +32,18 @@ const Dropdown = ({
     const currentIndex = itemsArray.indexOf(document.activeElement);
 
     switch (e.key) {
-      case 'ArrowDown':
+      case 'ArrowDown': {
         e.preventDefault();
         const nextIndex = (currentIndex + 1) % itemsArray.length;
         itemsArray[nextIndex]?.focus();
         break;
-      case 'ArrowUp':
+      }
+      case 'ArrowUp': {
         e.preventDefault();
         const prevIndex = (currentIndex - 1 + itemsArray.length) % itemsArray.length;
         itemsArray[prevIndex]?.focus();
         break;
+      }
       case 'Escape':
       case 'Tab':
         setOpen(false);
@@ -75,7 +74,12 @@ const Dropdown = ({
   return (
     <div className={cn('relative inline-block', className)} ref={triggerRef}>
       {typeof trigger === 'function' ? (
-        trigger({ open, onToggle: () => setOpen(!open), onClose: () => setOpen(false) })
+        trigger({
+          open,
+          onToggle: () => setOpen(!open),
+          onClose: () => setOpen(false),
+          ariaProps: { 'aria-haspopup': 'menu', 'aria-expanded': open },
+        })
       ) : (
         <Button
           variant="ghost"
@@ -109,39 +113,38 @@ const Dropdown = ({
             onKeyDown={handleKeyDown}
           >
             {items.map((item, index) => (
-              <motion.button
-                key={item.value || index}
-                type="button"
-                role="menuitem"
-                tabIndex={-1}
-                className={cn(
-                  'dropdown-item w-full px-4 py-2.5 text-left text-body text-text-primary',
-                  'hover:bg-surface-muted transition-colors duration-fast',
-                  'focus:outline-none focus:bg-surface-muted',
-                  item.disabled && 'opacity-50 cursor-not-allowed',
-                  item.selected && 'font-medium text-brand-primary'
-                )}
-                disabled={item.disabled}
-                onClick={() => {
-                  if (!item.disabled) {
-                    onSelect?.(item.value, item);
-                    if (!item.keepOpen) setOpen(false);
-                  }
-                }}
-              >
-                <span className="flex items-center gap-3">
-                  {item.icon && <span className="flex-shrink-0">{item.icon}</span>}
-                  <span className="flex-1">{item.label}</span>
-                  {item.shortcut && (
-                    <span className="text-caption text-text-muted font-mono">{item.shortcut}</span>
+              <Fragment key={item.value || index}>
+                <motion.button
+                  type="button"
+                  role="menuitem"
+                  tabIndex={-1}
+                  className={cn(
+                    'dropdown-item w-full px-4 py-2.5 text-left text-body text-text-primary',
+                    'hover:bg-surface-muted transition-colors duration-fast',
+                    'focus:outline-none focus:bg-surface-muted',
+                    item.disabled && 'opacity-50 cursor-not-allowed',
+                    item.selected && 'font-medium text-brand-primary'
                   )}
-                  {item.selected && <Check className="w-4 h-4 text-brand-primary flex-shrink-0" />}
-                </span>
-              </motion.button>
+                  disabled={item.disabled}
+                  onClick={() => {
+                    if (!item.disabled) {
+                      onSelect?.(item.value, item);
+                      if (!item.keepOpen) setOpen(false);
+                    }
+                  }}
+                >
+                  <span className="flex items-center gap-3">
+                    {item.icon && <span className="flex-shrink-0">{item.icon}</span>}
+                    <span className="flex-1">{item.label}</span>
+                    {item.shortcut && (
+                      <span className="text-caption text-text-muted font-mono">{item.shortcut}</span>
+                    )}
+                    {item.selected && <Check className="w-4 h-4 text-brand-primary flex-shrink-0" />}
+                  </span>
+                </motion.button>
+                {item.divider && <div className="dropdown-divider" role="separator" />}
+              </Fragment>
             ))}
-            {items.some((i) => i.divider) && (
-              <div className="dropdown-divider" role="separator" />
-            )}
           </motion.div>
         )}
       </AnimatePresence>
@@ -187,7 +190,7 @@ export function MultiSelectDropdown({
   const displayValue = items.filter((i) => value.includes(i.value)).map((i) => i.label).join(', ');
 
   return (
-    <div className={cn('w-full', className)} ref={triggerRef}>
+    <div className={cn('relative w-full', className)} ref={triggerRef}>
       <label className="label-base">{label} {required && <span className="text-red-500">*</span>}</label>
       <button
         type="button"

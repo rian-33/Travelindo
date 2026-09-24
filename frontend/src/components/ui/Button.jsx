@@ -1,8 +1,5 @@
 import { forwardRef } from 'react';
-import { Loader2, Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { buttonPress } from '@/lib/motion';
-import { motion } from 'framer-motion';
 
 const Button = forwardRef(
   (

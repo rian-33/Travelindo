@@ -2,7 +2,6 @@ import { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { fadeSlideVariants, staggerItem } from '@/lib/motion';
-import { OptimizedImage } from '@/components/ui/OptimizedImage';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { Select } from '@/components/ui/Select';
@@ -164,7 +163,7 @@ export default function Hotels() {
               reveal
               stagger
             >
-              {filteredHotels.map((hotel, index) => (
+              {filteredHotels.map((hotel) => (
                 <motion.div key={hotel.id} variants={staggerItem}>
                   <HotelCard hotel={hotel} />
                 </motion.div>

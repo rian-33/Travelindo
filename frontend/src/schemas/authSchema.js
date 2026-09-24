@@ -46,7 +46,7 @@ export const changePasswordSchema = z
 export const profileSchema = z.object({
   name: z.string().min(1, 'Nama lengkap wajib diisi').min(2, 'Nama minimal 2 karakter').max(100, 'Nama terlalu panjang'),
   email: z.string().min(1, 'Email wajib diisi').email('Format email tidak valid'),
-  phone: z.string().optional().refine((val) => !val || /^[\d\s\-\+\(\)]{10,}$/.test(val), 'Nomor telepon tidak valid'),
+  phone: z.string().optional().refine((val) => !val || /^[\d\s\-+()]{10,}$/.test(val), 'Nomor telepon tidak valid'),
   birthDate: z.string().optional().refine((val) => !val || !isNaN(Date.parse(val)), 'Tanggal lahir tidak valid'),
   gender: z.enum(['male', 'female', 'other']).optional(),
 });

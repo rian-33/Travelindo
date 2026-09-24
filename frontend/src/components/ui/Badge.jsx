@@ -41,6 +41,19 @@ const Badge = ({
   };
 
   if (stamp) {
+    const interactiveProps = onClick
+      ? {
+          role: 'button',
+          tabIndex: 0,
+          onKeyDown: (e) => {
+            if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+              e.preventDefault();
+              onClick(e);
+            }
+          },
+        }
+      : {};
+
     return (
       <motion.span
         className={cn(
@@ -48,16 +61,32 @@ const Badge = ({
           'font-semibold text-caption',
           'bg-brand-primary text-text-inverse shadow-card',
           'transform rotate-[-2deg]',
+          onClick && 'cursor-pointer hover:opacity-80',
           className
         )}
         whileTap={{ scale: 1.15, rotate: -3 }}
         transition={{ type: 'spring', stiffness: 500, damping: 20 }}
+        onClick={onClick}
+        {...interactiveProps}
         {...props}
       >
         {children}
       </motion.span>
     );
   }
+
+  const interactiveProps = onClick
+    ? {
+        role: 'button',
+        tabIndex: 0,
+        onKeyDown: (e) => {
+          if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+            e.preventDefault();
+            onClick(e);
+          }
+        },
+      }
+    : {};
 
   return (
     <motion.span
@@ -72,6 +101,7 @@ const Badge = ({
       )}
       whileTap={{ scale: 0.95 }}
       onClick={onClick}
+      {...interactiveProps}
       {...props}
     >
       {dot && (

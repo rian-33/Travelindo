@@ -1,10 +1,7 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useId } from 'react';
 import { createPortal } from 'react-dom';
-import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { modalVariants, modalOverlayVariants } from '@/lib/motion';
-import { X } from 'lucide-react';
-import { Button } from './Button';
 
 const Modal = ({
   open,
@@ -22,6 +19,8 @@ const Modal = ({
   const overlayRef = useRef(null);
   const contentRef = useRef(null);
   const previousActiveElement = useRef(null);
+  const titleId = useId();
+  const descriptionId = useId();
 
   const sizes = {
     sm: 'max-w-md',
@@ -38,6 +37,8 @@ const Modal = ({
       contentRef.current?.focus();
     } else {
       document.body.style.overflow = '';
+      previousActiveElement.current?.focus?.();
+      previousActiveElement.current = null;
     }
     return () => {
       document.body.style.overflow = '';
@@ -72,85 +73,85 @@ const Modal = ({
       document.addEventListener('keydown', handleKeyDown);
     }
     return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [open, closeOnEscape]);
-
-  if (!open) return null;
-
-  const modalContent = (
-    <AnimatePresence>
-      <motion.div
-        ref={overlayRef}
-        className="fixed inset-0 z-50 flex items-center justify-center p-4"
-        variants={modalOverlayVariants}
-        initial="initial"
-        animate="animate"
-        exit="exit"
-        onClick={(e) => {
-          if (e.target === overlayRef.current && closeOnOverlay) {
-            onClose();
-          }
-        }}
-        role="presentation"
-      >
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" aria-hidden="true" />
-        <motion.div
-          ref={contentRef}
-          className={cn(
-            'w-full bg-surface-elevated rounded-[var(--radius-feature)] shadow-float border border-border overflow-hidden',
-            sizes[size],
-            'max-h-[90vh] flex flex-col'
-          )}
-          variants={modalVariants}
-          initial="initial"
-          animate="animate"
-          exit="exit"
-          tabIndex={-1}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby={title ? 'modal-title' : undefined}
-          aria-describedby={description ? 'modal-description' : undefined}
-        >
-          {(title || showClose) && (
-            <div className="flex items-start justify-between p-5 lg:p-6 border-b border-border">
-              <div>
-                {title && (
-                  <h2 id="modal-title" className="font-serif text-xl font-bold text-text-primary">
-                    {title}
-                  </h2>
-                )}
-                {description && (
-                  <p id="modal-description" className="text-text-secondary text-sm mt-1">
-                    {description}
-                  </p>
-                )}
-              </div>
-              {showClose && (
-                <button
-                  onClick={onClose}
-                  className="p-1.5 rounded-lg text-text-muted hover:text-text-primary hover:bg-surface-muted transition-colors flex-shrink-0"
-                  aria-label="Tutup modal"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              )}
-            </div>
-          )}
-          <div className="flex-1 overflow-y-auto p-5 lg:p-6">
-            {children}
-          </div>
-          {footer && (
-            <div className="flex items-center justify-end gap-3 p-5 lg:p-6 border-t border-border bg-surface-muted/50">
-              {footer}
-            </div>
-          )}
-        </motion.div>
-      </motion.div>
-    </AnimatePresence>
-  );
+  }, [open, closeOnEscape, onClose]);
 
   if (typeof window === 'undefined') return null;
 
-  return createPortal(modalContent, document.body);
+  return createPortal(
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          ref={overlayRef}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          variants={modalOverlayVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          onClick={(e) => {
+            if (e.target === overlayRef.current && closeOnOverlay) {
+              onClose();
+            }
+          }}
+          role="presentation"
+        >
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" aria-hidden="true" />
+          <motion.div
+            ref={contentRef}
+            className={cn(
+              'w-full bg-surface-elevated rounded-[var(--radius-feature)] shadow-float border border-border overflow-hidden',
+              sizes[size],
+              'max-h-[90vh] flex flex-col',
+              className
+            )}
+            variants={modalVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            tabIndex={-1}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby={title ? titleId : undefined}
+            aria-describedby={description ? descriptionId : undefined}
+          >
+            {(title || showClose) && (
+              <div className="flex items-start justify-between p-5 lg:p-6 border-b border-border">
+                <div>
+                  {title && (
+                    <h2 id={titleId} className="font-serif text-xl font-bold text-text-primary">
+                      {title}
+                    </h2>
+                  )}
+                  {description && (
+                    <p id={descriptionId} className="text-text-secondary text-sm mt-1">
+                      {description}
+                    </p>
+                  )}
+                </div>
+                {showClose && (
+                  <button
+                    onClick={onClose}
+                    className="p-1.5 rounded-lg text-text-muted hover:text-text-primary hover:bg-surface-muted transition-colors flex-shrink-0"
+                    aria-label="Tutup modal"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                )}
+              </div>
+            )}
+            <div className="flex-1 overflow-y-auto p-5 lg:p-6">
+              {children}
+            </div>
+            {footer && (
+              <div className="flex items-center justify-end gap-3 p-5 lg:p-6 border-t border-border bg-surface-muted/50">
+                {footer}
+              </div>
+            )}
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>,
+    document.body
+  );
 };
 
 export { Modal };
@@ -201,6 +202,8 @@ export function FormModal({
   loading = false,
   size = 'md',
 }) {
+  const formId = useId();
+
   return (
     <Modal
       open={open}
@@ -213,13 +216,13 @@ export function FormModal({
           <Button type="button" variant="ghost" onClick={onClose} disabled={loading}>
             {cancelText}
           </Button>
-          <Button type="submit" variant="primary" loading={loading}>
+          <Button type="submit" form={formId} variant="primary" loading={loading}>
             {submitText}
           </Button>
         </div>
       }
     >
-      <form onSubmit={(e) => { e.preventDefault(); onSubmit?.(); }}>
+      <form id={formId} onSubmit={(e) => { e.preventDefault(); onSubmit?.(); }}>
         {children}
       </form>
     </Modal>

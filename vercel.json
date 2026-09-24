@@ -1,4 +1,5 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "npm run build",
   "outputDirectory": "frontend/dist",
   "devCommand": "npm run dev",
@@ -7,7 +8,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/backend/server.js"
+      "destination": "/api"
     },
     {
       "source": "/(.*)",
@@ -36,10 +37,6 @@
           "value": "DENY"
         },
         {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
-        },
-        {
           "key": "Referrer-Policy",
           "value": "strict-origin-when-cross-origin"
         }
@@ -49,6 +46,7 @@
   "env": {
     "VITE_API_URL": "@api-url",
     "VITE_CLOUDINARY_CLOUD_NAME": "@cloudinary-cloud-name",
-    "VITE_CLOUDINARY_API_KEY": "@cloudinary-api-key"
+    "VITE_CLOUDINARY_API_KEY": "@cloudinary-api-key",
+    "MONGO_URI": "@mongo-uri"
   }
 }

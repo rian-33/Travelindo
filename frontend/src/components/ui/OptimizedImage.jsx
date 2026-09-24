@@ -1,8 +1,18 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import { cn } from '@/lib/utils';
-import { getBlurhashUrl, getCloudinaryUrl, IMAGE_PRESETS } from '@/lib/cloudinary';
-import { Skeleton } from './Skeleton';
-import { motion } from 'framer-motion';
+import { getBlurhashUrl, getCloudinaryUrl, extractPublicId } from '@/lib/cloudinary';
+
+function getPresetPlaceholder() {
+  return '/placeholder.svg';
+}
+
+const objectFitClasses = {
+  cover: 'object-cover',
+  contain: 'object-contain',
+  fill: 'object-fill',
+  none: 'object-none',
+  'scale-down': 'object-scale-down',
+};
 
 const OptimizedImage = ({
   src,
@@ -22,41 +32,19 @@ const OptimizedImage = ({
 }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
-  const [currentSrc, setCurrentSrc] = useState(null);
-  const imgRef = useRef(null);
 
-  const cloudinaryUrl = src?.includes('cloudinary') ? src : null;
-  const isCloudinary = !!cloudinaryUrl;
+  const publicId = src?.includes('res.cloudinary.com') ? extractPublicId(src) : null;
+  const isCloudinary = !!publicId;
 
-  // Generate srcSet for Cloudinary images
   const srcSet = isCloudinary
-    ? widths.map((w) => `${getCloudinaryUrl(src, { width: w, crop: 'scale', quality: 'auto:good' })} ${w}w`).join(', ')
+    ? widths
+        .map((w) => `${getCloudinaryUrl(publicId, { width: w, crop: 'scale', quality: 'auto:good' })} ${w}w`)
+        .join(', ')
     : undefined;
 
-  // Generate blurhash placeholder
-  const blurhashSrc = blurhash || (isCloudinary ? getBlurhashUrl(src) : undefined);
+  const blurhashSrc = blurhash || (isCloudinary ? getBlurhashUrl(publicId) : undefined);
 
-  // Use preset if not Cloudinary
-  const finalSrc = isCloudinary ? src : (src || (preset ? getPresetPlaceholder(preset) : ''));
-
-  useEffect(() => {
-    if (!finalSrc) return;
-
-    const img = new Image();
-    img.src = finalSrc;
-    img.onload = () => {
-      setCurrentSrc(finalSrc);
-      setIsLoading(false);
-      onLoad?.();
-    };
-    img.onerror = () => {
-      setHasError(true);
-      setIsLoading(false);
-      onError?.();
-    };
-  }, [finalSrc, onLoad, onError]);
-
-  const getPresetPlaceholder = () => '/placeholder.svg';
+  const finalSrc = src || getPresetPlaceholder();
 
   const aspectRatios = {
     avatar: 'aspect-square',
@@ -124,17 +112,16 @@ const OptimizedImage = ({
 
       {/* Actual image */}
       <motion.img
-        ref={imgRef}
-        src={currentSrc}
+        src={finalSrc}
         srcSet={srcSet}
         sizes={sizes}
         alt={alt}
         className={cn(
           'absolute inset-0 w-full h-full transition-opacity duration-700 ease-brand',
-          `object-${objectFit}`,
-          `object-${objectPosition}`,
+          objectFitClasses[objectFit] || 'object-cover',
           isLoading ? 'opacity-0 scale-105' : 'opacity-100 scale-100'
         )}
+        style={{ objectPosition }}
         loading={priority ? 'eager' : 'lazy'}
         fetchpriority={priority ? 'high' : 'auto'}
         onLoad={() => {
@@ -146,7 +133,6 @@ const OptimizedImage = ({
           setIsLoading(false);
           onError?.();
         }}
-        {...props}
       />
     </div>
   );

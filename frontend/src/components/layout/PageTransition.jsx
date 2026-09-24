@@ -22,22 +22,3 @@ export function PageTransition({ children, mode = 'wait', variant = 'fade' }) {
     </AnimatePresence>
   );
 }
-
-export function PageTransitionSlide({ children, mode = 'wait' }) {
-  const location = useLocation();
-
-  return (
-    <AnimatePresence mode={mode}>
-      <motion.div
-        key={location.pathname}
-        variants={pageVariantsSlide}
-        initial="initial"
-        animate="animate"
-        exit="exit"
-        className="w-full"
-      >
-        {children ?? <Outlet />}
-      </motion.div>
-    </AnimatePresence>
-  );
-}

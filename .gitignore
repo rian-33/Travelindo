@@ -1,4 +1,25 @@
+# Dependencies
 node_modules/
-.env
-frontend/dist/
 frontend/node_modules/
+
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+
+# Build output
+frontend/dist/
+dist/
+.vite/
+
+# Vercel
+.vercel/
+
+# OS & editor
+.DS_Store
+Thumbs.db
+*.err
+*.log
+
+# Debug artifacts (screenshot & chrome profile)
+.shots/

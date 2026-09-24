@@ -10,7 +10,7 @@ export function useForm(schema, defaultValues = {}) {
     reValidateMode: 'onChange',
   });
 
-  const { handleSubmit, reset, setValue, getValues, watch, formState: { errors, isSubmitting, isValid, isDirty } } = methods;
+  const { handleSubmit, reset, formState: { errors, isSubmitting, isValid, isDirty } } = methods;
 
   const onSubmit = useCallback((onValid) => handleSubmit(onValid), [handleSubmit]);
 

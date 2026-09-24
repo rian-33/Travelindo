@@ -2,8 +2,7 @@ import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { stampVariants } from '@/lib/motion';
-import { X, Check, MapPin, Star, Calendar } from 'lucide-react';
-import { useToast } from '@/components/ui/Toast';
+import { X, Check, MapPin } from 'lucide-react';
 
 const stampData = [
   { id: 'bali', name: 'Bali', icon: '🏝️', location: 'Pulau Dewata', unlocked: true, date: '2024-01-15' },
@@ -23,7 +22,6 @@ function formatDate(dateStr) {
 
 export function StampCollection({ onClose }) {
   const [selectedStamp, setSelectedStamp] = useState(null);
-  const toast = useToast();
 
   const unlockedCount = useMemo(() => stampData.filter(s => s.unlocked).length, []);
   const totalCount = stampData.length;

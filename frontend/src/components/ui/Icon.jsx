@@ -1,3 +1,4 @@
+import { cloneElement } from 'react';
 import { cn } from '@/lib/utils';
 import * as LucideIcons from 'lucide-react';
 
@@ -176,13 +177,14 @@ export function Icon({ name, size = 20, className, strokeWidth = 1.5, ...props }
   const IconComponent = allIcons[name];
 
   if (!IconComponent) {
-    console.warn(`Icon "${name}" not found`);
     return null;
   }
 
-  // If it's a custom SVG string
+  // If it's a custom SVG element, inject className without calling it as a component
   if (typeof IconComponent === 'object' && IconComponent.props) {
-    return <IconComponent size={size} className={cn(className)} strokeWidth={strokeWidth} {...props} />;
+    return cloneElement(IconComponent, {
+      className: cn(IconComponent.props.className, className),
+    });
   }
 
   // If it's a React component from lucide-react

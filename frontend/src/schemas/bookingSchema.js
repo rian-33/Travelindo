@@ -26,7 +26,7 @@ export const bookingSchema = z.object({
   dates: dateRangeSchema,
   guests: guestSchema,
   contactEmail: z.string().min(1, 'Email wajib diisi').email('Format email tidak valid'),
-  contactPhone: z.string().min(1, 'Nomor telepon wajib diisi').regex(/^[\d\s\-\+\(\)]{10,}$/, 'Nomor telepon tidak valid'),
+  contactPhone: z.string().min(1, 'Nomor telepon wajib diisi').regex(/^[\d\s\-+()]{10,}$/, 'Nomor telepon tidak valid'),
   specialRequests: z.string().max(500, 'Permintaan khusus maksimal 500 karakter').optional(),
   termsAccepted: z.boolean().refine((val) => val === true, 'Anda harus menyetujui syarat & ketentuan'),
 });
@@ -37,14 +37,7 @@ export const hotelBookingSchema = z.object({
   dates: dateRangeSchema,
   guests: guestSchema,
   contactEmail: z.string().min(1, 'Email wajib diisi').email('Format email tidak valid'),
-  contactPhone: z.string().min(1, 'Nomor telepon wajib diisi').regex(/^[\d\s\-\+\(\)]{10,}$/, 'Nomor telepon tidak valid'),
+  contactPhone: z.string().min(1, 'Nomor telepon wajib diisi').regex(/^[\d\s\-+()]{10,}$/, 'Nomor telepon tidak valid'),
   specialRequests: z.string().max(500, 'Permintaan khusus maksimal 500 karakter').optional(),
   termsAccepted: z.boolean().refine((val) => val === true, 'Anda harus menyetujui syarat & ketentuan'),
-});
-
-export const reviewSchema = z.object({
-  rating: z.number().int().min(1, 'Rating minimal 1').max(5, 'Rating maksimal 5'),
-  title: z.string().min(1, 'Judul ulasan wajib diisi').max(100, 'Judul terlalu panjang'),
-  content: z.string().min(10, 'Ulasan minimal 10 karakter').max(2000, 'Ulasan maksimal 2000 karakter'),
-  images: z.array(z.string().url('URL gambar tidak valid')).max(5, 'Maksimal 5 gambar').optional(),
 });

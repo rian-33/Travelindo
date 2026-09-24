@@ -1,9 +1,6 @@
 import { forwardRef, useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { dropdownVariants } from '@/lib/motion';
-import { ChevronDown, Check, X } from 'lucide-react';
-import { Input } from './Input';
 
 const Select = forwardRef(
   (
@@ -19,7 +16,7 @@ const Select = forwardRef(
       helperText,
       searchable = false,
       clearable = false,
-      className,
+      _className,
       containerClassName,
       labelClassName,
       id,
@@ -73,16 +70,18 @@ const Select = forwardRef(
       const currentIndex = itemsArray.indexOf(document.activeElement);
 
       switch (e.key) {
-        case 'ArrowDown':
+        case 'ArrowDown': {
           e.preventDefault();
           const nextIndex = (currentIndex + 1) % itemsArray.length;
           itemsArray[nextIndex]?.focus();
           break;
-        case 'ArrowUp':
+        }
+        case 'ArrowUp': {
           e.preventDefault();
           const prevIndex = (currentIndex - 1 + itemsArray.length) % itemsArray.length;
           itemsArray[prevIndex]?.focus();
           break;
+        }
         case 'Escape':
           setOpen(false);
           setSearchQuery('');
@@ -159,14 +158,16 @@ const Select = forwardRef(
             </span>
             <div className="flex items-center gap-2">
               {clearable && value && (
-                <button
-                  type="button"
-                  className="p-1 rounded-lg hover:bg-surface-muted transition-colors text-text-muted hover:text-text-primary"
+                <span
+                  role="button"
+                  tabIndex={-1}
+                  className="p-1 rounded-lg hover:bg-surface-muted transition-colors text-text-muted hover:text-text-primary cursor-pointer"
+                  onMouseDown={(e) => e.stopPropagation()}
                   onClick={handleClear}
                   aria-label="Hapus pilihan"
                 >
                   <X className="w-4 h-4" />
-                </button>
+                </span>
               )}
               <ChevronDown
                 className={cn(

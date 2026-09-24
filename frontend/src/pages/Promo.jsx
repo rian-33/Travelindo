@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { fadeSlideVariants, staggerItem } from '@/lib/motion';
@@ -135,7 +135,7 @@ export default function Promo() {
               reveal
               stagger
             >
-              {filteredPromos.map((promo, index) => (
+              {filteredPromos.map((promo) => (
                 <motion.div key={promo.id} variants={staggerItem}>
                   <PromoCard promo={promo} onCopy={copyCode} />
                 </motion.div>

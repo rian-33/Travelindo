@@ -1,17 +1,18 @@
-import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
-import { OptimizedImage } from '@/components/ui/OptimizedImage';
-import { Button } from '@/components/ui/Button';
-import { Copy, Tag, Sparkles } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export function PromoBanner() {
   const [copied, setCopied] = useState(false);
+  const copyTimeoutRef = useRef(null);
+
+  useEffect(() => () => {
+    if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current);
+  }, []);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText('TRAVELINDO20');
+    navigator.clipboard?.writeText('TRAVELINDO20')?.catch(() => {});
     setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current);
+    copyTimeoutRef.current = setTimeout(() => setCopied(false), 2000);
   };
 
   return (

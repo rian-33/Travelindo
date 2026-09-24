@@ -1,20 +1,22 @@
-import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Layout, PageTransition } from './components/layout';
 import { MotionProvider } from './components/providers/MotionProvider';
 import { LoadingDots } from '@/components/signatures';
-import { useAuthStore } from '@/stores';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 
 const Home = lazy(() => import("./pages/Home").then(m => ({ default: m.default })));
 const DetailDestination = lazy(() => import("./pages/DetailDestination").then(m => ({ default: m.default })));
-const Destinations = lazy(() => import("./pages/Destinitations").then(m => ({ default: m.default })));
+const Destinations = lazy(() => import("./pages/Destinations").then(m => ({ default: m.default })));
 const Hotels = lazy(() => import("./pages/Hotels").then(m => ({ default: m.default })));
 const HotelDetail = lazy(() => import("./pages/HotelDetail").then(m => ({ default: m.default })));
 const Promo = lazy(() => import("./pages/Promo").then(m => ({ default: m.default })));
 const Login = lazy(() => import("./pages/Login").then(m => ({ default: m.default })));
 const Register = lazy(() => import("./pages/Register").then(m => ({ default: m.default })));
 const Culinary = lazy(() => import("./pages/Culinary").then(m => ({ default: m.default })));
+const ForgotPassword = lazy(() => import("./pages/ForgotPassword").then(m => ({ default: m.default })));
+const Terms = lazy(() => import("./pages/Terms").then(m => ({ default: m.default })));
+const PrivacyPolicy = lazy(() => import("./pages/Privacy").then(m => ({ default: m.default })));
 const NotFound = lazy(() => import("./pages/NotFound").then(m => ({ default: m.default })));
 
 function LoadingFallback() {
@@ -23,15 +25,6 @@ function LoadingFallback() {
       <LoadingDots size="lg" text="Memuat halaman..." />
     </div>
   );
-}
-
-function ProtectedRoute({ children }) {
-  const { isAuthenticated } = useAuthStore();
-  const location = useLocation();
-  if (!isAuthenticated) {
-    return <Navigate to="/login" replace state={{ from: location.pathname }} />;
-  }
-  return children;
 }
 
 function SEO({ title, description, image, url, type = 'website' }) {
@@ -167,6 +160,33 @@ function App() {
                       <>
                         <SEO title="Promo & Penawaran Eksklusif" description="Dapatkan diskon hingga 30% untuk liburan impian Anda. Gunakan kode promo saat checkout." />
                         <Promo />
+                      </>
+                    }
+                  />
+                  <Route
+                    path="/forgot-password"
+                    element={
+                      <>
+                        <SEO title="Lupa Kata Sandi" />
+                        <ForgotPassword />
+                      </>
+                    }
+                  />
+                  <Route
+                    path="/terms"
+                    element={
+                      <>
+                        <SEO title="Syarat & Ketentuan" />
+                        <Terms />
+                      </>
+                    }
+                  />
+                  <Route
+                    path="/privacy"
+                    element={
+                      <>
+                        <SEO title="Kebijakan Privasi" />
+                        <PrivacyPolicy />
                       </>
                     }
                   />

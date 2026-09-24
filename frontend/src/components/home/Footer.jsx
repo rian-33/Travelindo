@@ -1,9 +1,9 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
-import { scrollReveal } from '@/lib/motion';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
+import { useToast } from '@/components/ui/Toast';
 import { Mail, MapPin, Phone, Send } from 'lucide-react';
 
 const footerLinks = {
@@ -66,6 +66,16 @@ const socialLinks = [
 ];
 
 export function Footer() {
+  const toast = useToast();
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (!newsletterEmail.trim()) return;
+    toast.success('Berhasil Berlangganan', 'Cek email Anda untuk konfirmasi buletin.');
+    setNewsletterEmail('');
+  };
+
   return (
     <footer className="bg-surface-muted border-t border-border relative overflow-hidden">
       {/* Background pattern */}
@@ -171,14 +181,19 @@ export function Footer() {
             <p className="text-text-secondary text-sm mb-6 leading-relaxed">
               Dapatkan inspirasi perjalanan, penawaran eksklusif, dan tips travel terbaru langsung di inbox Anda.
             </p>
-            <form className="space-y-3">
+            <form className="space-y-3" onSubmit={handleSubscribe}>
               <div className="relative">
                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-text-muted" aria-hidden="true" />
                 <Input
                   type="email"
+                  id="newsletter-email"
                   placeholder="email@anda.com"
                   className="pl-12"
-                  label=""
+                  label="Alamat email untuk berlangganan newsletter"
+                  labelClassName="sr-only"
+                  value={newsletterEmail}
+                  onChange={(e) => setNewsletterEmail(e.target.value)}
+                  required
                 />
               </div>
               <Button type="submit" className="w-full" rightIcon={<Send className="w-4 h-4" />}>
@@ -221,7 +236,6 @@ export function Footer() {
           <div className="flex items-center gap-6 text-sm text-text-muted">
             <Link to="/privacy" className="hover:text-brand-primary transition-colors">Kebijakan Privasi</Link>
             <Link to="/terms" className="hover:text-brand-primary transition-colors">Syarat & Ketentuan</Link>
-            <Link to="/cookies" className="hover:text-brand-primary transition-colors">Cookie</Link>
           </div>
         </motion.div>
       </div>

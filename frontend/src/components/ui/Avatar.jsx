@@ -1,6 +1,4 @@
 import { cn, getInitials, getColorFromString } from '@/lib/utils';
-import { motion } from 'framer-motion';
-import { OptimizedImage } from './OptimizedImage';
 
 const Avatar = ({
   src,
@@ -58,7 +56,7 @@ const Avatar = ({
   return (
     <motion.span
       className={cn(
-        'inline-flex items-center justify-center font-semibold overflow-hidden',
+        'relative inline-flex items-center justify-center font-semibold overflow-hidden',
         'bg-brand-secondary text-text-primary',
         sizes[size],
         shapes[shape],
@@ -114,6 +112,15 @@ export function AvatarGroup({ avatars = [], max = 5, size = 'md', className, ...
     '2xl': '-space-x-4',
   };
 
+  const badgeSizes = {
+    xs: 'w-4 h-4 text-caption',
+    sm: 'w-5 h-5 text-body-sm',
+    md: 'w-6 h-6 text-body',
+    lg: 'w-7 h-7 text-body-lg',
+    xl: 'w-8 h-8 text-headline-3',
+    '2xl': 'w-10 h-10 text-display-lg',
+  };
+
   const visibleAvatars = avatars.slice(0, max);
   const remainingCount = avatars.length - max;
 
@@ -136,7 +143,7 @@ export function AvatarGroup({ avatars = [], max = 5, size = 'md', className, ...
           className={cn(
             'inline-flex items-center justify-center font-medium border-2 border-surface-elevated',
             'bg-brand-secondary text-text-primary',
-            sizes[size].replace('-space-x', '').replace('w-', '').replace('h-', ''),
+            badgeSizes[size],
             shapes.circle
           )}
           initial={{ opacity: 0, scale: 0.8 }}
