@@ -1,6 +1,9 @@
-import { useState, useRef, useEffect } from 'react';
+import { Fragment, useState, useRef, useEffect } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Check, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { dropdownVariants } from '@/lib/motion';
+import { Button } from '@/components/ui/Button';
 
 const Dropdown = ({
   trigger,

@@ -1,7 +1,10 @@
 import { useEffect, useRef, useId } from 'react';
 import { createPortal } from 'react-dom';
+import { AnimatePresence, motion } from 'framer-motion';
+import { X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { modalVariants, modalOverlayVariants } from '@/lib/motion';
+import { Button } from '@/components/ui/Button';
 
 const Modal = ({
   open,

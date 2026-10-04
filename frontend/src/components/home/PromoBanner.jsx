@@ -1,4 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { Copy, Sparkles, Tag } from 'lucide-react';
+import { OptimizedImage } from '@/components/ui/OptimizedImage';
+import { Button } from '@/components/ui/Button';
 
 export function PromoBanner() {
   const [copied, setCopied] = useState(false);

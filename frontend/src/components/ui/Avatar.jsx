@@ -1,4 +1,6 @@
+import { motion } from 'framer-motion';
 import { cn, getInitials, getColorFromString } from '@/lib/utils';
+import { OptimizedImage } from '@/components/ui/OptimizedImage';
 
 const Avatar = ({
   src,

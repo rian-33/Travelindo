@@ -1,4 +1,5 @@
 import { Children, cloneElement, useState, useRef, useEffect, useCallback } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { tabIndicatorVariants } from '@/lib/motion';
 

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="DESTINASI - Pola Jurnal">
+<title>Pola Jurnal</title>
+<defs><linearGradient id="bg-destinasi-1600x900" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#EAF2F4"/><stop offset="100%" stop-color="#CFE3E8"/></linearGradient><pattern id="dots-destinasi-1600x900" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.6" fill="#22484F" opacity="0.16"/></pattern><pattern id="grid-destinasi-1600x900" width="64" height="64" patternUnits="userSpaceOnUse"><path d="M64 0 H0 V64" fill="none" stroke="#22484F" stroke-width="1" opacity="0.1"/></pattern></defs>
+<rect width="1600" height="900" fill="url(#bg-destinasi-1600x900)"/>
+<rect width="1600" height="900" fill="url(#grid-destinasi-1600x900)"/>
+<rect width="1600" height="900" fill="url(#dots-destinasi-1600x900)"/>
+<rect x="272.0" y="135.0" width="1056.0" height="630.0" rx="35" fill="#FFFFFF" opacity="0.55" stroke="#22484F" stroke-opacity="0.18" stroke-width="3"/>
+<g transform="translate(700.0, 287.0) scale(0.5000)" fill="none" stroke="#22484F" stroke-opacity="0.5" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"><path d="M40 150 q50 -42 100 0 t100 0 t100 0 t100 0"/><path d="M40 212 q50 -42 100 0 t100 0 t100 0 t100 0"/><circle cx="300" cy="80" r="34"/></g>
+<text x="800" y="559.44" text-anchor="middle" font-family="Georgia, &quot;Times New Roman&quot;, serif" font-size="72" font-weight="700" fill="#22484F">Pola Jurnal</text>
+<g transform="rotate(-6 221.5 100)"><rect x="64" y="64" width="315" height="72" rx="36" fill="#22484F" opacity="0.72"/><text x="221.5" y="1009.3" text-anchor="middle" font-family="sans" font-size="28" font-weight="700" letter-spacing="2.9" fill="#FFFFFF">GAMBAR DUMMY</text></g>
+<text x="1536" y="846.6666666666666" text-anchor="end" font-family="sans" font-size="25" font-weight="600" fill="#22484F">1600x900</text>
+</svg>

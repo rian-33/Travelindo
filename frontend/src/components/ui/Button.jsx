@@ -1,4 +1,6 @@
 import { forwardRef } from 'react';
+import { motion } from 'framer-motion';
+import { Check, Loader2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const Button = forwardRef(

@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import { Skeleton } from '@/components/ui/Skeleton';
 import { getBlurhashUrl, getCloudinaryUrl, extractPublicId } from '@/lib/cloudinary';
 
 function getPresetPlaceholder() {
